@@ -57,7 +57,7 @@ const resumeData = {
 			company: "Vibranium Soft",
 			logo: vibraniumsoft,
 			role: "Frontend Developer",
-			period: "December 2024 - Present",
+			period: "December 2023 - Present",
 			location: "Remote",
 			workType: "Freelance",
 			website: "https://vibraniumsoft.com",
