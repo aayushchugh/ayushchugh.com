@@ -1,28 +1,28 @@
-import "../global.css";
-import { Inter } from "@next/font/google";
-import LocalFont from "@next/font/local";
-import { Metadata } from "next";
-import { Analytics } from "./components/analytics";
+import "./global.css";
+import type { Metadata } from "next";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
+import { Navbar } from "./components/nav";
+import { Analytics } from "@vercel/analytics/react";
+
+import { PreloadResources } from "./preload";
+import Cmdk from "./components/CmdK";
 
 export const metadata: Metadata = {
+	metadataBase: new URL("https://ayushchugh.com/"),
 	title: {
-		default: "ayushchugh.com",
-		template: "%s | ayushchugh.com",
+		default: "Ayush Chugh",
+		template: "%s | Ayush Chugh",
 	},
-	description: "Passionate Full Stack developer from India",
+	description:
+		"Passionate full stack developer from India. On the way to master programming",
 	openGraph: {
-		title: "ayushchugh.com",
-		description: "Passionate Full Stack developer from India",
-		url: "https://ayushchugh.com",
-		siteName: "ayushchugh.com",
-		images: [
-			{
-				url: "https://ayushchugh.com/og.png",
-				width: 1920,
-				height: 1080,
-			},
-		],
-		locale: "en-US",
+		title: "Ayush Chugh",
+		description:
+			"Passionate full stack developer from India. On the way to master programming.",
+		url: "https://ayushchugh.com/",
+		siteName: "Ayush Chugh",
+		locale: "en_US",
 		type: "website",
 	},
 	robots: {
@@ -44,15 +44,8 @@ export const metadata: Metadata = {
 		shortcut: "/favicon.png",
 	},
 };
-const inter = Inter({
-	subsets: ["latin"],
-	variable: "--font-inter",
-});
 
-const calSans = LocalFont({
-	src: "../public/fonts/CalSans-SemiBold.ttf",
-	variable: "--font-calsans",
-});
+const cx = (...classes) => classes.filter(Boolean).join(" ");
 
 export default function RootLayout({
 	children,
@@ -60,16 +53,22 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
-			<head>
-				<Analytics />
-			</head>
-			<body
-				className={`bg-black ${
-					process.env.NODE_ENV === "development" ? "debug-screens" : undefined
-				}`}
-			>
-				{children}
+		<html
+			lang="en"
+			className={cx(
+				"text-black bg-white dark:text-white dark:bg-[#111010]",
+				GeistSans.variable,
+				GeistMono.variable
+			)}
+		>
+			<body className="antialiased max-w-2xl mb-40 flex flex-col md:flex-row mx-4 mt-8 lg:mx-auto">
+				<main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
+					<Cmdk />
+					<Navbar />
+					{children}
+					<Analytics />
+					<PreloadResources />
+				</main>
 			</body>
 		</html>
 	);

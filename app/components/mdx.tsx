@@ -1,178 +1,173 @@
-// @ts-nocheck
-import * as React from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { useMDXComponent } from "next-contentlayer/hooks";
+import Link from 'next/link';
+import Image from 'next/image';
+import { MDXRemote } from 'next-mdx-remote/rsc';
+import { TweetComponent } from './tweet';
+import { highlight } from 'sugar-high';
+import React from 'react';
 
-function clsx(...args: any) {
-	return args.filter(Boolean).join(" ");
+function Table({ data }) {
+  let headers = data.headers.map((header, index) => (
+    <th key={index}>{header}</th>
+  ));
+  let rows = data.rows.map((row, index) => (
+    <tr key={index}>
+      {row.map((cell, cellIndex) => (
+        <td key={cellIndex}>{cell}</td>
+      ))}
+    </tr>
+  ));
+
+  return (
+    <table>
+      <thead>
+        <tr>{headers}</tr>
+      </thead>
+      <tbody>{rows}</tbody>
+    </table>
+  );
 }
-const components = {
-	h1: ({ className, ...props }) => (
-		<h1
-			className={clsx(
-				"mt-2 scroll-m-20 text-4xl font-bold tracking-tight",
-				className,
-			)}
-			{...props}
-		/>
-	),
-	h2: ({ className, ...props }) => (
-		<h2
-			className={clsx(
-				"mt-10 scroll-m-20 border-b border-b-zinc-800 pb-1 text-3xl font-semibold tracking-tight first:mt-0",
-				className,
-			)}
-			{...props}
-		/>
-	),
-	h3: ({ className, ...props }) => (
-		<h3
-			className={clsx(
-				"mt-8 scroll-m-20 text-2xl font-semibold tracking-tight",
-				className,
-			)}
-			{...props}
-		/>
-	),
-	h4: ({ className, ...props }) => (
-		<h4
-			className={clsx(
-				"mt-8 scroll-m-20 text-xl font-semibold tracking-tight",
-				className,
-			)}
-			{...props}
-		/>
-	),
-	h5: ({ className, ...props }) => (
-		<h5
-			className={clsx(
-				"mt-8 scroll-m-20 text-lg font-semibold tracking-tight",
-				className,
-			)}
-			{...props}
-		/>
-	),
-	h6: ({ className, ...props }) => (
-		<h6
-			className={clsx(
-				"mt-8 scroll-m-20 text-base font-semibold tracking-tight",
-				className,
-			)}
-			{...props}
-		/>
-	),
-	a: ({ className, ...props }) => (
-		<Link
-			className={clsx(
-				"font-medium text-zinc-900 underline underline-offset-4",
-				className,
-			)}
-			{...props}
-		/>
-	),
-	p: ({ className, ...props }) => (
-		<p
-			className={clsx("leading-7 [&:not(:first-child)]:mt-6", className)}
-			{...props}
-		/>
-	),
-	ul: ({ className, ...props }) => (
-		<ul className={clsx("my-6 ml-6 list-disc", className)} {...props} />
-	),
-	ol: ({ className, ...props }) => (
-		<ol className={clsx("my-6 ml-6 list-decimal", className)} {...props} />
-	),
-	li: ({ className, ...props }) => (
-		<li className={clsx("mt-2", className)} {...props} />
-	),
-	blockquote: ({ className, ...props }) => (
-		<blockquote
-			className={clsx(
-				"mt-6 border-l-2 border-zinc-300 pl-6 italic text-zinc-800 [&>*]:text-zinc-600",
-				className,
-			)}
-			{...props}
-		/>
-	),
-	img: ({
-		className,
-		alt,
-		...props
-	}: React.ImgHTMLAttributes<HTMLImageElement>) => (
-		// eslint-disable-next-line @next/next/no-img-element
-		<img
-			className={clsx("rounded-md border border-zinc-200", className)}
-			alt={alt}
-			{...props}
-		/>
-	),
-	hr: ({ ...props }) => (
-		<hr className="my-4 border-zinc-200 md:my-8" {...props} />
-	),
-	table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
-		<div className="w-full my-6 overflow-y-auto">
-			<table className={clsx("w-full", className)} {...props} />
-		</div>
-	),
-	tr: ({ className, ...props }: React.HTMLAttributes<HTMLTableRowElement>) => (
-		<tr
-			className={clsx(
-				"m-0 border-t border-zinc-300 p-0 even:bg-zinc-100",
-				className,
-			)}
-			{...props}
-		/>
-	),
-	th: ({ className, ...props }) => (
-		<th
-			className={clsx(
-				"border border-zinc-200 px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right",
-				className,
-			)}
-			{...props}
-		/>
-	),
-	td: ({ className, ...props }) => (
-		<td
-			className={clsx(
-				"border border-zinc-200 px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right",
-				className,
-			)}
-			{...props}
-		/>
-	),
-	pre: ({ className, ...props }) => (
-		<pre
-			className={clsx(
-				"mt-6 mb-4 overflow-x-auto rounded-lg bg-zinc-900 py-4",
-				className,
-			)}
-			{...props}
-		/>
-	),
-	code: ({ className, ...props }) => (
-		<code
-			className={clsx(
-				"relative rounded border bg-zinc-300 bg-opacity-25 py-[0.2rem] px-[0.3rem] font-mono text-sm text-zinc-600",
-				className,
-			)}
-			{...props}
-		/>
-	),
-	Image,
+
+function CustomLink(props) {
+  let href = props.href;
+
+  if (href.startsWith('/')) {
+    return (
+      <Link href={href} {...props}>
+        {props.children}
+      </Link>
+    );
+  }
+
+  if (href.startsWith('#')) {
+    return <a {...props} />;
+  }
+
+  return <a target="_blank" rel="noopener noreferrer" {...props} />;
+}
+
+function RoundedImage(props) {
+  return <Image alt={props.alt} className="rounded-lg" {...props} />;
+}
+
+function Callout(props) {
+  return (
+    <div className="px-4 py-3 border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded p-1 text-sm flex items-center text-neutral-900 dark:text-neutral-100 mb-8">
+      <div className="flex items-center w-4 mr-4">{props.emoji}</div>
+      <div className="w-full callout">{props.children}</div>
+    </div>
+  );
+}
+
+function ProsCard({ title, pros }) {
+  return (
+    <div className="border border-emerald-200 dark:border-emerald-900 bg-neutral-50 dark:bg-neutral-900 rounded-xl p-6 my-4 w-full">
+      <span>{`You might use ${title} if...`}</span>
+      <div className="mt-4">
+        {pros.map((pro) => (
+          <div key={pro} className="flex font-medium items-baseline mb-2">
+            <div className="h-4 w-4 mr-2">
+              <svg className="h-4 w-4 text-emerald-500" viewBox="0 0 24 24">
+                <g
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                  <path d="M22 4L12 14.01l-3-3" />
+                </g>
+              </svg>
+            </div>
+            <span>{pro}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ConsCard({ title, cons }) {
+  return (
+    <div className="border border-red-200 dark:border-red-900 bg-neutral-50 dark:bg-neutral-900 rounded-xl p-6 my-6 w-full">
+      <span>{`You might not use ${title} if...`}</span>
+      <div className="mt-4">
+        {cons.map((con) => (
+          <div key={con} className="flex font-medium items-baseline mb-2">
+            <div className="h-4 w-4 mr-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                className="h-4 w-4 text-red-500"
+              >
+                <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
+              </svg>
+            </div>
+            <span>{con}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function Code({ children, ...props }) {
+  let codeHTML = highlight(children);
+  return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
+}
+
+function slugify(str) {
+  return str
+    .toString()
+    .toLowerCase()
+    .trim() // Remove whitespace from both ends of a string
+    .replace(/\s+/g, '-') // Replace spaces with -
+    .replace(/&/g, '-and-') // Replace & with 'and'
+    .replace(/[^\w\-]+/g, '') // Remove all non-word characters except for -
+    .replace(/\-\-+/g, '-'); // Replace multiple - with single -
+}
+
+function createHeading(level) {
+  return ({ children }) => {
+    let slug = slugify(children);
+    return React.createElement(
+      `h${level}`,
+      { id: slug },
+      [
+        React.createElement('a', {
+          href: `#${slug}`,
+          key: `link-${slug}`,
+          className: 'anchor',
+        }),
+      ],
+      children
+    );
+  };
+}
+
+let components = {
+  h1: createHeading(1),
+  h2: createHeading(2),
+  h3: createHeading(3),
+  h4: createHeading(4),
+  h5: createHeading(5),
+  h6: createHeading(6),
+  Image: RoundedImage,
+  a: CustomLink,
+  Callout,
+  ProsCard,
+  ConsCard,
+  StaticTweet: TweetComponent,
+  code: Code,
+  Table,
 };
 
-interface MdxProps {
-	code: string;
-}
-
-export function Mdx({ code }: MdxProps) {
-	const Component = useMDXComponent(code);
-
-	return (
-		<div className="mdx">
-			<Component components={components} />
-		</div>
-	);
+export function CustomMDX(props) {
+  return (
+    <MDXRemote
+      {...props}
+      components={{ ...components, ...(props.components || {}) }}
+    />
+  );
 }

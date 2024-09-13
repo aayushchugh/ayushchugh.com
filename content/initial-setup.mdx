@@ -1,0 +1,164 @@
+---
+title: Initial Setup for Next.js Projects
+publishedAt: "2024-09-13"
+summary: "A guide to setting up your Next.js project efficiently."
+---
+
+## The Problem
+
+Starting a new project can be daunting, especially when it involves setting up a robust environment for Next.js. You may find yourself overwhelmed with the myriad of configurations and tools available. How do you ensure that your project is set up efficiently and follows best practices from the get-go?
+
+## The Solution
+
+The solution is straightforward: set up your project in a way that encourages scalability and maintainability without overcommitting to complex configurations initially. Think of it as laying a solid foundation upon which you can build incrementally.
+
+## Step-by-Step Guide
+
+### 1. Setting Up the Project
+
+First, create a new Next.js project. If you don't have Node.js installed, you'll need to do that first.
+
+```bash
+npx create-next-app@latest my-nextjs-app
+cd my-nextjs-app
+```
+
+This command sets up a new Next.js project with all the necessary files and folders. It's your starting point for building a scalable application.
+
+### 2. Configuring the Environment
+
+Next, set up your environment variables. Create a .env.local file in the root of your project:
+
+```bash
+# .env.local
+NEXT_PUBLIC_API_URL=https://api.example.com
+```
+
+Environment variables help keep sensitive data secure and configurable across different environments (development, staging, production).
+
+### 3. Organizing Your Folder Structure
+
+--- https://stackoverflow.com/questions/76214501/nextjs-13-folder-structure-best-practice ---
+
+A well-organized folder structure makes your project easier to navigate and maintain. Here’s a suggested structure:
+
+```bash
+/app
+  layout.jsx
+  /(auth)
+  	layout.jsx
+	/signup
+		index.jsx
+	/login
+		index.jsx
+/components
+  Header.jsx
+  Footer.jsx
+/helpers
+  api.js
+/lib
+  auth.js
+/hooks
+  useAuth.js
+/context
+  AuthContext.js
+/styles
+  globals.css
+  Home.module.css
+```
+
+you can also add custom component library like MUI, Radix UI
+
+you can also create a Private folders which can be created by prefixing a folder with an underscore: `_folderName`
+
+### 4. Setting Up Linting and Formatting
+
+To maintain code quality and consistency, set up ESLint and Prettier.
+
+```bash
+npm install --save-dev eslint prettier eslint-plugin-prettier eslint-config-prettier eslint-plugin-react eslint-plugin-react-hooks
+```
+
+Create an .eslintrc.json file:
+
+```json
+{
+	"extends": [
+		"eslint:recommended",
+		"plugin:react/recommended",
+		"plugin:react-hooks/recommended",
+		"prettier"
+	],
+	"plugins": ["prettier"],
+	"rules": {
+		"prettier/prettier": "error"
+	},
+	"settings": {
+		"react": {
+			"version": "detect"
+		}
+	}
+}
+```
+
+And a prettier.config.js file:
+
+```js
+module.exports = {
+	singleQuote: true,
+	trailingComma: "all",
+};
+```
+
+### 5. Adding Essential Packages
+
+Enhance your project with essential libraries:
+
+```bash
+npm install axios react-query @mui/material @emotion/react @emotion/styled
+```
+
+- Axios: For making API requests.
+- React Query: For data fetching and state management.
+- Material-UI: For UI components.
+
+### 6. Setting Up API Calls with Axios
+
+Create an api directory and an axiosInstance.js file:
+
+```js
+// api/axiosInstance.js
+import axios from "axios";
+
+const axiosInstance = axios.create({
+	baseURL: process.env.NEXT_PUBLIC_API_URL,
+});
+
+axiosInstance.interceptors.request.use(
+	config => {
+		// Add any custom request interceptors here
+		return config;
+	},
+	error => {
+		return Promise.reject(error);
+	}
+);
+
+axiosInstance.interceptors.response.use(
+	response => {
+		// Add any custom response interceptors here
+		return response;
+	},
+	error => {
+		return Promise.reject(error);
+	}
+);
+
+export default axiosInstance;
+```
+
+### Final Thoughts
+
+By following these steps, you’ll have a solid foundation for your React and Next.js project. This setup not only makes it easier to scale and maintain your application but also allows you to experiment and build incrementally without feeling overwhelmed.
+
+Remember, the key to a successful setup is to start simple and expand as needed. Keep your configurations minimal and build upon them as your project grows. This approach will save you time and headaches in the long run, allowing you to focus on building great features.

@@ -1,63 +1,81 @@
-"use client";
-import { Github, Mail, Twitter } from "lucide-react";
-import Link from "next/link";
-import { Navigation } from "../components/nav";
-import { Card } from "../components/card";
+import Image from "next/image";
 
 const socials = [
 	{
-		icon: <Twitter size={20} />,
-		href: "https://twitter.com/ayushchugh2006",
-		label: "Twitter",
-		handle: "@ayushchugh2006",
+		name: "Email",
+		url: "mailto:hey@ayushchugh.com",
+		display: "hey@ayushchugh.com",
+		logo: "/logos/mail.svg", // Path to the email logo
 	},
 	{
-		icon: <Mail size={20} />,
-		href: "mailto:hey@ayushchugh.com",
-		label: "Email",
-		handle: "hey@ayushchugh.com",
+		name: "GitHub",
+		url: "https://github.com/aayushchugh",
+		display: "github.com/aayushchugh",
+		logo: "/logos/github.svg", // Path to the GitHub logo
 	},
 	{
-		icon: <Github size={20} />,
-		href: "https://github.com/aayushchugh",
-		label: "Github",
-		handle: "aayushchugh",
+		name: "X",
+		url: "https://x.com/ayushchugh2006",
+		display: "x.com/ayushchugh2006",
+		logo: "/logos/x.svg", // Path to the X logo
+	},
+	{
+		name: "Peerlist",
+		url: "https://peerlist.io/aayushchugh",
+		display: "peerlist.io/aayushchugh",
+		logo: "/logos/peerlist.svg", // Path to the Peerlist logo
+	},
+	{
+		name: "LinkedIn",
+		url: "https://www.linkedin.com/in/ayushchugh2006/",
+		display: "linkedin.com/in/ayushchugh2006",
+		logo: "/logos/linkedin.svg", // Path to the LinkedIn logo
+	},
+	{
+		name: "Dev.to",
+		url: "https://dev.to/aayushchugh",
+		display: "dev.to/aayushchugh",
+		logo: "/logos/dev.svg", // Path to the Dev.to logo
 	},
 ];
 
-export default function Example() {
+export default function ContactPage() {
 	return (
-		<div className=" bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
-			<Navigation />
-			<div className="container flex items-center justify-center min-h-screen px-4 mx-auto">
-				<div className="grid w-full grid-cols-1 gap-8 mx-auto mt-32 sm:mt-0 sm:grid-cols-3 lg:gap-16">
-					{socials.map(s => (
-						<Card>
-							<Link
-								href={s.href}
-								target="_blank"
-								className="p-4 relative flex flex-col items-center gap-4 duration-700 group md:gap-8 md:py-24  lg:pb-48  md:p-16"
-							>
-								<span
-									className="absolute w-px h-2/3 bg-gradient-to-b from-zinc-500 via-zinc-500/50 to-transparent"
-									aria-hidden="true"
-								/>
-								<span className="relative z-10 flex items-center justify-center w-12 h-12 text-sm duration-1000 border rounded-full text-zinc-200 group-hover:text-white group-hover:bg-zinc-900 border-zinc-500 bg-zinc-900 group-hover:border-zinc-200 drop-shadow-orange">
-									{s.icon}
-								</span>{" "}
-								<div className="z-10 flex flex-col items-center">
-									<span className="lg:text-xl font-medium duration-150 xl:text-3xl text-zinc-200 group-hover:text-white font-display">
-										{s.handle}
-									</span>
-									<span className="mt-4 text-sm text-center duration-1000 text-zinc-400 group-hover:text-zinc-200">
-										{s.label}
-									</span>
-								</div>
-							</Link>
-						</Card>
+		<section>
+			<h1 className='font-medium text-2xl mb-6 tracking-tight font-["monospace"]'>
+				Contact 📧
+			</h1>
+
+			{/* Social Links */}
+			<div className="prose prose-neutral dark:prose-invert">
+				<p>Feel free to reach out to me via any of the following platforms:</p>
+
+				<ul className="pl-0">
+					{socials.map((social, index) => (
+						<li key={index} className="flex items-center mb-4">
+							<Image
+								src={social.logo}
+								alt={social.name}
+								width={24}
+								height={24}
+								className="!mr-2"
+							/>
+
+							<div className="flex items-center not-prose">
+								<strong>{social.name}:</strong>{" "}
+								<a
+									target="_blank"
+									rel="noopener noreferrer"
+									href={social.url}
+									className="ml-2 underline"
+								>
+									{social.display}
+								</a>
+							</div>
+						</li>
 					))}
-				</div>
+				</ul>
 			</div>
-		</div>
+		</section>
 	);
 }
