@@ -6,6 +6,7 @@ import tap from "public/logos/tapico.png";
 import Badge from "./components/Badge";
 import ArrowIcon from "./components/ArrowIcon";
 import wt from "public/logos/wt.png";
+import vibraniumsoft from "public/logos/vibraniumsoft.jpeg";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -57,7 +58,7 @@ export default function Page() {
 					<br />
 					My job is to create user-friendly digital experiences, and I’ve worked
 					on various projects that showcase my technical skills and creativity.
-					Currently, I work as a <strong>Consultant</strong> at
+					Currently, I work as a <strong>Consultant</strong> at{" "}
 					<span className="not-prose">
 						<Badge href="https://tapinvest.io">
 							<Image
@@ -71,17 +72,17 @@ export default function Page() {
 						</Badge>
 					</span>
 					, where I contribute to creating seamless digital solutions.
-					Alongside, I also work as a <strong>Freelance Developer</strong> with
+					Alongside, I also work as a <strong>Freelance Developer</strong> with{" "}
 					<span className="not-prose">
-						<Badge href="https://worldtravels.com">
+						<Badge href="https://vibraniumsoft.com">
 							<Image
-								src={wt}
-								alt="Worldtravels"
+								src={vibraniumsoft}
+								alt="Vibranium Soft"
 								height={16}
 								width={16}
 								className={"pr-1"}
 							/>
-							Worldtravels
+							Vibranium Soft
 						</Badge>
 					</span>
 					. In my free time, I contribute to open-source projects, keeping
