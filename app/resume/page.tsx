@@ -38,23 +38,6 @@ export const metadata: Metadata = {
 const resumeData = {
 	workExperience: [
 		{
-			company: "Worldtravels",
-			logo: wtLogo,
-			role: "Frontend Developer",
-			period: "Jul 2024 - Present",
-			location: "Remote",
-			workType: "Freelance",
-			website: "https://www.worldtravelsonline.in/en",
-			technologies: ["NextJS", "Redux", "TypeScript", "Tailwind CSS"],
-			responsibilities: [
-				"Developing and maintaining a B2B flight booking platform.",
-				"Collaborating with cross-functional teams to deliver optimized solutions for the travel industry.",
-				"Implementing features for flight search, booking management, and user onboarding.",
-				"Ensuring scalability and performance optimization for high traffic volumes.",
-				"Building a user-friendly interface to enhance customer experience.",
-			],
-		},
-		{
 			company: "Tap Invest",
 			logo: tapLogo,
 			role: "Consultant",
@@ -68,6 +51,23 @@ const resumeData = {
 				"Optimize performance and ensure accessibility to deliver user-centric solutions.",
 				"Focus on driving user engagement and satisfaction with cutting-edge web applications.",
 				"Continuously innovate and stay updated with the latest industry trends.",
+			],
+		},
+		{
+			company: "Worldtravels",
+			logo: wtLogo,
+			role: "Frontend Developer",
+			period: "December 2024 - Present",
+			location: "Remote",
+			workType: "Freelance",
+			website: "https://www.worldtravelsonline.in/en",
+			technologies: ["NextJS", "Redux", "TypeScript", "Tailwind CSS"],
+			responsibilities: [
+				"Developing and maintaining a B2B flight booking platform.",
+				"Collaborating with cross-functional teams to deliver optimized solutions for the travel industry.",
+				"Implementing features for flight search, booking management, and user onboarding.",
+				"Ensuring scalability and performance optimization for high traffic volumes.",
+				"Building a user-friendly interface to enhance customer experience.",
 			],
 		},
 		{
