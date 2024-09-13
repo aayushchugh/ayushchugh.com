@@ -5,7 +5,7 @@ import ccetLogo from "public/logos/ccet.png";
 import shriPropertyLogo from "public/logos/shriProperty.png";
 import a2infiniteLogo from "public/logos/a2infinite.png";
 import innovationClubLogo from "public/logos/innovationclub.png";
-import wtLogo from "public/logos/wt.png";
+import vibraniumsoft from "public/logos/vibraniumsoft.jpeg";
 
 export const metadata: Metadata = {
 	title: "Resume - Ayush Chugh",
@@ -54,8 +54,8 @@ const resumeData = {
 			],
 		},
 		{
-			company: "Worldtravels",
-			logo: wtLogo,
+			company: "Vibranium Soft",
+			logo: vibraniumsoft,
 			role: "Frontend Developer",
 			period: "December 2024 - Present",
 			location: "Remote",
