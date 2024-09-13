@@ -60,7 +60,7 @@ const resumeData = {
 			period: "December 2024 - Present",
 			location: "Remote",
 			workType: "Freelance",
-			website: "https://www.worldtravelsonline.in/en",
+			website: "https://vibraniumsoft.com",
 			technologies: ["NextJS", "Redux", "TypeScript", "Tailwind CSS"],
 			responsibilities: [
 				"Developing and maintaining a B2B flight booking platform.",
