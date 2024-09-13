@@ -4,6 +4,7 @@ import Link from "next/link";
 import shriPropertyLogo from "public/logos/shriProperty.png";
 import a2infiniteLogo from "public/logos/a2infinite.png";
 import wtLogo from "public/logos/wt.png";
+import repoCommander from "public/logos/repository-commander.svg";
 
 export const metadata: Metadata = {
 	title: "Projects - Ayush Chugh",
@@ -58,6 +59,14 @@ const projectsData = [
 			"A B2B flight booking platform for travel agencies to manage bookings and payments.",
 		technologies: ["React", "Redux", "TypeScript", "Node.js"],
 		website: "https://www.worldtravels.com",
+	},
+	{
+		project: "Repository Commander",
+		logo: repoCommander,
+		description:
+			"A Github app that lets you automate your basic tasks by automatically adding labels to your pull requests and using `/` commands in your comments to do some nice stuff like approving and merging pull requests.",
+		technologies: ["Node.js", "TypeScript", "Probot"],
+		website: "https://github.com/aayushchugh/repository-commander",
 	},
 ];
 
