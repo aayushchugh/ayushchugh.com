@@ -24,6 +24,14 @@ export const metadata: Metadata = {
 		siteName: "Ayush Chugh",
 		locale: "en_US",
 		type: "website",
+		images: [
+			{
+				url: "/ogs/ogs-bg.png",
+				width: 1200,
+				height: 630,
+				alt: "Ayush Chugh Full Stack Developer",
+			},
+		],
 	},
 	robots: {
 		index: true,
@@ -39,6 +47,9 @@ export const metadata: Metadata = {
 	twitter: {
 		title: "Ayush Chugh",
 		card: "summary_large_image",
+		description:
+			"Passionate full stack developer from India. On the way to master programming.",
+		images: ["/ogs/ogs-bg.png"],
 	},
 	icons: {
 		shortcut: "/favicon.png",
