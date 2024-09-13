@@ -71,7 +71,7 @@ export default function BlogPage() {
 			<p className={"mt-4"}>
 				i try to write time to time about something or someone that helped me
 				grow.
-				<br /> follow along on{" "}
+				<br /> follow along on my{" "}
 				<Link
 					className={
 						"underline hover:text-orange-400 transition-all duration-300"
@@ -79,7 +79,7 @@ export default function BlogPage() {
 					href={"https://dev.to/aayushchugh"}
 					target="_blank"
 				>
-					{"my dev.to"}
+					{"dev.to"}
 				</Link>
 			</p>
 		</section>
