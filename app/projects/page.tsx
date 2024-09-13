@@ -1,8 +1,38 @@
+import { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link"; // Import Link for linking to project websites
+import Link from "next/link";
 import shriPropertyLogo from "public/logos/shriProperty.png";
 import a2infiniteLogo from "public/logos/a2infinite.png";
 import wtLogo from "public/logos/wt.png";
+
+export const metadata: Metadata = {
+	title: "Projects - Ayush Chugh",
+	description:
+		"Explore Ayush Chugh's projects, including Shriproperty, A2INFINITE, Worldtravels, and various open-source contributions.",
+	openGraph: {
+		title: "Projects - Ayush Chugh",
+		description:
+			"Discover the latest projects built by Ayush Chugh, including web development and open-source contributions.",
+		url: "https://ayushchugh.com/projects",
+		siteName: "Ayush Chugh's Portfolio",
+		images: [
+			{
+				url: "/ogs/ogs-bg.png",
+				width: 1200,
+				height: 630,
+				alt: "Ayush Chugh Projects",
+			},
+		],
+		type: "website",
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "Projects - Ayush Chugh",
+		description:
+			"Explore a variety of projects and open-source contributions by Ayush Chugh.",
+		images: ["/ogs/ogs-bg.png"],
+	},
+};
 
 const projectsData = [
 	{
@@ -38,15 +68,15 @@ const openSourceData = [
 		description:
 			"Maya is a project that helps users manage their pocket money, track expenses, and set savings goals.",
 		technologies: ["React", "Node.js", "Express", "TypeScript"],
-		website: "https://github.com/maya-manager", // Update with the correct GitHub repository link
+		website: "https://github.com/maya-manager",
 	},
 	{
 		project: "Multi Email",
-		logo: "/logos/multiEmail.png", // Path to Multi Email logo
+		logo: "/logos/multiEmail.png",
 		description:
 			"Multi Email is a platform that allows users to connect and manage multiple email services in one place.",
 		technologies: ["React", "Node.js", "Express", "OAuth", "TypeScript"],
-		website: "https://github.com/MultiEmail/", // Update with the correct GitHub repository link
+		website: "https://github.com/MultiEmail/",
 	},
 ];
 
@@ -72,15 +102,14 @@ export default function ProjectsPage() {
 								height={20}
 								className="mr-4"
 							/>
-							{/* Add website link */}
-							<a
+							<Link
 								target="_blank"
 								rel="noopener noreferrer"
 								className="ml-2"
 								href={project.website}
 							>
 								{project.project}
-							</a>
+							</Link>
 						</h3>
 						<p className="text-neutral-600 dark:text-neutral-400 text-sm">
 							{project.description}
@@ -111,14 +140,14 @@ export default function ProjectsPage() {
 								height={20}
 								className="mr-4"
 							/>
-							<a
+							<Link
 								target="_blank"
 								rel="noopener noreferrer"
 								className="ml-2"
 								href={contribution.website}
 							>
 								{contribution.project}
-							</a>
+							</Link>
 						</h3>
 						<p className="text-neutral-600 dark:text-neutral-400 text-sm">
 							{contribution.description}

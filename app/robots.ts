@@ -2,10 +2,10 @@ export default function robots() {
 	return {
 		rules: [
 			{
-				userAgent: '*',
+				userAgent: "*",
 			},
 		],
-		sitemap: 'https://theArpitChugh.me/sitemap.xml',
-		host: 'https://theArpitChugh.me',
+		sitemap: "https://ayushchugh.com/sitemap.xml",
+		host: "https://ayushchugh.com",
 	};
 }

@@ -6,6 +6,36 @@ import tap from "public/logos/tapico.png";
 import Badge from "./components/Badge";
 import ArrowIcon from "./components/ArrowIcon";
 import wt from "public/logos/wt.png";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "Ayush Chugh - Full Stack Developer",
+	description:
+		"Ayush Chugh is a Full Stack Developer working on creating seamless, user-friendly digital experiences. He has contributed to projects like Tap Invest, ShriProperty, A2INFINITE, and Worldtravels.",
+	openGraph: {
+		title: "Ayush Chugh - Full Stack Developer",
+		description:
+			"Discover the work and projects of Ayush Chugh, a Full Stack Developer contributing to Tap Invest, ShriProperty, A2INFINITE, and Worldtravels.",
+		url: "https://ayushchugh.com", // Replace with your actual URL
+		siteName: "Ayush Chugh's Portfolio",
+		images: [
+			{
+				url: "/ogs/ogs-bg.png", // Add the path to your Open Graph image
+				width: 1200,
+				height: 630,
+				alt: "Ayush Chugh - Full Stack Developer",
+			},
+		],
+		type: "website",
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "Ayush Chugh - Full Stack Developer",
+		description:
+			"Explore Ayush Chugh’s work as a Full Stack Developer and his projects, including Tap Invest, ShriProperty, A2INFINITE, and Worldtravels.",
+		images: ["/ogs/ogs-bg.png"], // Add the path to your Twitter card image
+	},
+};
 
 export default function Page() {
 	return (
@@ -148,17 +178,6 @@ export default function Page() {
 						<p className="h-7 ml-2">Follow me</p>
 					</a>
 				</li>
-				{/* <li>
-					<a
-						className="flex items-center hover:text-neutral-800 dark:hover:text-neutral-100 transition-all"
-						rel="noopener noreferrer"
-						target="_blank"
-						href="https://ArpitChugh.substack.com"
-					>
-						<ArrowIcon />
-						<p className="h-7 ml-2">Get email updates</p>
-					</a>
-				</li> */}
 			</ul>
 
 			<div>

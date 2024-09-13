@@ -1,11 +1,7 @@
-import type { Metadata } from 'next';
-import { Suspense, cache } from 'react';
-import { notFound } from 'next/navigation';
-import { CustomMDX } from 'app/components/mdx';
-import { getViewsCount } from 'app/db/queries';
-import { getBlogPosts } from 'app/db/blog';
-import ViewCounter from '../view-counter';
-import { increment } from 'app/db/actions';
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { CustomMDX } from "app/components/mdx";
+import { getBlogPosts } from "app/db/blog";
 
 export async function generateMetadata({
 	params,
@@ -21,7 +17,8 @@ export async function generateMetadata({
 		summary: description,
 		image,
 	} = post.metadata;
-	let ogImage = `https://theArpitChugh.me/ogs/og-bg-blog-${post.slug}.png`;
+	// let ogImage = `https://ayushchugh.com/ogs/ogs-bg-blog-${post.slug}.png`;
+	let ogImage = `https://ayushchugh.com/ogs/og-bg.png`;
 
 	return {
 		title,
@@ -29,9 +26,9 @@ export async function generateMetadata({
 		openGraph: {
 			title,
 			description,
-			type: 'article',
+			type: "article",
 			publishedTime,
-			url: `https://leerob.io/blog/${post.slug}`,
+			url: `https://ayushchugh.com/blog/${post.slug}`,
 			images: [
 				{
 					url: ogImage,
@@ -39,7 +36,7 @@ export async function generateMetadata({
 			],
 		},
 		twitter: {
-			card: 'summary_large_image',
+			card: "summary_large_image",
 			title,
 			description,
 			images: [ogImage],
@@ -49,7 +46,7 @@ export async function generateMetadata({
 
 function formatDate(date: string) {
 	let currentDate = new Date();
-	if (!date.includes('T')) {
+	if (!date.includes("T")) {
 		date = `${date}T00:00:00`;
 	}
 	let targetDate = new Date(date);
@@ -58,7 +55,7 @@ function formatDate(date: string) {
 	let monthsAgo = currentDate.getMonth() - targetDate.getMonth();
 	let daysAgo = currentDate.getDate() - targetDate.getDate();
 
-	let formattedDate = '';
+	let formattedDate = "";
 
 	if (yearsAgo > 0) {
 		formattedDate = `${yearsAgo}y ago`;
@@ -67,13 +64,13 @@ function formatDate(date: string) {
 	} else if (daysAgo > 0) {
 		formattedDate = `${daysAgo}d ago`;
 	} else {
-		formattedDate = 'Today';
+		formattedDate = "Today";
 	}
 
-	let fullDate = targetDate.toLocaleString('en-us', {
-		month: 'long',
-		day: 'numeric',
-		year: 'numeric',
+	let fullDate = targetDate.toLocaleString("en-us", {
+		month: "long",
+		day: "numeric",
+		year: "numeric",
 	});
 
 	return `${fullDate} (${formattedDate})`;
@@ -89,41 +86,36 @@ export default function Blog({ params }) {
 	return (
 		<section>
 			<script
-				type='application/ld+json'
+				type="application/ld+json"
 				suppressHydrationWarning
 				dangerouslySetInnerHTML={{
 					__html: JSON.stringify({
-						'@context': 'https://schema.org',
-						'@type': 'BlogPosting',
+						"@context": "https://schema.org",
+						"@type": "BlogPosting",
 						headline: post.metadata.title,
-						datePublished:
-							post.metadata
-								.publishedAt,
-						dateModified:
-							post.metadata
-								.publishedAt,
-						description:
-							post.metadata.summary,
+						datePublished: post.metadata.publishedAt,
+						dateModified: post.metadata.publishedAt,
+						description: post.metadata.summary,
 						image: post.metadata.image
-							? `https://theArpitChugh.me${post.metadata.image}`
-							: `https://theArpitChugh.me/og?title=${post.metadata.title}`,
-						url: `https://theArpitChugh.me/blog/${post.slug}`,
+							? `https://ayushchugh.com${post.metadata.image}`
+							: `https://ayushchugh.com/og?title=${post.metadata.title}`,
+						url: `https://ayushchugh.com/blog/${post.slug}`,
 						author: {
-							'@type': 'Person',
-							name: 'Arpit Chugh',
+							"@type": "Person",
+							name: "Ayush Chugh",
 						},
 					}),
 				}}
 			/>
-			<h1 className='title font-medium text-2xl tracking-tighter max-w-[650px]'>
+			<h1 className="title font-medium text-2xl tracking-tighter max-w-[650px]">
 				{post.metadata.title}
 			</h1>
-			<div className='flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]'>
-				<p className='text-sm text-neutral-600 dark:text-neutral-400'>
+			<div className="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]">
+				<p className="text-sm text-neutral-600 dark:text-neutral-400">
 					{formatDate(post.metadata.publishedAt)}
 				</p>
 			</div>
-			<article className='prose prose-quoteless prose-neutral dark:prose-invert'>
+			<article className="prose prose-quoteless prose-neutral dark:prose-invert">
 				<CustomMDX source={post.content} />
 			</article>
 		</section>

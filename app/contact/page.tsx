@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Image from "next/image";
 
 const socials = [
@@ -38,6 +39,35 @@ const socials = [
 		logo: "/logos/dev.svg", // Path to the Dev.to logo
 	},
 ];
+
+export const metadata: Metadata = {
+	title: "Contact - Ayush Chugh",
+	description:
+		"Get in touch with Ayush Chugh via email, GitHub, Peerlist, LinkedIn, and more.",
+	openGraph: {
+		title: "Contact - Ayush Chugh",
+		description:
+			"Find and connect with Ayush Chugh through multiple platforms.",
+		url: "https://ayushchugh.com/contact",
+		siteName: "Ayush Chugh's Portfolio",
+		images: [
+			{
+				url: "/ogs/og-bg.png", // Add a relevant Open Graph image for social sharing
+				width: 1200,
+				height: 630,
+				alt: "Contact - Ayush Chugh",
+			},
+		],
+		type: "website",
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "Contact - Ayush Chugh",
+		description:
+			"Find and connect with Ayush Chugh through multiple platforms.",
+		images: ["/ogs/og-bg.png"],
+	},
+};
 
 export default function ContactPage() {
 	return (

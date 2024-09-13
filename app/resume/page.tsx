@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link"; // Import Link for website links
 import tapLogo from "public/logos/tapico.png";
 import ccetLogo from "public/logos/ccet.png";
 import shriPropertyLogo from "public/logos/shriProperty.png";
@@ -14,13 +13,13 @@ export const metadata: Metadata = {
 		"A summary of Ayush Chugh’s corporate contributions, skills, and experience as a Full-Stack Developer, including work with Tap Invest, Shri Property, and A2INFINITE.",
 	openGraph: {
 		type: "article",
-		url: `https://www.arpitchugh.in/resume`,
+		url: `https://ayushchugh.com/resume`,
 		title: "Ayush Chugh’s Resume",
 		description:
 			"Detailed resume of Ayush Chugh, Full-Stack Developer, with work experience, projects, and educational background.",
 		images: [
 			{
-				url: `/ogs/og-bg-work.png`,
+				url: `/ogs/og-bg.png`,
 				width: 1200,
 				height: 630,
 				alt: "Ayush Chugh Resume",
@@ -29,12 +28,13 @@ export const metadata: Metadata = {
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: "Ayush Chugh’s Resume",
+		title: "Resume - Ayush Chugh",
 		description:
 			"Check out Ayush Chugh’s Full-Stack Developer resume, showcasing professional contributions and achievements.",
-		images: ["/ogs/og-bg-work.png"],
+		images: ["/ogs/og-bg.png"],
 	},
 };
+
 const resumeData = {
 	workExperience: [
 		{
