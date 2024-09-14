@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { Navbar } from "./components/nav";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 import { PreloadResources } from "./preload";
 import Cmdk from "./components/CmdK";
@@ -79,7 +80,8 @@ export default function RootLayout({
 				></script>
 				<head>
 					{/* Google Analytics Script */}
-					<Script
+
+					{/* <Script
 						src={`https://www.googletagmanager.com/gtag/js?id=G-WRQGFF6ZSV`} // Replace with your Google Analytics ID
 						strategy="afterInteractive" // Ensures it loads after the page renders
 					/>
@@ -90,7 +92,7 @@ export default function RootLayout({
 						gtag('js', new Date());
 						gtag('config', 'G-WRQGFF6ZSV'); // Replace with your Google Analytics ID
 					`}
-					</Script>
+					</Script> */}
 				</head>
 			</head>
 			<body className="antialiased max-w-2xl mb-40 flex flex-col md:flex-row mx-4 mt-8 lg:mx-auto">
@@ -102,6 +104,7 @@ export default function RootLayout({
 					<PreloadResources />
 				</main>
 			</body>
+			<GoogleAnalytics gaId="G-WRQGFF6ZSV" />
 		</html>
 	);
 }
