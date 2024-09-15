@@ -58,7 +58,7 @@ const projectsData = [
 		description:
 			"A B2B flight booking platform for travel agencies to manage bookings and payments.",
 		technologies: ["React", "Redux", "TypeScript", "Node.js"],
-		website: "https://www.worldtravels.com",
+		website: "https://www.worldtravelsonline.in/en",
 	},
 	{
 		project: "Repository Commander",
