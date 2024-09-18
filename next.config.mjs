@@ -1,18 +1,12 @@
 const nextConfig = {
-	experimental: {
-		ppr: true,
-		useLightningcss: true,
-	},
 	// async redirects() {
 	// 	if (!process.env.POSTGRES_URL) {
 	// 		return [];
 	// 	}
-
 	// 	const { rows: redirects } = await sql`
 	//     SELECT source, destination, permanent
 	//     FROM redirects;
 	//   `;
-
 	// 	return redirects.map(({ source, destination, permanent }) => ({
 	// 		source,
 	// 		destination,
