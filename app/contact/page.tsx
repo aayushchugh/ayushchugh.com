@@ -16,8 +16,8 @@ const socials = [
 	},
 	{
 		name: "X",
-		url: "https://x.com/ayushchugh2006",
-		display: "x.com/ayushchugh2006",
+		url: "https://x.com/aayushchugh_x",
+		display: "x.com/aayushchugh_x",
 		logo: "/logos/x.svg", // Path to the X logo
 	},
 	{
@@ -28,8 +28,8 @@ const socials = [
 	},
 	{
 		name: "LinkedIn",
-		url: "https://www.linkedin.com/in/ayushchugh2006/",
-		display: "linkedin.com/in/ayushchugh2006",
+		url: "https://www.linkedin.com/in/aayushchugh/",
+		display: "linkedin.com/in/aayushchugh",
 		logo: "/logos/linkedin.svg", // Path to the LinkedIn logo
 	},
 	{
