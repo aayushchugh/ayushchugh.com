@@ -1,16 +1,16 @@
-'use client';
-import './cmdk.css';
+"use client";
+import "./cmdk.css";
 import CommandPalette, {
 	filterItems,
 	getItemIndex,
 	useHandleOpenCommandPalette,
-} from 'react-cmdk';
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+} from "react-cmdk";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 const Example = () => {
 	const [open, setOpen] = useState<boolean>(false);
-	const [search, setSearch] = useState('');
+	const [search, setSearch] = useState("");
 	const router = useRouter();
 
 	useHandleOpenCommandPalette(setOpen);
@@ -18,27 +18,40 @@ const Example = () => {
 	const filteredItems = filterItems(
 		[
 			{
-				heading: 'Navigate',
-				id: 'home',
+				heading: "Navigate",
+				id: "home",
 				items: [
 					{
-						id: 'home',
-						children: 'Home',
-						icon: 'HomeIcon',
-						onClick: () => router.push('/'),
+						id: "home",
+						children: "Home",
+						icon: "HomeIcon",
+						onClick: () => router.push("/"),
 					},
 					{
-						id: 'resume',
-						children: 'Resume',
-						icon: 'BriefcaseIcon',
+						id: "projects",
+						children: "Projects",
+						icon: "CodeBracketSquareIcon",
+						onClick: () => router.push("/projects"),
+					},
+					{
+						id: "resume",
+						children: "Resume",
+						icon: "BriefcaseIcon",
 						// href: '/work',
-						onClick: () => router.push('/resume'),
+						onClick: () => router.push("/resume"),
 					},
 					{
-						id: 'blog',
-						children: 'Blog',
-						icon: 'PencilIcon',
-						onClick: () => router.push('/blog'),
+						id: "contact",
+						children: "Contact",
+						icon: "PhoneIcon",
+						// href: '/work',
+						onClick: () => router.push("/contact"),
+					},
+					{
+						id: "blog",
+						children: "Blog",
+						icon: "PencilIcon",
+						onClick: () => router.push("/blog"),
 					},
 				],
 			},
@@ -52,12 +65,12 @@ const Example = () => {
 			onChangeOpen={setOpen}
 			search={search}
 			isOpen={open}
-			page={'root'}
-			placeholder='Looking for something?'
+			page={"root"}
+			placeholder="Looking for something?"
 		>
-			<CommandPalette.Page id='root' onEscape={() => setOpen(false)}>
+			<CommandPalette.Page id="root" onEscape={() => setOpen(false)}>
 				{filteredItems.length ? (
-					filteredItems.map((list) => (
+					filteredItems.map(list => (
 						<CommandPalette.List key={list.id} heading={list.heading}>
 							{list.items.map(({ id, ...rest }) => (
 								<CommandPalette.ListItem
@@ -74,7 +87,7 @@ const Example = () => {
 				)}
 			</CommandPalette.Page>
 
-			<CommandPalette.Page children id='projects'>
+			<CommandPalette.Page children id="projects">
 				{/* Projects page */}
 			</CommandPalette.Page>
 		</CommandPalette>
