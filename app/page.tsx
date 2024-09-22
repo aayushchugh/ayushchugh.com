@@ -60,7 +60,7 @@ export default function Page() {
 					on various projects that showcase my technical skills and creativity.
 					Currently, I work as a <strong>Consultant</strong> at{" "}
 					<span className="not-prose">
-						<Badge href="https://tapinvest.io">
+						<Badge href="https://tapinvest.in">
 							<Image
 								src={tap}
 								alt="Tap Invest"
@@ -74,7 +74,7 @@ export default function Page() {
 					, where I contribute to creating seamless digital solutions.
 					Alongside, I also work as a <strong>Freelance Developer</strong> with{" "}
 					<span className="not-prose">
-						<Badge href="https://vibraniumsoft.com">
+						<Badge href="https://www.linkedin.com/company/vibraniumsoft/posts/?feedView=all">
 							<Image
 								src={vibraniumsoft}
 								alt="Vibranium Soft"
