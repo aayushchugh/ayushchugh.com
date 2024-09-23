@@ -39,7 +39,7 @@ export default function BlogPage() {
 	return (
 		<section>
 			<h2 className='font-medium text-2xl mb-8 tracking-tight font-["monospace"]'>
-				writings 🧑🏻‍💻
+				Writings 🧑🏻‍💻
 			</h2>
 			{blogs
 				.sort((a, b) => {
@@ -78,18 +78,8 @@ export default function BlogPage() {
 				))}
 			<hr className={`text-neutral-400`} />
 			<p className={"mt-4"}>
-				i try to write time to time about something or someone that helped me
+				I try to write time to time about something or someone that helped me
 				grow.
-				<br /> follow along on my{" "}
-				<Link
-					className={
-						"underline hover:text-orange-400 transition-all duration-300"
-					}
-					href={"https://dev.to/aayushchugh"}
-					target="_blank"
-				>
-					{"dev.to"}
-				</Link>
 			</p>
 		</section>
 	);
