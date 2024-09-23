@@ -1,4 +1,14 @@
 const nextConfig = {
+	images: {
+		remotePatterns: [
+			{
+				protocol: "https",
+				hostname: "cdn.ayushchugh.com",
+				port: "",
+				pathname: "/**",
+			},
+		],
+	},
 	// async redirects() {
 	// 	if (!process.env.POSTGRES_URL) {
 	// 		return [];

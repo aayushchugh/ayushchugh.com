@@ -1,6 +1,8 @@
 import { getBlogPosts } from "app/db/blog";
 import { Metadata } from "next";
 import Link from "next/link";
+import formatDate from "../utils/formatDate";
+import calculateEstimateReadingTime from "../utils/calculateEstimateReadingTime";
 
 export const metadata: Metadata = {
 	title: "Blog - Ayush Chugh",
@@ -61,9 +63,16 @@ export default function BlogPage() {
 									{post.metadata.title}
 								</p>
 							</div>
-							{/* <p className="text-neutral-500 dark:text-neutral-400">
-								{"Dev.to"}
-							</p> */}
+
+							<div className="flex items-center justify-between">
+								<p className="text-neutral-500 dark:text-neutral-400 text-sm">
+									{formatDate(post.metadata.publishedAt)}
+								</p>
+
+								<p className="text-neutral-500 dark:text-neutral-400 text-sm">
+									{calculateEstimateReadingTime(post.content)} read
+								</p>
+							</div>
 						</Link>
 					</>
 				))}

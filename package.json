@@ -2,7 +2,7 @@
 	"name": "ayushchugh.com",
 	"private": true,
 	"scripts": {
-		"dev": "next dev --turbo",
+		"dev": "next dev",
 		"build": "next build",
 		"build-only": "next build",
 		"start": "next start",

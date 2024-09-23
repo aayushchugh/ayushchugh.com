@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CustomMDX } from "app/components/mdx";
 import { getBlogPosts } from "app/db/blog";
+import Image from "next/image";
+import formatDate from "../../utils/formatDate";
 
 export async function generateMetadata({
 	params,
@@ -15,10 +17,11 @@ export async function generateMetadata({
 		title,
 		publishedAt: publishedTime,
 		summary: description,
-		image,
 	} = post.metadata;
 	// let ogImage = `https://ayushchugh.com/ogs/ogs-bg-blog-${post.slug}.png`;
-	let ogImage = `https://ayushchugh.com/ogs/og-bg.png`;
+	let ogImage = post.metadata.ogImage
+		? post.metadata.ogImage
+		: `https://ayushchugh.com/ogs/og-bg.png`;
 
 	return {
 		title,
@@ -44,44 +47,14 @@ export async function generateMetadata({
 	};
 }
 
-function formatDate(date: string) {
-	let currentDate = new Date();
-	if (!date.includes("T")) {
-		date = `${date}T00:00:00`;
-	}
-	let targetDate = new Date(date);
-
-	let yearsAgo = currentDate.getFullYear() - targetDate.getFullYear();
-	let monthsAgo = currentDate.getMonth() - targetDate.getMonth();
-	let daysAgo = currentDate.getDate() - targetDate.getDate();
-
-	let formattedDate = "";
-
-	if (yearsAgo > 0) {
-		formattedDate = `${yearsAgo}y ago`;
-	} else if (monthsAgo > 0) {
-		formattedDate = `${monthsAgo}mo ago`;
-	} else if (daysAgo > 0) {
-		formattedDate = `${daysAgo}d ago`;
-	} else {
-		formattedDate = "Today";
-	}
-
-	let fullDate = targetDate.toLocaleString("en-us", {
-		month: "long",
-		day: "numeric",
-		year: "numeric",
-	});
-
-	return `${fullDate} (${formattedDate})`;
-}
-
 export default function Blog({ params }) {
 	let post = getBlogPosts().find(post => post.slug === params.slug);
 
 	if (!post) {
 		notFound();
 	}
+
+	console.log(post);
 
 	return (
 		<section>
@@ -96,8 +69,8 @@ export default function Blog({ params }) {
 						datePublished: post.metadata.publishedAt,
 						dateModified: post.metadata.publishedAt,
 						description: post.metadata.summary,
-						image: post.metadata.image
-							? `https://ayushchugh.com${post.metadata.image}`
+						image: post.metadata.coverImage
+							? `https://ayushchugh.com${post.metadata.coverImage}`
 							: `https://ayushchugh.com/og?title=${post.metadata.title}`,
 						url: `https://ayushchugh.com/blog/${post.slug}`,
 						author: {
@@ -115,6 +88,17 @@ export default function Blog({ params }) {
 					{formatDate(post.metadata.publishedAt)}
 				</p>
 			</div>
+			{post.metadata.coverImage && (
+				<div className="my-4 rounded-lg">
+					<Image
+						src={post.metadata.coverImage}
+						alt={post.metadata.title}
+						width={1200}
+						height={630}
+						className="rounded-lg"
+					/>
+				</div>
+			)}
 			<article className="prose prose-quoteless prose-neutral dark:prose-invert">
 				<CustomMDX source={post.content} />
 			</article>
