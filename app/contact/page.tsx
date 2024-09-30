@@ -79,7 +79,6 @@ export default function ContactPage() {
 			{/* Social Links */}
 			<div className="prose prose-neutral dark:prose-invert">
 				<p>Feel free to reach out to me via any of the following platforms:</p>
-
 				<ul className="pl-0">
 					{socials.map((social, index) => (
 						<li key={index} className="flex items-center mb-4">
@@ -105,6 +104,19 @@ export default function ContactPage() {
 						</li>
 					))}
 				</ul>
+				<hr />
+				<h2 className="font-medium text-2xl mb-6 tracking-tight font-['monospace']">
+					Want to chat? Schedule a 1:1 with me!
+				</h2>
+				<div>
+					<a
+						href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ32m0Ha13-Djq7bDeqBFdEgjmkBLk3uIF9LGwK2eIrl1BGBVxBAhqnpYj7ealqSNG0JYpSUTikB?gv=true"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						Schedule an appointment
+					</a>
+				</div>
 			</div>
 		</section>
 	);
