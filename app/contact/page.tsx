@@ -114,7 +114,7 @@ export default function ContactPage() {
 						target="_blank"
 						rel="noopener noreferrer"
 					>
-						Schedule an appointment
+						Schedule a meet
 					</a>
 				</div>
 			</div>
