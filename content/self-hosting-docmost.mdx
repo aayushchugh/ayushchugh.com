@@ -1,0 +1,246 @@
+---
+title: Self hosting Docmost, an open-source alternative to Notion
+publishedAt: "2024-10-07"
+summary: "A step-by-step guide to deploy Docmost on your VPS and setting up a custom domain."
+coverImage: "https://cdn.ayushchugh.com/blogs/self-hosting-docmost/docmost-cover.png"
+ogImage: "https://cdn.ayushchugh.com/blogs/self-hosting-docmost/docmost-cover.png"
+---
+
+Ever thought of privacy concerns while using 3rd party apps? If so, docmost is the best solution for you.
+
+[Docmost](https://docmost.com) is an open-source alternative to Confluence and Notion, which you can self-host and all the data stays on your servers. It is build using React, Node.js and PostgreSQL.
+
+Self hosting docmost may sound like a daunting task, but it's not that hard. In this guide, I will show you how to deploy docmost on your VPS and setting it up a custom domain.
+
+## Prerequisites
+
+1. A VPS ofcourse.
+1. A domain name.
+1. Basic knowledge of Linux and Docker.
+
+## Tools that we will be using
+
+1. Docker
+1. Nginx (for reverse proxy)
+1. Certbot (for SSL)
+
+## Step 1: Setting up the environment
+
+1. SSH into your VPS. I am using a VPS with Ubuntu 20.04.
+
+```bash
+ssh user@your-vps-ip
+```
+
+2. Install Docker.
+
+Set up Docker's apt repository.
+
+```bash
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+```
+
+Install the Docker packages.
+
+```bash
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+Verify that the Docker Engine installation is successful by running the hello-world image.
+
+```bash
+sudo docker run hello-world
+```
+
+You should see the following output:
+
+```bash
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (arm64v8)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+```
+
+3. Install Nginx
+
+```bash
+sudo apt install nginx
+sudo systemctl start nginx
+```
+
+## Step 2: Deploying Docmost
+
+1. Create `docker-compose.yml` file with the following content.
+
+```yaml
+services:
+  docmost:
+    image: docmost/docmost:latest
+    depends_on:
+      - db
+      - redis
+    environment:
+      APP_URL: "http://localhost:3000"
+      APP_SECRET: "REPLACE_WITH_LONG_SECRET"
+      DATABASE_URL: "postgresql://docmost:STRONG_DB_PASSWORD@db:5432/docmost?schema=public"
+      REDIS_URL: "redis://redis:6379"
+     MAIL_DRIVER: 'smtp'
+      SMTP_HOST: 'REPLACE_WITH_SMTP_HOST'
+      SMTP_PORT: 'REPLACE_WITH_SMTP_PORT'
+      SMTP_USERNAME: 'REPLACE_WITH_SMTP_USERNAME'
+      SMTP_PASSWORD: 'REPLACE_WITH_SMTP_PASSWORD'
+      MAIL_FROM_ADDRESS: 'REPLACE_WITH_SMTP_EMAIL'
+      MAIL_FROM_NAME: 'REPLACE_WITH_SMTP_NAME'
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    volumes:
+      - docmost:/app/data/storage
+
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: docmost
+      POSTGRES_USER: docmost
+      POSTGRES_PASSWORD: STRONG_DB_PASSWORD
+    restart: unless-stopped
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7.2-alpine
+    restart: unless-stopped
+    volumes:
+      - redis_data:/data
+
+volumes:
+  docmost:
+  db_data:
+  redis_data:
+```
+
+If you want to invite others to use this workspace, you will need to add SMTP variables to send invitation through emails. You can use [Zoho](https://mail.zoho.com) to get free custom emails.
+
+> Make sure to update environment variables with your own values and take a look at [supported variables](https://docmost.com/docs/self-hosting/environment-variables/).
+
+2. Run the following command to run the container.
+
+```bash
+docker compose up --build -d
+```
+
+3. Visit `http://your-vps-ip:3000` to see docmost running.
+
+## Step 3: Setting up custom domain with Nginx
+
+1. Visit your domain registrar and add an A record pointing to your VPS IP.
+2. Create a new Nginx configuration file.
+
+```bash
+touch /etc/nginx/sites-available/docmost
+```
+
+3. Add the following content to the file.
+
+```nginx
+server {
+    listen 80;
+    listen [::]:80;
+    server_name <domain_name> www.<domain_name>;
+
+    # Redirect HTTP to HTTPS
+    location / {
+        return 301 https://$host$request_uri;
+    }
+}
+
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name <domain_name> www.<domain_name>;
+
+    location / {
+        proxy_pass http://localhost:<project_port>/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+```
+
+> Make sure to replace `<domain_name>` with your domain name and `<project_port>` with the port on which docmost is running.
+
+4. Create a symbolic link to the `sites-enabled` directory.
+
+```bash
+sudo ln -s /etc/nginx/sites-available/docmost /etc/nginx/sites-enabled/docmost
+```
+
+5. Restart Nginx.
+
+```bash
+sudo systemctl restart nginx
+```
+
+## Step 4: Setting up SSL with Certbot
+
+1. Install Certbot.
+
+```bash
+sudo apt install python3-certbot-nginx -y
+```
+
+2. Obtain SSL certificate.
+
+```bash
+sudo certbot --nginx -d <domain_name> -d www.<domain_name>
+```
+
+3. Restart Nginx.
+
+```bash
+sudo systemctl restart nginx
+```
+
+## Conclusion
+
+You have successfully deployed docmost on your VPS and set up a custom domain with a free SSL certificate. You can now access docmost at `https://your-domain.com`.
+
+Feel free to reach out to me on [X](https://X.com/ayushchugh_) or drop an [Email](mailto:hey@ayushchugh.com) if you have any questions or need help.
+
+## References
+
+1. [Docmost](https://docmost.com)
+1. [Docker Documentation](https://docs.docker.com)
+1. [Nginx Documentation](https://nginx.org/en/docs/)
+1. [Certbot Documentation](https://certbot.eff.org/docs/)
+1. [Zoho Mail](https://mail.zoho.com)
