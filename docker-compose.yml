@@ -10,7 +10,8 @@ services:
     command: "npm start"
     environment:
       NODE_ENV: production
-      GOOGLE_ANALYTICS_ID: ${GOOGLE_ANALYTICS_ID}
+    env_file:
+      - .env
     build:
       context: .
       dockerfile: Dockerfile
