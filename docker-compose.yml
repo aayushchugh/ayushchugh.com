@@ -10,6 +10,8 @@ services:
     command: "npm start"
     environment:
       NODE_ENV: production
+    env_file:
+      - .env
     build:
       context: .
       dockerfile: Dockerfile

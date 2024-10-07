@@ -76,7 +76,7 @@ export default function RootLayout({
 			<head>
 				<script
 					async
-					src="https://www.googletagmanager.com/gtag/js?id=G-WRQGFF6ZSV"
+					src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS_ID}`}
 				></script>
 				<head>
 					{/* Google Analytics Script */}
@@ -104,7 +104,10 @@ export default function RootLayout({
 					<PreloadResources />
 				</main>
 			</body>
-			<GoogleAnalytics gaId="G-WRQGFF6ZSV" />
+			{process.env.GOOGLE_ANALYTICS_ID &&
+				process.env.NODE_ENV === "production" && (
+					<GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS_ID} />
+				)}
 		</html>
 	);
 }
