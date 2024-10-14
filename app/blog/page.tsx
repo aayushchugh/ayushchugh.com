@@ -5,21 +5,21 @@ import formatDate from "../utils/formatDate";
 import calculateEstimateReadingTime from "../utils/calculateEstimateReadingTime";
 
 export const metadata: Metadata = {
-  title: "Blog - Ayush Chugh",
+  title: "Blog",
   description:
     "Read my thoughts on engineering, design, and product development.",
   openGraph: {
-    title: "Blog by Ayush Chugh",
+    title: "Ayush Chugh's Blog",
     description:
       "Explore blog posts on engineering, design, and product development.",
-    url: "https://ayushchugh.com/blog", // Replace with your actual blog URL
-    siteName: "Ayush Chugh's Blog",
+    url: "https://ayushchugh.com/blog",
+    siteName: "Ayush Chugh's Portfolio",
     images: [
       {
-        url: "/ogs/ogs-bg.png", // Add the Open Graph image path
+        url: "https://cdn.ayushchugh.com/open-graph/blogs.png",
         width: 1200,
         height: 630,
-        alt: "Ayush Chugh Blog",
+        alt: "Ayush Chugh's Blog",
       },
     ],
     type: "website",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     title: "Ayush Chugh's Blog",
     description:
       "Read blog posts on engineering, design, and product development.",
-    images: ["/ogs/ogs-bg.png"], // Add the Twitter card image path
+    images: ["https://cdn.ayushchugh.com/open-graph/blogs.png"],
   },
 };
 
