@@ -65,6 +65,13 @@ const projectsData = [
 		website: "https://www.worldtravelsonline.in/en",
 	},
 	{
+		project: "FlipTimer",
+		description:
+			"Set a target date and see how much time is left in months, weeks, days, hours, minutes, and seconds.",
+		technologies: ["NextJS", "TypeScript", "shadcn", "framer-motion"],
+		website: "https://fliptimer.ayushchugh.com",
+	},
+	{
 		project: "Repository Commander",
 		logo: repoCommander,
 		description:
@@ -107,23 +114,29 @@ export default function ProjectsPage() {
 				<h2 className="font-medium text-2xl mb-4">My Projects</h2>
 				{projectsData.map((project, index) => (
 					<div key={index}>
-						<h3 className="font-medium text-xl mb-1 tracking-tighter flex items-center">
-							<Image
-								src={project.logo}
-								alt={project.project}
-								width={20}
-								height={20}
-								className="mr-4"
-							/>
-							<Link
-								target="_blank"
-								rel="noopener noreferrer"
-								className="ml-2"
-								href={project.website}
-							>
-								{project.project}
-							</Link>
-						</h3>
+						<div className="mb-1 flex items-center">
+							{project?.logo ? (
+								<Image
+									src={project.logo}
+									alt={project.project}
+									width={20}
+									height={20}
+									className="mr-4"
+								/>
+							) : (
+								<p className="mt-0 mb-0">{"->"}</p>
+							)}
+							<h3 className="font-medium text-xl tracking-tighter mt-0 mb-0">
+								<Link
+									target="_blank"
+									rel="noopener noreferrer"
+									className="ml-2"
+									href={project.website}
+								>
+									{project.project}
+								</Link>
+							</h3>
+						</div>
 						<p className="text-neutral-600 dark:text-neutral-400 text-sm">
 							{project.description}
 						</p>
