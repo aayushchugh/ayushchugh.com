@@ -7,7 +7,6 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 
 import { PreloadResources } from "./preload";
 import Cmdk from "./components/CmdK";
-import Script from "next/script";
 
 export const metadata: Metadata = {
 	metadataBase: new URL("https://ayushchugh.com/"),
