@@ -1,6 +1,6 @@
 services:
   ayushchugh_com_nextjs:
-    image: node:18-alpine
+    image: ayushchugh.com
     container_name: ayushchugh.com
     working_dir: /app
     ports:
