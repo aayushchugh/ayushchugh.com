@@ -3,15 +3,16 @@ import Image from "next/image";
 import Badge from "./components/Badge";
 import ArrowIcon from "./components/ArrowIcon";
 import type { Metadata } from "next";
+import Separator from "./components/separator";
 
 export const metadata: Metadata = {
   title: "Ayush Chugh",
   description:
-    "Ayush Chugh is a Full Stack Developer working on creating seamless, user-friendly digital experiences. He has contributed to projects like Worldtravels, ShriProperty, A2INFINITE, and Vibranium Soft.",
+    "I’m a Full Stack Web Developer from India, trying to make the internet a bit cooler one website at a time.",
   openGraph: {
     title: "Ayush Chugh",
     description:
-      "Discover the work and projects of Ayush Chugh, a Full Stack Developer contributing to Worldtravels, ShriProperty, A2INFINITE, and Vibranium Soft.",
+      "I’m a Full Stack Web Developer from India, trying to make the internet a bit cooler one website at a time.",
     url: "https://ayushchugh.com",
     siteName: "Ayush Chugh's Portfolio",
     images: [
@@ -39,24 +40,23 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <section>
-      <h1 className='font-medium text-2xl mb-8 tracking-tight font-["monospace"]'>
-        Sup, I'm Ayush Chugh 👋
-      </h1>
+      <header className="mb-6">
+        <h1 className='font-medium text-2xl mb-2 tracking-tight font-["monospace"]'>
+          Sup, I'm Ayush Chugh 👋
+        </h1>
+        <p className="text-lg prose prose-neutral dark:prose-invert">
+          I’m a Full Stack Web Developer from Mohali, India, trying to make the
+          internet a bit cooler one website at a time.
+        </p>
+      </header>
 
-      <p className="prose prose-neutral dark:prose-invert">
-        I’m a Full Stack Web Developer from Mohali, India, trying to make the
-        internet a bit cooler one website at a time.
-      </p>
+      <Separator />
 
-      <br />
-
-      <div className="prose prose-neutral dark:prose-invert">
+      <div className="mb-8 prose prose-neutral dark:prose-invert">
+        <h2>Professional Work</h2>
         <p>
-          <strong>Work Life</strong>
-          <br />
-          My job is to create user-friendly digital experiences, and I’ve worked
-          on various projects that showcase my technical skills and creativity.
-          I am currently a <strong>Freelance Developer</strong> working with{" "}
+          I specialize in creating user-friendly digital experiences. Currently,
+          I work as a <strong>Freelance Developer</strong> with{" "}
           <span className="not-prose">
             <Badge href="https://www.linkedin.com/company/vibraniumsoft/posts/?feedView=all">
               <Image
@@ -69,7 +69,7 @@ export default function Page() {
               Vibranium Soft
             </Badge>
           </span>
-          , and I am also involved with{" "}
+          , and I also collaborate with{" "}
           <span className="not-prose">
             <Badge href="https://www.keizerworks.com/">
               <Image
@@ -82,8 +82,8 @@ export default function Page() {
               Keizer Works
             </Badge>
           </span>
-          , where I maintain their open-source projects and engage in innovative
-          collaborations in my free time.
+          , where I maintain their open-source projects and contribute to
+          innovative solutions.
         </p>
         <p>
           One of my most significant achievements is developing{" "}
@@ -104,48 +104,49 @@ export default function Page() {
         </p>
       </div>
 
-      <div className="prose prose-neutral dark:prose-invert">
+      <Separator />
+
+      <div className="mb-8 prose prose-neutral dark:prose-invert">
+        <h2>Leadership & Community</h2>
         <p>
-          <strong>Leadership and Community Involvement:</strong>
-          <br />
           As the Team Lead at the Innovation Club of{" "}
           <a href="https://ccetdiploma.edu.in/" target="_blank">
-            CCET
-          </a>{" "}
-          College, I’ve learned how to lead a team and stay organized. I also
-          assist in{" "}
+            CCET College
+          </a>
+          , I’ve learned how to lead a team and stay organized. I also assist in{" "}
           <a href="https://chdtechnicaleducation.gov.in/" target="_blank">
             ICT
           </a>{" "}
-          training sessions, where I teach government employees how to use
-          computers effectively. Additionally, I help organize the{" "}
-          <i>Talent Hunt</i>
-          cultural program and serve as the student coordinator for{" "}
-          <i>Jhalak</i>, our college’s digital newsletter.
+          training sessions, teaching government employees essential computer
+          skills. Additionally, I help organize the <i>Talent Hunt</i> cultural
+          program and serve as the student coordinator for <i>Jhalak</i>, our
+          college’s digital newsletter.
         </p>
       </div>
 
-      <div className="prose prose-neutral dark:prose-invert">
+      <Separator />
+
+      <div className="mb-8 prose prose-neutral dark:prose-invert">
+        <h2>Personal Interests</h2>
         <p>
-          <strong>Personal Interests:</strong>
-          <br />
-          When I’m not working on code, I’m either exploring my interest in
-          Vedic astrology or spending time with friends. I also enjoy playing
-          the guitar, which helps me unwind after a long day. I’m currently
-          pursuing a diploma in Computer Science Engineering (CSE)
+          Outside of work, I enjoy exploring Vedic astrology, playing the
+          guitar, and spending time with friends. I’m also pursuing a diploma in
+          Computer Science Engineering (CSE).
         </p>
       </div>
 
-      <div className="prose prose-neutral dark:prose-invert">
+      <Separator />
+
+      <div className="mb-8 prose prose-neutral dark:prose-invert">
+        <h2>Writing</h2>
         <p>
-          I’ve also been trying my hand at <Link href="/blog">writing</Link>{" "}
-          articles that aim to help people become better engineers, regardless
-          of their career paths. Stay tuned for more content!
+          I’ve started writing <Link href="/blog">blogs</Link> to help others
+          improve their engineering skills. Stay tuned for more content!
         </p>
       </div>
 
       <div className="prose prose-neutral dark:prose-invert">
-        <article className={"text-xs sm:hidden lg:block"}>
+        <article className="text-xs sm:hidden lg:block">
           Press ⌘+K to navigate with your keyboard.
         </article>
       </div>
