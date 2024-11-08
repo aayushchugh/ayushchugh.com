@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Ayush Chugh",
     description:
-      "Explore Ayush Chugh’s work as a Full Stack Developer and his projects, including Worldtravels, ShriProperty, A2INFINITE, and Vibranium Soft.",
+      "I’m a Full Stack Web Developer from India, trying to make the internet a bit cooler one website at a time.",
     images: ["https://cdn.ayushchugh.com/open-graph/home.png"],
     creator: "@aayushchugh_x",
     creatorId: "@aayushchugh_x",
