@@ -46,7 +46,7 @@ const resumeData = {
 			company: "Tap Invest",
 			logo: tapLogo,
 			role: "Consultant",
-			period: "Apr 2024 - Present",
+			period: "Apr 2024 - Nov",
 			location: "Remote",
 			website: "https://tapinvest.in/", // Add the website link
 			technologies: ["NextJS", "React", "TypeScript", "MUI", "Tailwind CSS"],
