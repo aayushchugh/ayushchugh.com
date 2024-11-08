@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@next/third-parties": "^14.2.11",
+    "@phosphor-icons/react": "^2.1.7",
     "@tailwindcss/typography": "^0.5.10",
     "@types/node": "20.10.0",
     "@types/react": "18.2.38",
