@@ -1,5 +1,3 @@
-// pages/projects.tsx
-
 import type { Metadata } from "next";
 import ProjectCard from "../components/project-card";
 
@@ -68,6 +66,13 @@ const projectsData = [
       "A Github app that lets you automate tasks by adding labels and using `/` commands in comments to approve or merge pull requests.",
     technologies: ["Node.js", "TypeScript", "Probot"],
     website: "https://github.com/aayushchugh/repository-commander",
+  },
+  {
+    project: "FlipTimer",
+    description:
+      "A countdown timer that lets users set a target date and displays time left in months, weeks, days, hours, minutes, and seconds.",
+    technologies: ["NextJS", "TypeScript", "shadcn", "framer-motion"],
+    website: "https://fliptimer.ayushchugh.com",
   },
 ];
 
