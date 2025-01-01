@@ -40,17 +40,13 @@ html {
 	cursor: pointer;
 }
 
-.anchor:hover {
-	@apply visible;
-}
-
-.prose a {
+j .prose a {
 	@apply transition-all decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em];
 }
 
 .prose .anchor:after {
 	@apply text-neutral-300 dark:text-neutral-700;
-	content: '#';
+	content: "#";
 }
 
 .prose *:hover > .anchor {
@@ -106,8 +102,8 @@ pre {
 }
 
 /* Remove Safari input shadow on mobile */
-input[type='text'],
-input[type='email'] {
+input[type="text"],
+input[type="email"] {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
@@ -153,9 +149,9 @@ table {
 		font-size: 12pt; /* Example: Change heading sizes */
 		color: #000000; /* Ensure black text for better print visibility */
 	}
-  .margin-10{
-    margin-top: 30px;
-  }
+	.margin-10 {
+		margin-top: 30px;
+	}
 	.page-break {
 		page-break-before: always; /* Forces a page break before the element */
 	}
