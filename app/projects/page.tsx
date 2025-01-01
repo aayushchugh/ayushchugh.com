@@ -76,6 +76,15 @@ const projectsData = [
 		technologies: ["Node.js", "TypeScript", "Probot"],
 		website: "https://github.com/aayushchugh/repository-commander",
 	},
+
+	{
+		project: "Soumya Sourav's Portfolio",
+		description:
+			"Personal portfolio website for Soumya Sourav, a Asst. Vice President",
+		technologies: ["NextJS", "TypeScript", "Firebase"],
+		website: "https://soumyasourav.com",
+	},
+
 	{
 		project: "FlipTimer",
 		description:
