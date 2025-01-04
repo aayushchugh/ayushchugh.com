@@ -69,7 +69,7 @@ const projectsData = [
 	},
 
 	{
-		project: "Repository Commander",
+		project: "Repo Command",
 		logo: "https://cdn.ayushchugh.com/logos/repository-commander.svg",
 		description:
 			"A Github app that lets you automate tasks by adding labels and using `/` commands in comments to approve or merge pull requests.",
