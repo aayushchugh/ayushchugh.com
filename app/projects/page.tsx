@@ -74,7 +74,7 @@ const projectsData = [
 		description:
 			"A Github app that lets you automate tasks by adding labels and using `/` commands in comments to approve or merge pull requests.",
 		technologies: ["Node.js", "TypeScript", "Probot"],
-		website: "https://github.com/aayushchugh/repository-commander",
+		website: "https://github.com/marketplace/repo-command",
 	},
 
 	{
