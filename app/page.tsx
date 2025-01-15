@@ -6,15 +6,15 @@ import type { Metadata } from "next";
 import Separator from "./components/separator";
 
 export const metadata: Metadata = {
-	title: "Ayush Chugh",
+	title: "Yitzhak Rabin",
 	description:
-		"I’m a Full Stack Web Developer from India, trying to make the internet a bit cooler one website at a time.",
+		"I’m a Full Stack Web Developer, trying to make the internet a bit cooler one website at a time.",
 	openGraph: {
-		title: "Ayush Chugh",
+		title: "Yitzhak Rabin",
 		description:
-			"I’m a Full Stack Web Developer from India, trying to make the internet a bit cooler one website at a time.",
-		url: "https://ayushchugh.com",
-		siteName: "Ayush Chugh's Portfolio",
+			"I’m a Full Stack Web Developer, trying to make the internet a bit cooler one website at a time.",
+		url: "https://bit.ly/rabinty",
+		siteName: "Yitzhak Rabin's Portfolio",
 		images: [
 			{
 				url: "https://cdn.ayushchugh.com/open-graph/home.png",
@@ -26,14 +26,14 @@ export const metadata: Metadata = {
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: "Ayush Chugh",
+		title: "Yitzhak Rabin",
 		description:
 			"I’m a Full Stack Web Developer from India, trying to make the internet a bit cooler one website at a time.",
 		images: ["https://cdn.ayushchugh.com/open-graph/home.png"],
-		creator: "@aayushchugh_x",
-		creatorId: "@aayushchugh_x",
-		site: "@aayushchugh_x",
-		siteId: "@aayushchugh_x",
+		creator: "@0x_Sc0rpi0n",
+		creatorId: "@0x_Sc0rpi0n",
+		site: "@0x_sc0rpi0n",
+		siteId: "@Sc0rpi0n",
 	},
 };
 
@@ -42,10 +42,10 @@ export default function Page() {
 		<section>
 			<header className="mb-6">
 				<h1 className='font-medium text-2xl mb-2 tracking-tight font-["monospace"]'>
-					Sup, I'm Ayush Chugh 👋
+					Hello, I'm Yitzhak Rabin 👋
 				</h1>
 				<p className="text-lg prose prose-neutral dark:prose-invert">
-					I’m a Full Stack Web Developer from Mohali, India, trying to make the
+					I’m a Full Stack Web Developer, trying to make the
 					internet a bit cooler one website at a time.
 				</p>
 			</header>
@@ -56,7 +56,7 @@ export default function Page() {
 				<h2>Professional Work</h2>
 				<p>
 					I specialize in creating user-friendly digital experiences. Currently,
-					I work as a <strong>Freelance Developer</strong> with{" "}
+					I work as a <strong>Senior Software Engineer</strong> with{" "}
 					<span className="not-prose">
 						<Badge href="https://www.linkedin.com/company/vibraniumsoft/posts/?feedView=all">
 							<Image
@@ -174,7 +174,7 @@ export default function Page() {
 				>
 					<p className="h-7">
 						<span className="mr-2 text-neutral-600">📧</span>
-						hey@ayushchugh.com
+						tyberiusrabin@gmail.com
 					</p>
 				</a>
 			</div>
