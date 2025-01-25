@@ -52,14 +52,6 @@ const projectsData = [
 		website: "https://www.shriproperty.com",
 	},
 	{
-		project: "Invoicen",
-		logo: "https://cdn.ayushchugh.com/logos/keizer-light-icon.png",
-		description:
-			"A Simple Invoice Generator for Freelancers and Businesses and enterprises.",
-		technologies: ["NextJS", "shadcn", "TypeScript", "Tailwind"],
-		website: "https://invoicen.keizerworks.com",
-	},
-	{
 		project: "A2INFINITE",
 		logo: "https://cdn.ayushchugh.com/logos/a2infinite.png",
 		description:
@@ -96,21 +88,29 @@ const projectsData = [
 
 const openSourceData = [
 	{
-		project: "Maya",
-		logo: "https://cdn.ayushchugh.com/logos/maya.png",
+		project: "Invoicen",
+		logo: "https://cdn.ayushchugh.com/logos/keizer-light-icon.png",
 		description:
-			"Maya is a project that helps users manage their pocket money, track expenses, and set savings goals.",
-		technologies: ["React", "Node.js", "Express", "TypeScript"],
-		website: "https://github.com/maya-manager",
+			"A Simple Invoice Generator for Freelancers and Businesses and enterprises.",
+		technologies: ["NextJS", "shadcn", "TypeScript", "Tailwind"],
+		website: "https://invoicen.keizerworks.com",
 	},
-	{
-		project: "Multi Email",
-		logo: "https://cdn.ayushchugh.com/logos/multiEmail.png",
-		description:
-			"Multi Email is a platform that allows users to connect and manage multiple email services in one place.",
-		technologies: ["React", "Node.js", "Express", "OAuth", "TypeScript"],
-		website: "https://github.com/MultiEmail/",
-	},
+	// {
+	// 	project: "Maya",
+	// 	logo: "https://cdn.ayushchugh.com/logos/maya.png",
+	// 	description:
+	// 		"Maya is a project that helps users manage their pocket money, track expenses, and set savings goals.",
+	// 	technologies: ["React", "Node.js", "Express", "TypeScript"],
+	// 	website: "https://github.com/maya-manager",
+	// },
+	// {
+	// 	project: "Multi Email",
+	// 	logo: "https://cdn.ayushchugh.com/logos/multiEmail.png",
+	// 	description:
+	// 		"Multi Email is a platform that allows users to connect and manage multiple email services in one place.",
+	// 	technologies: ["React", "Node.js", "Express", "OAuth", "TypeScript"],
+	// 	website: "https://github.com/MultiEmail/",
+	// },
 ];
 
 export default function ProjectsPage() {
