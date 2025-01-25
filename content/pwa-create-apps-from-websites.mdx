@@ -1,0 +1,158 @@
+---
+title: Progressive Web Apps: Create apps from websites
+publishedAt: "2025-01-25"
+summary: "Progressive Web Apps (PWAs) are web applications that are built using web technologies but behave like native apps. They are fast, reliable and engaging."
+coverImage: "https://cdn.ayushchugh.com/blogs/pwa-create-apps-from-websites.png"
+ogImage: "https://cdn.ayushchugh.com/blogs/pwa-create-apps-from-websites.png"
+---
+
+Ever thought of converting your website into an app? Progressive Web Apps (PWAs) are here to help you with that.
+
+## What are Progressive Web Apps (PWAs)?
+
+Progressive Web Apps (PWAs) are downloadable web applications that provide a native app-like experience on the web. They are built using web technologies like HTML, CSS, and JavaScript but behave like native apps. PWAs are fast, reliable, and engaging, making them an ideal choice for modern web applications.
+
+### PWAs allow you to:
+
+1. Deploy updates instantly without waiting for app store approval
+2. Create cross-platform applications with a single codebase
+3. Provide native-like features such as home screen installation and push notifications
+
+## Key Characteristics of PWAs
+
+1. **Progressive Enhancement**:
+
+   - PWAs are built with the principle of progressive enhancement, meaning they start as basic web pages and add layers of advanced features as the browser capabilities and device allow. This ensures a functional experience on any browser, including older or less capable ones, while offering enhanced features on modern browsers.
+
+1. **Installability**:
+   - Users can “install” a PWA directly onto their device’s home screen or desktop from the browser. This creates a shortcut icon and an app-like experience without going through an app store.
+   - Once installed, PWAs can open in a standalone window without typical browser interface elements, making them feel more like native apps.
+1. **Offline Capabilities & Reliability**:
+
+   - PWAs use Service Workers—scripts that run in the background independent of the webpage—to enable offline or near-offline experiences.
+   - By caching essential assets (HTML, CSS, JavaScript, images) in advance, PWAs can load instantly even on slow networks or with no connectivity, providing a reliable user experience.
+
+1. **Responsive Design**:
+
+   - PWAs are fully responsive, allowing them to work on various devices (phone, tablet, desktop) with different screen sizes and orientations.
+
+1. **Re-Engagement Tools**:
+
+   - Modern web APIs enable features like push notifications and background sync, allowing PWAs to keep users engaged, similar to native apps.
+
+1. **Secure Context (HTTPS)**:
+   - Service Workers and many advanced web APIs only work over secure connections (HTTPS). PWAs require HTTPS to ensure data integrity and security.
+
+## How PWAs Work Technically
+
+1. **Web App Manifest**:
+   - This is a JSON file that provides metadata about the application (name, icons, theme color, etc.).
+   - The manifest allows browsers to understand how the app should appear when installed on the device and what the start screen should look like.
+1. **Service Worker**:
+   - A Service Worker is a script that runs in the background, separate from the main browser thread.
+   - It can intercept network requests, manage caching, and handle push notifications.
+   - The Service Worker is what enables offline functionality by caching resources and serving them when network access is slow or absent.
+1. **App Shell Architecture**:
+   - A common architectural approach used in PWAs where the “shell” (minimal HTML, CSS, JavaScript) is cached on the device.
+   - The content (or data) is dynamically loaded and updated from the network as needed. This approach ensures the app feels fast and responsive even if the network is unreliable.
+
+## Benefits of Using PWAs
+
+1. **Improved Performance and Speed**
+
+   - Because of caching assets, PWAs often load faster than traditional websites, leading to better user engagement and retention.
+
+1. **Better User Engagement**
+
+   - Installing a PWA on the home screen makes it just one tap away from the user.
+   - Push notifications and offline capabilities keep the app “sticky” and help bring users back.
+
+1. **Cross-Platform Compatibility**
+
+   - A single codebase (using standard web technologies: HTML, CSS, JavaScript) can run on multiple platforms (Android, iOS, Windows, macOS, etc.).
+
+1. **Lower Development and Maintenance Costs**
+
+   - Compared to creating separate native apps for Android and iOS, a PWA can be built once and deployed everywhere the web is supported.
+
+1. **Discoverability**
+
+   - PWAs are discoverable by search engines since they are essentially websites. This is a big advantage over native apps, which are generally only discoverable via app stores.
+
+1. **No Mandatory App Store Dependencies**
+
+   - While PWAs can be published in some app stores (e.g., Google Play), they do not require it. Users can install them directly from the browser.
+
+## When to Consider a PWA
+
+1. You want to reach the widest audience possible with minimal friction (no app store barrier).
+1. Your users need offline or low-bandwidth functionality, such as reading content or basic browsing.
+1. Budget and development resources are limited (a single codebase for all platforms).
+1. Rapid updates are important (PWAs can be updated instantly from the web, whereas native apps often require store approval).
+1. SEO matters and you want to be discoverable via search engines.
+
+## Creating a PWA using NextJS
+
+1. Set Up Your Next.js Project
+
+If you haven't already set up a Next.js project, follow [this](/blog/initial-setup) guide to create a new Next.js app
+
+2. Create a Web App Manifest file in the app directory
+
+Create a `manifest.ts` file `app` directory with following content:
+
+```ts
+import type { MetadataRoute } from "next";
+
+export default function manifest(): MetadataRoute.Manifest {
+	return {
+		name: "Ayush Chugh", // Your app name
+		short_name: "ayushchugh", // Short name for your app
+		description:
+			"Passionate full stack developer from India. On the way to master programming", // Description of your app
+		start_url: "/", // Start URL when the app is launched
+		id: "com.ayushchugh", // Unique identifier for your app
+		display: "standalone", // Display mode of your app
+		background_color: "#000000", // Background color of your app
+		theme_color: "#000000", // Theme color of your app
+		// Add icons for your app
+		icons: [
+			{
+				src: "/favicon/web-app-manifest-192x192.png",
+				sizes: "192x192",
+				type: "image/png",
+				purpose: "any",
+			},
+			{
+				src: "/favicon/web-app-manifest-512x512.png",
+				sizes: "512x512",
+				type: "image/png",
+				purpose: "any",
+			},
+		],
+	};
+}
+```
+
+You can generate icons for your app using [favicon generator](https://realfavicongenerator.net/) and place them in the `public/favicon` directory.
+
+This will create a Web App Manifest file for your PWA and your application becomes installable after adding this file.
+
+To create Service Workers and Enable push notifications, follow official [Next.js documentation](https://nextjs.org/docs/app/building-your-application/configuring/progressive-web-apps).
+
+## Challenges or Limitations
+
+1. **Limited Access to Device Features**:
+   - Although modern browsers have APIs for camera, geolocation, push notifications, etc., some advanced native features may be restricted or require special permissions. Features like Bluetooth, NFC, or certain OS-level integrations vary by browser and operating system.
+2. **iOS Support Gaps**:
+   - Over the years, iOS (Safari) has gradually added more PWA features, but some capabilities—like push notifications (which arrived relatively late on iOS)—may still have constraints compared to Android or desktop browsers.
+3. **User Awareness**:
+   - Some users might not know how to “install” a PWA because this process differs from traditional downloading in app stores.
+4. **Performance on Older Devices/Browsers**:
+   - While progressive enhancement helps, the full PWA experience relies on modern browser APIs. Older devices may not benefit from advanced capabilities like offline mode or push notifications.
+
+## Conclusion
+
+Progressive Web Applications represent a significant evolution in how we build and deliver software experiences on the web. They blend the reach and simplicity of the web with many of the convenience and engagement features of native apps. By utilizing modern browser APIs—like Service Workers and Web App Manifests—PWAs provide offline access, push notifications, and app-like interfaces, all in a single, cost-effective package.
+
+As browser and operating system support continues to improve, PWAs offer an increasingly powerful way for businesses and developers to create high-performing, cross-platform solutions that are easy for users to find, install, and use.
