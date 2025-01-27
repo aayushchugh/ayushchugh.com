@@ -8,3 +8,4 @@ https://ayushchugh.com/blog/self-hosting-docmost
 https://ayushchugh.com/blog/unlocking-beckn-the-unsung-hero-of-eCommerce-revolution
 https://ayushchugh.com/blog/how-i-started-my-journey-in-web-development-as-13-year-old
 https://ayushchugh.com/blog/initial-setup
+https://ayushchugh.com/blog/pwa-create-apps-from-websites
