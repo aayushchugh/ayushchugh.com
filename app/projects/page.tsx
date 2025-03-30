@@ -40,8 +40,16 @@ const projectsData = [
 		logo: "https://cdn.ayushchugh.com/logos/worldtravels.png",
 		description:
 			"A B2B flight booking platform for travel agencies to manage bookings and payments.",
-		technologies: ["React", "Redux", "TypeScript", "Node.js"],
+		technologies: ["React", "Redux", "TypeScript", "NextJS"],
 		website: "https://www.worldtravelsonline.in/en",
+	},
+	{
+		project: "Invoicen",
+		logo: "https://cdn.ayushchugh.com/logos/invoicen-icon.png",
+		description:
+			"A Simple Invoice Generator for Freelancers and Businesses and enterprises.",
+		technologies: ["NextJS", "shadcn", "TypeScript", "Tailwind"],
+		website: "https://invoicen.ayushchugh.com",
 	},
 	{
 		project: "Shriproperty",
@@ -86,32 +94,24 @@ const projectsData = [
 	},
 ];
 
-const openSourceData = [
-	{
-		project: "Invoicen",
-		logo: "https://cdn.ayushchugh.com/logos/keizer-light-icon.png",
-		description:
-			"A Simple Invoice Generator for Freelancers and Businesses and enterprises.",
-		technologies: ["NextJS", "shadcn", "TypeScript", "Tailwind"],
-		website: "https://invoicen.keizerworks.com",
-	},
-	// {
-	// 	project: "Maya",
-	// 	logo: "https://cdn.ayushchugh.com/logos/maya.png",
-	// 	description:
-	// 		"Maya is a project that helps users manage their pocket money, track expenses, and set savings goals.",
-	// 	technologies: ["React", "Node.js", "Express", "TypeScript"],
-	// 	website: "https://github.com/maya-manager",
-	// },
-	// {
-	// 	project: "Multi Email",
-	// 	logo: "https://cdn.ayushchugh.com/logos/multiEmail.png",
-	// 	description:
-	// 		"Multi Email is a platform that allows users to connect and manage multiple email services in one place.",
-	// 	technologies: ["React", "Node.js", "Express", "OAuth", "TypeScript"],
-	// 	website: "https://github.com/MultiEmail/",
-	// },
-];
+// const openSourceData = [
+// {
+// 	project: "Maya",
+// 	logo: "https://cdn.ayushchugh.com/logos/maya.png",
+// 	description:
+// 		"Maya is a project that helps users manage their pocket money, track expenses, and set savings goals.",
+// 	technologies: ["React", "Node.js", "Express", "TypeScript"],
+// 	website: "https://github.com/maya-manager",
+// },
+// {
+// 	project: "Multi Email",
+// 	logo: "https://cdn.ayushchugh.com/logos/multiEmail.png",
+// 	description:
+// 		"Multi Email is a platform that allows users to connect and manage multiple email services in one place.",
+// 	technologies: ["React", "Node.js", "Express", "OAuth", "TypeScript"],
+// 	website: "https://github.com/MultiEmail/",
+// },
+// ];
 
 export default function ProjectsPage() {
 	return (
@@ -133,23 +133,23 @@ export default function ProjectsPage() {
 			</div>
 
 			{/* Open Source Contributions Section */}
-			<h2 className="font-medium text-2xl mb-4">Open Source Contributions</h2>
-			<p className="prose prose-neutral dark:prose-invert">
-				These are various open-source projects maintained by me, as well as
-				those to which I have contributed throughout my programming journey.
-			</p>
-			<div className="prose prose-neutral dark:prose-invert mt-4">
-				{openSourceData.map((contribution, index) => (
-					<ProjectCard
-						key={index}
-						title={contribution.project}
-						logo={contribution.logo}
-						description={contribution.description}
-						technologies={contribution.technologies}
-						website={contribution.website}
-					/>
-				))}
-			</div>
+			{/* <h2 className="font-medium text-2xl mb-4">Open Source Contributions</h2>
+      <p className="prose prose-neutral dark:prose-invert">
+        These are various open-source projects maintained by me, as well as
+        those to which I have contributed throughout my programming journey.
+      </p>
+      <div className="prose prose-neutral dark:prose-invert mt-4">
+        {openSourceData.map((contribution, index) => (
+          <ProjectCard
+            key={index}
+            title={contribution.project}
+            logo={contribution.logo}
+            description={contribution.description}
+            technologies={contribution.technologies}
+            website={contribution.website}
+          />
+        ))}
+      </div> */}
 		</section>
 	);
 }
