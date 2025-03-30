@@ -4,6 +4,7 @@ import { CustomMDX } from "app/components/mdx";
 import { getBlogPosts } from "app/db/blog";
 import Image from "next/image";
 import formatDate from "../../utils/formatDate";
+import { format, formatDistanceToNow } from "date-fns";
 
 export async function generateMetadata({
 	params,
@@ -87,7 +88,11 @@ export default function Blog({ params }) {
 			</h1>
 			<div className="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]">
 				<p className="text-sm text-neutral-600 dark:text-neutral-400">
-					{formatDate(post.metadata.publishedAt)}
+					{format(new Date(post.metadata.publishedAt), "MMMM d, yyyy")} (
+					{formatDistanceToNow(new Date(post.metadata.publishedAt), {
+						addSuffix: true,
+					})}
+					)
 				</p>
 			</div>
 			{post.metadata.coverImage && (
