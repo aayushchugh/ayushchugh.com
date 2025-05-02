@@ -46,7 +46,14 @@ const resumeData = {
 			location: "Remote",
 			workType: "Contract",
 			website: "https://avenue.tickets/",
-			technologies: ["NodeJS", "TypeScript", "PostgreSQL", "AWS", "Stripe"],
+			technologies: [
+				"NodeJS",
+				"TypeScript",
+				"PostgreSQL",
+				"Redis",
+				"AWS",
+				"Stripe",
+			],
 			responsibilities: [
 				"Developing and maintaining a ticketing platform for event organizers and attendees.",
 				"Implementing secure authentication and authorization systems for organizers and users.",
