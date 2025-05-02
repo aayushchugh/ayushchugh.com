@@ -8,11 +8,11 @@ import Separator from "./components/separator";
 export const metadata: Metadata = {
 	title: "Ayush Chugh",
 	description:
-		"I’m a Full Stack Web Developer from India, trying to make the internet a bit cooler one website at a time.",
+		"I'm a Full Stack Web Developer from India, trying to make the internet a bit cooler one website at a time.",
 	openGraph: {
 		title: "Ayush Chugh",
 		description:
-			"I’m a Full Stack Web Developer from India, trying to make the internet a bit cooler one website at a time.",
+			"I'm a Full Stack Web Developer from India, trying to make the internet a bit cooler one website at a time.",
 		url: "https://ayushchugh.com",
 		siteName: "Ayush Chugh's Portfolio",
 		images: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 		card: "summary_large_image",
 		title: "Ayush Chugh",
 		description:
-			"I’m a Full Stack Web Developer from India, trying to make the internet a bit cooler one website at a time.",
+			"I'm a Full Stack Web Developer from India, trying to make the internet a bit cooler one website at a time.",
 		images: ["https://cdn.ayushchugh.com/open-graph/home.png"],
 		creator: "@aayushchugh_x",
 		creatorId: "@aayushchugh_x",
@@ -45,7 +45,7 @@ export default function Page() {
 					Sup, I'm Ayush Chugh 👋
 				</h1>
 				<p className="text-lg prose prose-neutral dark:prose-invert">
-					I’m a Full Stack Web Developer from Mohali, India, trying to make the
+					I'm a Full Stack Web Developer from Mohali, India, trying to make the
 					internet a bit cooler one website at a time.
 				</p>
 			</header>
@@ -56,7 +56,21 @@ export default function Page() {
 				<h2>Professional Work</h2>
 				<p>
 					I specialize in creating user-friendly digital experiences. Currently,
-					I work as a <strong>Freelance Developer</strong> with{" "}
+					I work as a <strong>Full Stack Developer</strong> at{" "}
+					<span className="not-prose">
+						<Badge href="https://avenue.tickets/">
+							<Image
+								src={"https://cdn.ayushchugh.com/logos/avenue.jpeg"}
+								alt="Avenue Ticketing"
+								height={16}
+								width={16}
+								className={"pr-1"}
+							/>
+							Avenue Ticketing
+						</Badge>
+					</span>{" "}
+					where we're building a ticketing platform for event organizers and
+					attendees. I also work as a <strong>Frontend Developer</strong> with{" "}
 					<span className="not-prose">
 						<Badge href="https://www.linkedin.com/company/vibraniumsoft/posts/?feedView=all">
 							<Image
@@ -69,38 +83,25 @@ export default function Page() {
 							Vibranium Soft
 						</Badge>
 					</span>{" "}
-					where we are building a flight booking project and{" "}
-					<span className="not-prose">
-						<Badge href="https://www.keizerworks.com/">
-							<Image
-								src={"https://cdn.ayushchugh.com/logos/keizer.svg"}
-								alt="Keizer Works"
-								height={16}
-								width={16}
-								className={"pr-1"}
-							/>
-							Keizer Works
-						</Badge>
-					</span>
-					, where I maintain their open-source projects and contribute to
-					innovative solutions.
+					where we are building a flight booking project.
 				</p>
 				<p>
-					One of my most significant achievements is developing{" "}
+					Previously, I worked with{" "}
 					<span className="not-prose">
-						<Badge href="https://worldtravels.com">
+						<Badge href="https://tapinvest.in/">
 							<Image
-								src={"https://cdn.ayushchugh.com/logos/worldtravels.png"}
-								alt="Worldtravels"
+								src={"https://cdn.ayushchugh.com/logos/tapico.png"}
+								alt="Tap Invest"
 								height={16}
 								width={16}
 								className={"pr-1"}
 							/>
-							Worldtravels
+							Tap Invest
 						</Badge>
 					</span>
-					, a B2B flight booking platform for a travel agency. For more of my
-					projects, visit the <Link href="/projects">Projects</Link> page.
+					, where I developed admin dashboards and created landing pages for
+					their investment platform. For more details about my experience, check
+					out my <Link href="/resume">resume</Link>.
 				</p>
 			</div>
 
@@ -113,14 +114,14 @@ export default function Page() {
 					<a href="https://ccetdiploma.edu.in/" target="_blank">
 						CCET College
 					</a>
-					, I’ve learned how to lead a team and stay organized. I also assist in{" "}
+					, I've learned how to lead a team and stay organized. I also assist in{" "}
 					<a href="https://chdtechnicaleducation.gov.in/" target="_blank">
 						ICT
 					</a>{" "}
 					training sessions, teaching government employees essential computer
 					skills. Additionally, I help organize the <i>Talent Hunt</i> cultural
 					program and serve as the student coordinator for <i>Jhalak</i>, our
-					college’s digital newsletter.
+					college's digital newsletter.
 				</p>
 			</div>
 
@@ -130,7 +131,7 @@ export default function Page() {
 				<h2>Personal Interests</h2>
 				<p>
 					Outside of work, I enjoy exploring Vedic astrology, playing the
-					guitar, and spending time with friends. I’m also pursuing a diploma in
+					guitar, and spending time with friends. I'm also pursuing a diploma in
 					Computer Science Engineering (CSE).
 				</p>
 			</div>
@@ -140,7 +141,7 @@ export default function Page() {
 			<div className="mb-8 prose prose-neutral dark:prose-invert">
 				<h2>Writing</h2>
 				<p>
-					I’ve started writing <Link href="/blog">blogs</Link> to help others
+					I've started writing <Link href="/blog">blogs</Link> to help others
 					improve their engineering skills. Stay tuned for more content!
 				</p>
 			</div>
