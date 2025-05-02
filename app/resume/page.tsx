@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 			"Detailed resume of Ayush Chugh, Full-Stack Developer, with work experience, projects, and educational background.",
 		images: [
 			{
-				url: `https://cdn.ayushchugh.com/open-graph/resume.png`,
+				url: `https://cdn.ayushchugh.com/open-graph/business-card.png`,
 				width: 1200,
 				height: 630,
 				alt: "Ayush Chugh's Resume",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 		title: "Ayush Chugh's Resume",
 		description:
 			"Check out Ayush Chugh’s Full-Stack Developer resume, showcasing professional contributions and achievements.",
-		images: ["https://cdn.ayushchugh.com/open-graph/resume.png"],
+		images: ["https://cdn.ayushchugh.com/open-graph/business-card.png"],
 		creator: "@aayushchugh_x",
 		creatorId: "@aayushchugh_x",
 		site: "@aayushchugh_x",

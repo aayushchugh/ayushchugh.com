@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 		siteName: "Ayush Chugh's Portfolio",
 		images: [
 			{
-				url: "https://cdn.ayushchugh.com/open-graph/home.png",
+				url: "https://cdn.ayushchugh.com/open-graph/business-card.png",
 				height: 630,
 				alt: "Ayush Chugh",
 			},
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 		title: "Ayush Chugh",
 		description:
 			"I'm a Full Stack Web Developer from India, trying to make the internet a bit cooler one website at a time.",
-		images: ["https://cdn.ayushchugh.com/open-graph/home.png"],
+		images: ["https://cdn.ayushchugh.com/open-graph/business-card.png"],
 		creator: "@aayushchugh_x",
 		creatorId: "@aayushchugh_x",
 		site: "@aayushchugh_x",
