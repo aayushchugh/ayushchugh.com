@@ -44,6 +44,14 @@ const projectsData = [
 		website: "https://www.worldtravelsonline.in/en",
 	},
 	{
+		project: "EJS Snippets And Color Highlighting for VsCode (7k+ downloads)",
+		logo: "https://cdn.ayushchugh.com/logos/ejs-language-snippets-and-color-highlighting-vscode.png",
+		description: "Add snippets and syntax highlighting for EJS",
+		technologies: ["Javascript", "vsce"],
+		website:
+			"https://marketplace.visualstudio.com/items/?itemName=AyushChugh.ejs-snippets-and-color-highlighting",
+	},
+	{
 		project: "Invoicen",
 		logo: "https://cdn.ayushchugh.com/logos/invoicen-icon.png",
 		description:
