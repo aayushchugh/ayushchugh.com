@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 
 const projectsData = [
 	{
-		project: "Worldtravels",
+		project: "Worldtravels (1k+ active users daily)",
 		logo: "https://cdn.ayushchugh.com/logos/worldtravels.png",
 		description:
 			"A B2B flight booking platform for travel agencies to manage bookings and payments.",
