@@ -1,0 +1,74 @@
+---
+title: Mastering view port: 100vh scroll problem
+publishedAt: "2025-05-04"
+summary: "A deep dive into CSS viewport units (vh, vw) and how the new small (sv*), large (lv*), and dynamic (dv*) viewport units solve the annoying 100vh scrolling issue on mobile and dynamic-browser UIs."
+coverImage: "https://cdn.ayushchugh.com/blogs/viewports/viewports-cover.png"
+ogImage: "https://cdn.ayushchugh.com/blogs/viewports/viewports-cover.png"
+---
+
+You must have used View Port units _(vh, vw)_ in CSS, but do you know how this View Port works and why is there annoying scroll if you use _100vh_?
+
+## Basics of view port
+
+1. `vw = 1%` of the width of the viewport size.
+1. `vh = 1%` of the height of the viewport size.
+
+If we use 100vw and 100vh, it will cover the entire document.
+
+<Image
+	src={"https://cdn.ayushchugh.com/blogs/viewports/viewports-100vh-laptop.png"}
+	alt="100vh in a laptop"
+/>
+
+This can work fine in desktops, but in mobiles (or desktop sites with navbars), where we have dynamic headers and status bars. Our content will overflow out of the actual viewport, resulting in a scroll state.
+
+<Image
+	src={"https://cdn.ayushchugh.com/blogs/viewports/viewports-100vh-mobile.png"}
+	alt="100vh in a mobile"
+/>
+
+To overcome this issue, new view port units were introduced, i.e. small view port and large view port
+
+## Small Viewport
+
+Small view port assumes that dynamic status bars are open, i.e. default state of browser when you visit a website without scrolling.
+
+Units representing the small viewport have the sv prefix. The units are `svw`, `svh`, `svi`, `svb`, `svmin`, and `svmax`
+
+<Image
+	src={"https://cdn.ayushchugh.com/blogs/viewports/viewports-small.png"}
+	alt="Small viewport"
+	height={200}
+	width={300}
+/>
+
+## Large Viewport
+
+Large view port assumes that dynamic status bar are not open i.e. scrolled state.
+
+Units representing the large viewport have the lv prefix. The units are `lvw`, `lvh`, `lvi`, `lvb`, `lvmin`, and `lvmax`
+
+<Image
+	src={"https://cdn.ayushchugh.com/blogs/viewports/viewports-large.png"}
+	alt="Large viewport"
+	height={200}
+	width={300}
+/>
+
+## Dynamic view port
+
+In addition to the large and small viewports, there‘s also a dynamic viewport that has dynamic consideration of the UI
+
+1. When the dynamic toolbars are expanded, the dynamic viewport is equal to the size of the small viewport.
+1. When the dynamic toolbars are retracted, the dynamic viewport is equal to the size of the large viewport.
+
+Its accompanied units have the `dv` prefix: `dvw`, `dvh`, `dvi`, `dvb`, `dvmin`, and `dvmax`. Their sizes are clamped between their lv* and sv* counterparts.
+
+<Image
+	src={"https://cdn.ayushchugh.com/blogs/viewports/viewports-dynamic.png"}
+	alt="Dynamic viewport"
+/>
+
+## Conclusion
+
+Using `100vh` for full-height layouts can lead to unwanted scrolling when browser UI elements (like address bars or status bars) dynamically show or hide. The new viewport unit families—**small viewport** (`sv*`), **large viewport** (`lv*`), and especially the **dynamic viewport** (`dv*`)—give you precise control over sizing in both static and interactive browser states. For most modern responsive designs, switch from `vh` to `dvh` (dynamic viewport height) to ensure your content always fits exactly without overflow or scroll artifacts, regardless of whether the user has scrolled or the browser UI is visible.
