@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import { CustomMDX } from "app/components/mdx";
 import { getBlogPosts } from "app/db/blog";
 import Image from "next/image";
-import formatDate from "../../utils/formatDate";
 import { format, formatDistanceToNow } from "date-fns";
 
 export async function generateMetadata({
@@ -22,7 +21,7 @@ export async function generateMetadata({
 	// let ogImage = `https://ayushchugh.com/ogs/ogs-bg-blog-${post.slug}.png`;
 	let ogImage = post.metadata.ogImage
 		? post.metadata.ogImage
-		: `https://cdn.ayushchugh.com/open-graph/blogs.png`;
+		: `https://cdn.ayushchugh.com/open-graph/business-card.png`;
 
 	return {
 		title,
