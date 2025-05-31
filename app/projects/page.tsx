@@ -100,6 +100,14 @@ const projectsData = [
 		technologies: ["NextJS", "TypeScript", "shadcn", "framer-motion"],
 		website: "https://fliptimer.ayushchugh.com",
 	},
+	{
+		project: "Sky At Night",
+		logo: "https://cdn.ayushchugh.com/logos/sky-at-night.png",
+		description:
+			"A dark theme for vscode",
+		technologies: ["JavaScript", "vsce"],
+		website: "https://marketplace.visualstudio.com/items?itemName=AyushChugh.sky-at-night",
+	},
 ];
 
 // const openSourceData = [
