@@ -169,7 +169,7 @@ const resumeData = {
 			organization: "Innovation Club, CCET",
 			logo: "https://cdn.ayushchugh.com/logos/innovationclub.png",
 			role: "Team Lead",
-			period: "Oct 2023 - Present",
+			period: "Oct 2023 - Nov 2024",
 			location: "Chandigarh, India",
 			responsibilities: [
 				"Leading a team to innovate and implement technology projects in the institution.",
