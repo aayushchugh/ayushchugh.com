@@ -57,9 +57,11 @@ const resumeData = {
 			responsibilities: [
 				"Developing and maintaining a ticketing platform for event organizers and attendees.",
 				"Implementing secure authentication and authorization systems for organizers and users.",
-				"Managing DevOps workflows including CI/CD pipelines, infrastructure as code, and cloud deployments.",
+				"Managing DevOps workflows including CI/CD pipelines and cloud deployments.",
 				"Optimizing server performance and implementing monitoring solutions for high-traffic events.",
 				"Ensuring database scalability and implementing backup strategies for data integrity.",
+				"Re-writing legacy code to improve code quality and maintainability.",
+				"Creating and maintaining documentation for the codebase and processes.",
 			],
 		},
 		{
@@ -75,8 +77,10 @@ const resumeData = {
 				"Developing and maintaining a B2B flight booking platform.",
 				"Collaborating with cross-functional teams to deliver optimized solutions for the travel industry.",
 				"Implementing features for flight search, booking management, and user onboarding.",
-				"Ensuring scalability and performance optimization for high traffic volumes.",
 				"Building a user-friendly interface to enhance customer experience.",
+				"Created responsive layouts for different screen sizes and devices.",
+				"Used pooling and caching strategies to improve performance and reduce load times.",
+				"Optimized SEO by implementing proper server side rendering",
 			],
 		},
 		{
@@ -93,13 +97,14 @@ const resumeData = {
 				"Tailwind CSS",
 				"NodeJS",
 				"PostgreSQL",
-				"DevOps",
+				"Shadcn"
 			],
 			responsibilities: [
 				"Actively maintaining and contributing to open-source projects that drive innovation and collaboration within the tech community.",
 				"Developing scalable and robust applications to meet client needs and deliver impactful solutions.",
 				"Assisting in managing projects from inception to delivery, ensuring timelines, quality standards, and client expectations are met.",
 				"Supporting the operational and strategic growth of the startup by streamlining workflows and contributing to decision-making processes.",
+				"Worked with external clients of the startup and worked on internal products too"
 			],
 		},
 		{
@@ -108,14 +113,13 @@ const resumeData = {
 			role: "Consultant",
 			period: "Apr 2024 - Nov 2024",
 			location: "Remote",
-			website: "https://tapinvest.in/", // Add the website link
+			website: "https://tapinvest.in/",
 			technologies: ["NextJS", "React", "TypeScript", "MUI", "Tailwind CSS"],
 			responsibilities: [
-				"Specialize in frontend development using React JS to create seamless user experiences.",
+				"Developed internal dashboard tools for the startup using React and NextJS, improving operational efficiency",
 				"Translate design concepts into dynamic and responsive web applications.",
 				"Optimize performance and ensure accessibility to deliver user-centric solutions.",
-				"Focus on driving user engagement and satisfaction with cutting-edge web applications.",
-				"Continuously innovate and stay updated with the latest industry trends.",
+				"Created complex reusable components to speed up development and reduce maintenance costs.",
 			],
 		},
 		{
@@ -125,11 +129,13 @@ const resumeData = {
 			period: "Dec 2021 - May 2023",
 			location: "Remote",
 			workType: "Freelance",
-			website: "https://shriproperty.com", // Add the website link
+			website: "https://shriproperty.com",
 			technologies: ["React", "Node.js", "MongoDB", "Express.js", "TypeScript"],
 			responsibilities: [
 				"Developed a real estate platform that simplified the process of finding and listing properties.",
 				"Led the complete development of the website, from UI/UX design to backend integrations.",
+				"Created a fully-featured admin dashboard for operations and management.",
+				"Each property is listed after going throw a proper verification process by operations team.",
 			],
 		},
 		{
@@ -139,10 +145,10 @@ const resumeData = {
 			period: "Feb 2021 - May 2021",
 			location: "Remote",
 			workType: "Freelance",
-			website: "https://a2infinite.com", // Add the website link
+			website: "https://a2infinite.com",
 			technologies: ["HTML", "CSS", "JavaScript", "SCSS"],
 			responsibilities: [
-				"Developed and maintained a platform that offers downloadable practice worksheets for students.",
+				"Developed and maintained a platform that offers downloadable and printable practice worksheets for students.",
 				"Collaborated with the design and backend teams to ensure smooth platform functionality and user experience.",
 			],
 		},
