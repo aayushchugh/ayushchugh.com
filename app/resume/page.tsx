@@ -44,7 +44,7 @@ const resumeData = {
 			role: "Full Stack Developer",
 			period: "April 2025 - Present",
 			location: "Remote",
-			workType: "Contract",
+			workType: "Part-time",
 			website: "https://avenue.tickets/",
 			technologies: [
 				"NodeJS",
@@ -110,7 +110,8 @@ const resumeData = {
 		{
 			company: "Tap Invest",
 			logo: "https://cdn.ayushchugh.com/logos/tapico.png",
-			role: "Frontend Developer, Consultant",
+			role: "Frontend Developer",
+			workType: "Part-time",
 			period: "Apr 2024 - Nov 2024",
 			location: "Remote",
 			website: "https://tapinvest.in/",
