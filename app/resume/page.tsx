@@ -110,7 +110,7 @@ const resumeData = {
 		{
 			company: "Tap Invest",
 			logo: "https://cdn.ayushchugh.com/logos/tapico.png",
-			role: "Consultant",
+			role: "Frontend Developer, Consultant",
 			period: "Apr 2024 - Nov 2024",
 			location: "Remote",
 			website: "https://tapinvest.in/",
