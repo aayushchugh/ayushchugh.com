@@ -1,0 +1,89 @@
+---
+title: Hoisting in JavaScript
+publishedAt: "2025-07-13"
+summary: "An overview of hoisting behavior in JavaScript and its implications."
+---
+
+What would you expect the output of the following code to be?
+
+```javascript
+a = 2;
+
+var a;
+
+console.log(a);
+```
+
+Many developers would expect the output to be `undefined`, since the var a statement comes after the `a = 2`, and it would seem
+natural to assume that the variable is redefined, and thus assigned the default `undefined`. However, the output is actually `2`.
+
+Consider another piece of code:
+
+```javascript
+console.log(a);
+
+var a = 2;
+```
+
+You might be tempted to assume that, since the previous snippet exhibited some less-than-top-down looking behavior, perhaps in this snippet, 2 will also be printed. Others may think that since the a variable is used before it is declared, this must result in a `ReferenceError`.
+
+Unfortunately, the output is `undefined`, which can be quite confusing.
+
+## What is actually happening?
+
+The best way to think about things is that all declarations, both variables and functions, are processed first, before any part of your code is executed.
+
+When you see `var a = 2;` you probably think of that as one statement. But JavaScript actually interprets it as two separate statements: `var a;` and `a = 2;`. The first statement declares the variable `a`, and the second statement assigns the value `2` to it.
+
+Our first snippet is equivalent to:
+
+```javascript
+var a;
+a = 2;
+console.log(a);
+```
+
+The second snippet is equivalent to:
+
+```javascript
+var a;
+console.log(a);
+a = 2;
+```
+
+## Functions and Hoisting
+
+Functions are also hoisted in JavaScript. Consider the following code:
+
+```javascript
+console.log(foo());
+function foo() {
+	return 2;
+}
+```
+
+In this case, the output will be `2`, even though the function `foo` is called before it is defined in the code. This is because function declarations are hoisted to the top of their containing scope, just like variable declarations.
+
+## Function Expressions and Hoisting
+
+However, function expressions behave differently. Consider this code:
+
+```javascript
+console.log(foo());
+var foo = function () {
+	return 2;
+};
+```
+
+In this case, the output will be `TypeError: foo is not a function`. This happens because the variable `foo` is hoisted, but its assignment as a function happens after the `console.log(foo())` line. So when the code tries to call `foo`, it finds that `foo` is `undefined`, leading to the error.
+
+## Summary
+
+Hoisting in JavaScript can be a source of confusion, especially for those new to the language. The key points to remember are:
+
+- Variable and function declarations are hoisted to the top of their containing scope.
+- Variable assignments are not hoisted, meaning they are executed in the order they appear in the code.
+- Function declarations are hoisted, allowing them to be called before they are defined.
+- Function expressions are not hoisted in the same way, leading to potential errors if called before their assignment.
+
+Understanding hoisting is crucial for writing predictable and bug-free JavaScript code. Always be mindful of where and how you declare your variables and functions to avoid unexpected behavior.
