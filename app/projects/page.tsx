@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 
 const projectsData = [
 	{
-		project: "Worldtravels (1k+ active users daily)",
+		project: "Worldtravels (2k+ active users daily)",
 		logo: "https://cdn.ayushchugh.com/logos/worldtravels.png",
 		description:
 			"A B2B flight booking platform for travel agencies to manage bookings and payments.",
@@ -103,10 +103,10 @@ const projectsData = [
 	{
 		project: "Sky At Night",
 		logo: "https://cdn.ayushchugh.com/logos/sky-at-night.png",
-		description:
-			"A dark theme for vscode",
+		description: "A dark theme for vscode",
 		technologies: ["JavaScript", "vsce"],
-		website: "https://marketplace.visualstudio.com/items?itemName=AyushChugh.sky-at-night",
+		website:
+			"https://marketplace.visualstudio.com/items?itemName=AyushChugh.sky-at-night",
 	},
 ];
 

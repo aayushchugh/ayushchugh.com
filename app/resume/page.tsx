@@ -97,14 +97,14 @@ const resumeData = {
 				"Tailwind CSS",
 				"NodeJS",
 				"PostgreSQL",
-				"Shadcn"
+				"Shadcn",
 			],
 			responsibilities: [
 				"Actively maintaining and contributing to open-source projects that drive innovation and collaboration within the tech community.",
 				"Developing scalable and robust applications to meet client needs and deliver impactful solutions.",
 				"Assisting in managing projects from inception to delivery, ensuring timelines, quality standards, and client expectations are met.",
 				"Supporting the operational and strategic growth of the startup by streamlining workflows and contributing to decision-making processes.",
-				"Worked with external clients of the startup and worked on internal products too"
+				"Worked with external clients of the startup and worked on internal products too",
 			],
 		},
 		{
@@ -156,10 +156,18 @@ const resumeData = {
 	],
 	education: [
 		{
+			institution: "Chandigarh Group of Colleges",
+			logo: "https://cdn.ayushchugh.com/logos/cgc-landran.png",
+			degree:
+				"Bachelor of Technology (B.Tech), Computer Science and Engineering",
+			period: "2025 - 2028",
+			location: "Mohali, India",
+		},
+		{
 			institution:
 				"Chandigarh College of Engineering & Technology (Diploma Wing)",
 			logo: "https://cdn.ayushchugh.com/logos/ccet.png",
-			degree: "High School Diploma, Computer Science",
+			degree: "Diploma, Computer Science and Engineering",
 			period: "2022 - 2025",
 			location: "Chandigarh, India",
 		},

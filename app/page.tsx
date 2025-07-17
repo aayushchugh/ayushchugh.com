@@ -127,7 +127,7 @@ export default function Page() {
 
 			<Separator />
 
-			<div className="mb-8 prose prose-neutral dark:prose-invert">
+			{/* <div className="mb-8 prose prose-neutral dark:prose-invert">
 				<h2>Personal Interests</h2>
 				<p>
 					Outside of work, I enjoy exploring Vedic astrology, playing the
@@ -136,7 +136,7 @@ export default function Page() {
 				</p>
 			</div>
 
-			<Separator />
+			<Separator /> */}
 
 			<div className="mb-8 prose prose-neutral dark:prose-invert">
 				<h2>Writing</h2>
