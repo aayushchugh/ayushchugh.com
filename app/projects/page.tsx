@@ -85,13 +85,13 @@ const projectsData = [
 		website: "https://github.com/marketplace/repo-command",
 	},
 
-	{
-		project: "Soumya Sourav's Portfolio",
-		description:
-			"Personal portfolio website for Soumya Sourav, a Asst. Vice President",
-		technologies: ["NextJS", "TypeScript", "Firebase"],
-		website: "https://soumyasourav.com",
-	},
+	// {
+	// 	project: "Soumya Sourav's Portfolio",
+	// 	description:
+	// 		"Personal portfolio website for Soumya Sourav, a Asst. Vice President",
+	// 	technologies: ["NextJS", "TypeScript", "Firebase"],
+	// 	website: "https://soumyasourav.com",
+	// },
 
 	{
 		project: "FlipTimer",
