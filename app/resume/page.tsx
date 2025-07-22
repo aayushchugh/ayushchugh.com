@@ -90,7 +90,7 @@ const resumeData = {
 			period: "November 2024 - April 2025",
 			location: "Remote",
 			workType: "Freelance",
-			website: "https://www.keizerworks.com/",
+			website: "https://keizerworks.com/",
 			technologies: [
 				"NextJS",
 				"TypeScript",
