@@ -44,6 +44,14 @@ const projectsData = [
 		website: "https://www.worldtravelsonline.in/en",
 	},
 	{
+		project: "Repo Command",
+		logo: "https://cdn.ayushchugh.com/logos/repository-commander.svg",
+		description:
+			"A Github app that lets you automate tasks by adding labels and using `/` commands in comments to approve or merge pull requests.",
+		technologies: ["Node.js", "TypeScript", "Probot"],
+		website: "https://github.com/marketplace/repo-command",
+	},
+	{
 		project: "EJS Snippets And Color Highlighting for VsCode (7k+ downloads)",
 		logo: "https://cdn.ayushchugh.com/logos/ejs-language-snippets-and-color-highlighting-vscode.png",
 		description: "Add snippets and syntax highlighting for EJS",
@@ -74,15 +82,6 @@ const projectsData = [
 			"A platform for downloadable practice worksheets for students.",
 		technologies: ["HTML", "CSS", "JavaScript"],
 		website: "https://www.a2infinite.com",
-	},
-
-	{
-		project: "Repo Command",
-		logo: "https://cdn.ayushchugh.com/logos/repository-commander.svg",
-		description:
-			"A Github app that lets you automate tasks by adding labels and using `/` commands in comments to approve or merge pull requests.",
-		technologies: ["Node.js", "TypeScript", "Probot"],
-		website: "https://github.com/marketplace/repo-command",
 	},
 
 	// {
