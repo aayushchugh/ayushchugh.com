@@ -81,7 +81,7 @@ const projectsData = [
 		description:
 			"A platform for downloadable practice worksheets for students.",
 		technologies: ["HTML", "CSS", "JavaScript"],
-		website: "https://www.a2infinite.com",
+		website: "https://a2infinite.com",
 	},
 
 	// {
