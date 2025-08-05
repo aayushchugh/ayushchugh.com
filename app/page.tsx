@@ -56,7 +56,7 @@ export default function Page() {
 				<h2>Professional Work</h2>
 				<p>
 					I specialize in creating user-friendly digital experiences. Currently,
-					I work as a <strong>Full Stack Developer</strong> at{" "}
+					I work as a <strong>Team Lead</strong> at{" "}
 					<span className="not-prose">
 						<Badge href="https://avenue.tickets/">
 							<Image
@@ -69,10 +69,15 @@ export default function Page() {
 							Avenue Ticketing
 						</Badge>
 					</span>{" "}
-					where we're building a ticketing platform for event organizers and
-					attendees. I also work as a <strong>Frontend Developer</strong> with{" "}
+					where I lead a team of 5 developers building a ticketing platform for
+					event organizers and attendees. Previously, I worked as a{" "}
+					<strong>Full Stack Developer</strong> at the same company, focusing on
+					developing and maintaining the platform's core features.
+				</p>
+				<p>
+					Previously, I worked with{" "}
 					<span className="not-prose">
-						<Badge href="https://www.linkedin.com/company/vibraniumsoft/posts/?feedView=all">
+						<Badge href="https://vibraniumsoft.com">
 							<Image
 								src={"https://cdn.ayushchugh.com/logos/vibraniumsoft.jpeg"}
 								alt="Vibranium Soft"
@@ -83,10 +88,7 @@ export default function Page() {
 							Vibranium Soft
 						</Badge>
 					</span>{" "}
-					where we are building a flight booking project.
-				</p>
-				<p>
-					Previously, I worked with{" "}
+					where we built a B2B flight booking platform for the travel industry,{" "}
 					<span className="not-prose">
 						<Badge href="https://tapinvest.in/">
 							<Image
@@ -99,15 +101,15 @@ export default function Page() {
 							Tap Invest
 						</Badge>
 					</span>
-					, where I developed admin dashboards and created landing pages for
-					their investment platform. For more details about my experience, check
-					out my <Link href="/resume">resume</Link>.
+					, where I developed internal dashboard tools and created landing pages
+					for their investment platform. For more details about my experience,
+					check out my <Link href="/resume">resume</Link>.
 				</p>
 			</div>
 
 			<Separator />
 
-			<div className="mb-8 prose prose-neutral dark:prose-invert">
+			{/* <div className="mb-8 prose prose-neutral dark:prose-invert">
 				<h2>Leadership & Community</h2>
 				<p>
 					As the Team Lead at the Innovation Club of{" "}
@@ -125,7 +127,7 @@ export default function Page() {
 				</p>
 			</div>
 
-			<Separator />
+			<Separator /> */}
 
 			{/* <div className="mb-8 prose prose-neutral dark:prose-invert">
 				<h2>Personal Interests</h2>
