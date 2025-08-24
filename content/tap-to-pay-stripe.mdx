@@ -1,0 +1,335 @@
+---
+title: Accepting payments with Tap to Pay using Stripe
+publishedAt: "2025-08-24"
+summary: "A step-by-step guide to implement Tap to Pay with Stripe."
+coverImage: "https://cdn.ayushchugh.com/blogs/tap-to-pay.png"
+ogImage: "https://cdn.ayushchugh.com/blogs/tap-to-pay.png"
+---
+
+## Introduction
+
+Before we start, let me give you the context of why we had to implement this feature. So I am
+working on a ticketing platform for events like concerts, fests, etc. We had to implement a way in
+which users can buy tickets on the spot.
+
+To improve or ease the process of buying tickets, we decided to implement a feature in which users can just tap their card on the phone of the organizer and pay for the ticket.
+
+## Implementation
+
+We were using stripe to process payments and luckily stripe has the support for reader or point of sale devices built in. So we just had to integrate the stripe sdk in our app and we were good to go.
+Before we start, here are the prerequisites:
+
+> ⚠️ This whole implementation was done on iOS. We are using Expo to build the app.
+
+## Prerequisites
+
+1. A Stripe account 😜
+1. [Tap to pay entitlement](https://developer.apple.com/documentation/proximityreader/setting-up-the-entitlement-for-tap-to-pay-on-iphone?language=objc) from Apple
+1. iPhone XS or later
+
+## Entitlement Configuration
+
+After you add the development entitlement file to your app build target, add the following:
+
+- **Key**: `com.apple.developer.proximity-reader.payment.acceptance`
+- **Value type**: `boolean`
+- **Value**: `true` or `1`
+
+## Permissions
+
+For iOS, the necessary permissions are automatically handled by the Stripe Terminal SDK. However, you'll need to configure your `app.config.js` (or `app.json` for older Expo versions) with the Stripe Terminal plugin settings.
+
+```json
+{
+	"expo": {
+		"plugins": [
+			[
+				"@stripe/stripe-terminal-react-native",
+				{
+					"bluetoothBackgroundMode": true,
+					"locationWhenInUsePermission": "Location access is required to accept payments.",
+					"bluetoothPeripheralPermission": "Bluetooth access is required to connect to supported bluetooth card readers.",
+					"bluetoothAlwaysUsagePermission": "This app uses Bluetooth to connect to supported card readers."
+				}
+			]
+		]
+	}
+}
+```
+
+## Setup the connection token endpoint (server side)
+
+To connect to a reader, your backend needs to give the SDK permission to use the reader with your Stripe account, by providing it with the secret from a ConnectionToken. Your backend needs to only create connection tokens for clients that it trusts.
+
+```js
+// Set your secret key. Remember to switch to your live secret key in production.
+// See your keys here: https://dashboard.stripe.com/apikeys
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+
+// In a new endpoint on your server, create a ConnectionToken and return the
+// `secret` to your app. The SDK needs the `secret` to connect to a reader.
+let connectionToken = stripe.terminal.connectionTokens.create();
+```
+
+Obtain the secret from the `ConnectionToken` on your server and pass it to the client side.
+
+```js
+const express = require("express");
+const app = express();
+
+app.post("/connection_token", async (req, res) => {
+	try {
+		const token = await stripe.terminal.connectionTokens.create();
+		res.json({ secret: token.secret });
+	} catch (error) {
+		console.error("Error creating connection token:", error);
+		res.status(500).json({ error: "Failed to create connection token" });
+	}
+});
+
+app.listen(3000, () => {
+	console.log("Running on port 3000");
+});
+```
+
+## Setup the connection token endpoint (client side)
+
+To give the SDK access to this endpoint, create a token provider function that requests a ConnectionToken from your backend.
+
+```js
+import { StripeTerminalProvider } from "@stripe/stripe-terminal-react-native";
+
+const fetchTokenProvider = async () => {
+	try {
+		const response = await fetch(`${process.env.API_URL}/connection_token`, {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+		});
+
+		if (!response.ok) {
+			throw new Error(`HTTP error! status: ${response.status}`);
+		}
+
+		const { secret } = await response.json();
+		return secret;
+	} catch (error) {
+		console.error("Error fetching connection token:", error);
+		throw error;
+	}
+};
+```
+
+This function is called whenever the SDK needs to authenticate with Stripe or the Reader. It’s also called when a new connection token is needed to connect to a reader (for example, when your app disconnects from a reader). If the SDK can’t retrieve a new connection token from your backend, connecting to a reader fails with the error from your server.
+
+## Initialize the SDK
+
+To get started, pass in your token provider implemented above to StripeTerminalProvider as a prop.
+
+```js
+import { StripeTerminalProvider } from "@stripe/stripe-terminal-react-native";
+
+function Root() {
+	const fetchTokenProvider = async () => {
+		try {
+			const response = await fetch(`${process.env.API_URL}/connection_token`, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+			});
+
+			if (!response.ok) {
+				throw new Error(`HTTP error! status: ${response.status}`);
+			}
+
+			const { secret } = await response.json();
+			return secret;
+		} catch (error) {
+			console.error("Error fetching connection token:", error);
+			throw error;
+		}
+	};
+
+	return (
+		<StripeTerminalProvider
+			logLevel="verbose"
+			tokenProvider={fetchTokenProvider}
+		>
+			<App />
+		</StripeTerminalProvider>
+	);
+}
+```
+
+As a last step, call the `initialize` method from `useStripeTerminal` hook. You must call the initialize method from a component nested within `StripeTerminalProvider` and not from the component that contains the `StripeTerminalProvider`.
+
+```js
+function App() {
+	const { initialize } = useStripeTerminal();
+
+	useEffect(() => {
+		initialize();
+	}, [initialize]);
+
+	return <View />;
+}
+```
+
+## Connecting to a reader
+
+To connect to a reader, you need to register it first. You can add a reader in [stripe dashboard](https://dashboard.stripe.com/terminal). For detailed guide, you can refer to [this](https://docs.stripe.com/terminal/payments/connect-reader?terminal-sdk-platform=react-native&reader-type=internet).
+
+## Discovering readers
+
+After registering the reader to your account, search for previously registered readers to connect to your point of sale application with `discoverReaders`, setting `discoveryMethod` to `internet`.
+
+```js
+export default function DiscoverScreen() {
+	const { discoverReaders, discoveredReaders } = useStripeTerminal({
+		onUpdateDiscoveredReaders: readers => {
+			// After the SDK discovers a reader, your app can connect to it.
+			console.log("Discovered readers:", readers);
+		},
+	});
+
+	useEffect(() => {
+		const fetchReaders = async () => {
+			try {
+				const { error } = await discoverReaders({
+					discoveryMethod: "internet",
+				});
+
+				if (error) {
+					console.error("Error discovering readers:", error);
+				}
+			} catch (error) {
+				console.error("Failed to discover readers:", error);
+			}
+		};
+
+		fetchReaders();
+	}, [discoverReaders]);
+
+	return <View />;
+}
+```
+
+## Connecting to a reader
+
+To connect your point of sale application to a reader, call `connectReader` with the selected reader.
+
+```js
+try {
+	const { reader, error } = await connectReader(
+		{
+			reader,
+		},
+		"internet"
+	);
+
+	if (error) {
+		console.error("connectReader error:", error);
+		return;
+	}
+
+	console.log("Reader connected successfully", reader);
+} catch (error) {
+	console.error("Failed to connect to reader:", error);
+}
+```
+
+## Accepting a payment
+
+To accept a payment, you need to call `createPaymentIntent` method on server side.
+
+```js
+// Set your secret key. Remember to switch to your live secret key in production.
+// See your keys here: https://dashboard.stripe.com/apikeys
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+
+try {
+	const intent = await stripe.paymentIntents.create({
+		amount: 1000,
+		currency: "usd",
+		payment_method_types: ["card_present"],
+		capture_method: "manual",
+	});
+
+	console.log("Payment intent created:", intent.id);
+} catch (error) {
+	console.error("Error creating payment intent:", error);
+	throw error;
+}
+```
+
+For Terminal payments, the `payment_method_types` parameter must include `card_present`.
+
+Now call the API to fetch this payment intent on client side.
+
+## Collect payment
+
+After getting the payment intent, you can collect the payment by calling `collectPaymentMethod` method.
+
+```js
+try {
+	const { paymentIntent: collectedIntent, error: collectError } =
+		await collectPaymentMethod({
+			paymentIntent: paymentIntent,
+			skipTipping: true,
+			updatePaymentIntent: true,
+			enableCustomerCancellation: true,
+			requestDynamicCurrencyConversion: false,
+			allowRedisplay: "limited", // Required for Terminal payment method collection
+		});
+
+	if (collectError) {
+		console.error("Error collecting payment method:", collectError);
+		throw collectError;
+	}
+
+	console.log("Payment method collected successfully");
+} catch (error) {
+	console.error("Failed to collect payment method:", error);
+	throw error;
+}
+```
+
+## Confirming the payment
+
+After collecting the payment, you need to confirm the payment by calling `confirmPayment` method.
+
+```js
+try {
+	const { paymentIntent: confirmedIntent, error: confirmError } =
+		await confirmPaymentIntent({
+			paymentIntent: collectedIntent,
+		});
+
+	if (confirmError) {
+		console.error("Error confirming payment:", confirmError);
+		throw confirmError;
+	}
+
+	console.log("Payment confirmed successfully:", confirmedIntent.id);
+} catch (error) {
+	console.error("Failed to confirm payment:", error);
+	throw error;
+}
+```
+
+This will capture the payment and you can see the payment details in the stripe dashboard.
+
+## Conclusion
+
+This is how you can implement tap to pay with Stripe on iOS. You can find a sample React Native code [here](https://gist.github.com/aayushchugh/c962710ad6a1a422c8b2fa7584c01d38).
+
+## Important Notes
+
+- **Environment Variables**: Make sure to set `STRIPE_SECRET_KEY` and `API_URL` in your environment variables
+- **Error Handling**: Always implement proper error handling in production applications
+- **Testing**: Test thoroughly with Stripe's test mode before going live
+- **Security**: Never expose API keys in your code; always use environment variables
+
+I took a lot of reference from the Stripe docs and the sample code provided by Stripe for writing this blog. Thanks for reading ❤️
