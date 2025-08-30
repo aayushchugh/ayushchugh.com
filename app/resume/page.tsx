@@ -56,7 +56,6 @@ const resumeData = {
 						"AWS",
 						"Stripe",
 						"Docker",
-						"Kubernetes",
 					],
 					responsibilities: [
 						"Leading a team of 5 developers",
