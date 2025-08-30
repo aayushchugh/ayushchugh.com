@@ -215,14 +215,14 @@ const resumeData = {
 		},
 	],
 	education: [
-		// {
-		// 	institution: "Chandigarh Group of Colleges",
-		// 	logo: "https://cdn.ayushchugh.com/logos/cgc-landran.png",
-		// 	degree:
-		// 		"Bachelor of Technology (B.Tech) Leet, Computer Science and Engineering",
-		// 	period: "2025 - 2028",
-		// 	location: "Mohali, India",
-		// },
+		{
+			institution: "Chandigarh Group of Colleges, Landran, Punjab",
+			logo: "https://cdn.ayushchugh.com/logos/cgc-landran.png",
+			degree:
+				"Bachelor of Technology (B.Tech), Computer Science and Engineering",
+			period: "2025 - 2028",
+			location: "Mohali, India",
+		},
 		{
 			institution:
 				"Chandigarh College of Engineering & Technology (Diploma Wing)",
