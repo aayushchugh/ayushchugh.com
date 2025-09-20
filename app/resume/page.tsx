@@ -42,7 +42,7 @@ const resumeData = {
 			company: "Avenue Ticketing, Inc.",
 			logo: "https://cdn.ayushchugh.com/logos/avenue.jpeg",
 			location: "Remote",
-			website: "https://avenue.tickets/",
+			website: "https://avenueticket.com/",
 			positions: [
 				{
 					role: "Team Lead",

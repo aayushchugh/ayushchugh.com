@@ -58,7 +58,7 @@ export default function Page() {
 					I specialize in creating user-friendly digital experiences. Currently,
 					I work as a <strong>Team Lead</strong> at{" "}
 					<span className="not-prose">
-						<Badge href="https://avenue.tickets/">
+						<Badge href="https://avenueticket.com/">
 							<Image
 								src={"https://cdn.ayushchugh.com/logos/avenue.jpeg"}
 								alt="Avenue Ticketing"
