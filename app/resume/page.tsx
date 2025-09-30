@@ -58,9 +58,12 @@ const resumeData = {
 						"Docker",
 					],
 					responsibilities: [
-						"Leading a team of 5 developers",
-						"Managing DevOps workflows including CI/CD pipelines and cloud deployments.",
-						"Ensuring scalability and implementing backup strategies for data integrity.",
+						"Developing complex end-to-end features including payment processing, event management, and user authentication systems",
+						"Building advanced TypeScript modules with complex business logic for ticket validation, pricing calculations",
+						"Implementing sophisticated error handling and data validation patterns across the entire application stack",
+						"Creating reusable components and utilities that handle complex state management and API integrations",
+						"Identifying and fixing edge cases in the codebase",
+						"Implementing monitoring and logging solutions for the application",
 					],
 				},
 				{

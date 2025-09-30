@@ -39,9 +39,11 @@ const projectsData = [
 		project: "Worldtravels (2k+ active users daily)",
 		logo: "https://cdn.ayushchugh.com/logos/worldtravels.png",
 		description:
-			"A B2B flight booking platform for travel agencies to manage bookings and payments.",
+			"A B2B flight booking platform for travel agencies to manage bookings and payments. I have built the end to end frontend for the platform.",
 		technologies: ["React", "Redux", "TypeScript", "NextJS"],
 		website: "https://www.worldtravelsonline.in/en",
+		category: "Frontend",
+		workType: "Freelance",
 	},
 	{
 		project: "Repo Command",
@@ -50,6 +52,8 @@ const projectsData = [
 			"A Github app that lets you automate tasks by adding labels and using `/` commands in comments to approve or merge pull requests.",
 		technologies: ["Node.js", "TypeScript", "Probot"],
 		website: "https://github.com/marketplace/repo-command",
+		category: "Backend",
+		workType: "Personal",
 	},
 	{
 		project: "EJS Snippets And Color Highlighting for VsCode (7k+ downloads)",
@@ -58,6 +62,8 @@ const projectsData = [
 		technologies: ["Javascript", "vsce"],
 		website:
 			"https://marketplace.visualstudio.com/items/?itemName=AyushChugh.ejs-snippets-and-color-highlighting",
+		category: "Tools",
+		workType: "Personal",
 	},
 	{
 		project: "Invoicen",
@@ -66,6 +72,8 @@ const projectsData = [
 			"A Simple Invoice Generator for Freelancers and Businesses and enterprises.",
 		technologies: ["NextJS", "shadcn", "TypeScript", "Tailwind"],
 		website: "https://invoicen.ayushchugh.com",
+		category: "Full Stack",
+		workType: "Personal",
 	},
 	{
 		project: "Shriproperty",
@@ -74,6 +82,8 @@ const projectsData = [
 			"A real estate platform that simplifies the process of finding and listing properties.",
 		technologies: ["React", "Node.js", "MongoDB", "Express.js"],
 		website: "https://www.shriproperty.com",
+		category: "Full Stack",
+		workType: "Freelance",
 	},
 	{
 		project: "A2INFINITE",
@@ -82,6 +92,8 @@ const projectsData = [
 			"A platform for downloadable practice worksheets for students.",
 		technologies: ["HTML", "CSS", "JavaScript"],
 		website: "https://a2infinite.com",
+		category: "Frontend",
+		workType: "Freelance",
 	},
 
 	// {
@@ -98,6 +110,8 @@ const projectsData = [
 			"A countdown timer that lets users set a target date and displays time left in months, weeks, days, hours, minutes, and seconds.",
 		technologies: ["NextJS", "TypeScript", "shadcn", "framer-motion"],
 		website: "https://fliptimer.ayushchugh.com",
+		category: "Frontend",
+		workType: "Personal",
 	},
 	{
 		project: "Sky At Night",
@@ -106,6 +120,8 @@ const projectsData = [
 		technologies: ["JavaScript", "vsce"],
 		website:
 			"https://marketplace.visualstudio.com/items?itemName=AyushChugh.sky-at-night",
+		category: "Tools",
+		workType: "Personal",
 	},
 ];
 
@@ -143,6 +159,8 @@ export default function ProjectsPage() {
 						description={project.description}
 						technologies={project.technologies}
 						website={project.website}
+						category={project.category}
+						workType={project.workType}
 					/>
 				))}
 			</div>
