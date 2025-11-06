@@ -39,6 +39,29 @@ export const metadata: Metadata = {
 const resumeData = {
 	workExperience: [
 		{
+			company: "Ravix Studio",
+			logo: "https://cdn.ayushchugh.com/logos/ravix-dark.png",
+			location: "On-site",
+			website: "https://ravixstudio.com/",
+			positions: [
+				{
+					role: "Co-founder & CTO",
+					period: "Nov 2025 - Present",
+					workType: "Full-time",
+					technologies: [
+						"NextJS",
+						"TypeScript",
+						"NodeJS",
+						"PostgreSQL",
+						"AWS",
+						"Docker",
+						"Railway",
+					],
+					responsibilities: ["Building alot of cool stuff"],
+				},
+			],
+		},
+		{
 			company: "Avenue Ticketing, Inc.",
 			logo: "https://cdn.ayushchugh.com/logos/avenue.jpeg",
 			location: "Remote",

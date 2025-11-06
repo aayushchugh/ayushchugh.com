@@ -56,7 +56,21 @@ export default function Page() {
 				<h2>Professional Work</h2>
 				<p>
 					I specialize in creating user-friendly digital experiences. Currently,
-					I work as a <strong>Team Lead</strong> at{" "}
+					I'm the <strong>Co-founder & CTO</strong> at{" "}
+					<span className="not-prose">
+						<Badge href="https://ravixstudio.com/">
+							<Image
+								src={"https://cdn.ayushchugh.com/logos/ravix-dark.png"}
+								alt="Ravix Studio"
+								height={16}
+								width={16}
+								className={"pr-1"}
+							/>
+							Ravix Studio
+						</Badge>
+					</span>{" "}
+					, a startup where I'm building a lot of SAAS products to learn new
+					stuff and grow. I also work as a <strong>Team Lead</strong> at{" "}
 					<span className="not-prose">
 						<Badge href="https://avenueticket.com/">
 							<Image
@@ -70,9 +84,7 @@ export default function Page() {
 						</Badge>
 					</span>{" "}
 					where I lead a team of 5 developers building a ticketing platform for
-					event organizers and attendees. Previously, I worked as a{" "}
-					<strong>Full Stack Developer</strong> at the same company, focusing on
-					developing and maintaining the platform's core features.
+					event organizers and attendees.
 				</p>
 				<p>
 					Previously, I worked with{" "}
