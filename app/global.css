@@ -156,3 +156,8 @@ table {
 		page-break-before: always; /* Forces a page break before the element */
 	}
 }
+
+/* Remove scrollbar from github contributions graph */
+.react-activity-calendar__scroll-container {
+	scrollbar-width: none;
+}
