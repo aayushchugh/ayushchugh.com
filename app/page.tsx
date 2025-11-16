@@ -4,6 +4,7 @@ import Badge from "./components/Badge";
 import ArrowIcon from "./components/ArrowIcon";
 import type { Metadata } from "next";
 import Separator from "./components/separator";
+import GitHubCalendar from "react-github-calendar";
 
 export const metadata: Metadata = {
 	title: "Ayush Chugh",
@@ -158,6 +159,13 @@ export default function Page() {
 					I've started writing <Link href="/blog">blogs</Link> to help others
 					improve their engineering skills. Stay tuned for more content!
 				</p>
+			</div>
+
+			<Separator />
+
+			<div className="mb-8 prose prose-neutral dark:prose-invert">
+				<h2>GitHub Contributions</h2>
+				<GitHubCalendar username="aayushchugh" />
 			</div>
 
 			<div className="prose prose-neutral dark:prose-invert">
