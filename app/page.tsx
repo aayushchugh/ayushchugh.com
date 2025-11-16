@@ -154,18 +154,18 @@ export default function Page() {
 			<Separator /> */}
 
 			<div className="mb-8 prose prose-neutral dark:prose-invert">
-				<h2>Writing</h2>
-				<p>
-					I've started writing <Link href="/blog">blogs</Link> to help others
-					improve their engineering skills. Stay tuned for more content!
-				</p>
+				<h2>GitHub Contributions</h2>
+				<GitHubCalendar username="aayushchugh" />
 			</div>
 
 			<Separator />
 
 			<div className="mb-8 prose prose-neutral dark:prose-invert">
-				<h2>GitHub Contributions</h2>
-				<GitHubCalendar username="aayushchugh" />
+				<h2>Writing</h2>
+				<p>
+					I've started writing <Link href="/blog">blogs</Link> to help others
+					improve their engineering skills. Stay tuned for more content!
+				</p>
 			</div>
 
 			<div className="prose prose-neutral dark:prose-invert">
