@@ -1,0 +1,170 @@
+---
+title: How I Built a Token-Bucket Rate Limiter for Emails & SMS
+publishedAt: "2025-11-19"
+summary: ""
+---
+
+## The Problem
+
+When messages (emails/SMS) start flooding in:
+
+- If I fire off everything as soon as I get it, I will hit provider limits.
+- That means rejections, retries, delays — worst case: user waits or critical message fails.
+- I already have a queue layer using Amazon SQS, so messages are buffered — but I still needed to throttle consumption to fit the provider limits.
+
+For email: “10 mails per second” → ~1 mail every 100ms.
+
+For SMS: 1600 /minute → ~26.7 sms/sec → ~1 sms every ~37ms (though my implementation focuses on the email side for now).
+
+## The Solution: Token Bucket + Priority
+
+Here’s the logic I implemented in the consumer:
+
+Here’s the logic I implemented in the consumer:
+
+- **Token bucket** with a maximum number of tokens (for email: 10).
+- Tokens get refilled at a fixed rate (for email: 10 tokens per second).
+  - Each time I want to send an email/SMS, I acquireToken() before sending.
+    - If a token is available: consume it → send message.
+    - If none are available: wait (queue internally) until tokens refill.
+- I introduced priority queues: high-priority vs low-priority messages.
+  - High-priority waiters get served first when tokens refill.
+  - Low-priority waiters are processed only after all high-priority waiters, given remaining tokens.
+- The SQS consumer just pulls messages from SQS, then passes them to this rate-limiting layer. The layer handles when the actual send happens — respecting the token bucket.
+  The SQS consumer just pulls messages from SQS, then passes them to this rate-limiting layer. The layer handles when the actual send happens — respecting the token bucket.
+
+Here’s the summary in code (Node + TypeScript style) of the main service:
+
+```typescript
+import { logger } from "@avenue/shared";
+
+export class EmailRateLimiterService {
+	private tokens: number;
+	private readonly maxTokens: number;
+	private readonly refillRate: number;
+	private lastRefillTime: number;
+	private highPriorityWaiters: Array<() => void> = [];
+	private lowPriorityWaiters: Array<() => void> = [];
+	private processingTimer: NodeJS.Timeout | null = null;
+
+	constructor(maxTokens: number = 10, refillRate: number = 10) {
+		this.maxTokens = maxTokens;
+		this.tokens = maxTokens;
+		this.refillRate = refillRate;
+		this.lastRefillTime = Date.now();
+	}
+
+	async acquireToken(priority: "high" | "low"): Promise<void> {
+		this.refillTokens();
+
+		// Immediate token if available
+		if (this.tokens > 0) {
+			this.tokens--;
+			return;
+		}
+
+		// queue based on priority if there are no tokens available
+		return new Promise(resolve => {
+			if (priority === "high") {
+				this.highPriorityWaiters.push(resolve);
+			} else {
+				this.lowPriorityWaiters.push(resolve);
+			}
+
+			// Start processing if not already running
+			if (!this.processingTimer) {
+				this.processWaiters();
+			}
+		});
+	}
+
+	private processWaiters() {
+		this.refillTokens();
+
+		let processed = false;
+
+		// Process high priority waiters first
+		while (this.tokens > 0 && this.highPriorityWaiters.length > 0) {
+			this.tokens--;
+			const resolve = this.highPriorityWaiters.shift()!;
+			resolve();
+			processed = true;
+		}
+
+		// Then process low priority waiters
+		while (this.tokens > 0 && this.lowPriorityWaiters.length > 0) {
+			this.tokens--;
+			const resolve = this.lowPriorityWaiters.shift()!;
+			resolve();
+			processed = true;
+		}
+
+		// Schedule next check for waiters
+		if (
+			this.highPriorityWaiters.length > 0 ||
+			this.lowPriorityWaiters.length > 0
+		) {
+			const waitTime = Math.max(10, (1 / this.refillRate) * 1000);
+			this.processingTimer = setTimeout(() => {
+				this.processingTimer = null;
+				this.processWaiters();
+			}, waitTime);
+		} else {
+			this.processingTimer = null;
+		}
+
+		if (processed) {
+			logger.info("Rate limiter processed waiters", {
+				module: "email",
+				action: "rate-limiter-processed-waiters",
+				tokens: this.tokens,
+				highWaiters: this.highPriorityWaiters.length,
+				lowWaiters: this.lowPriorityWaiters.length,
+			});
+		}
+	}
+
+	private refillTokens() {
+		const now = Date.now();
+		const elapsed = (now - this.lastRefillTime) / 1000; // seconds
+		const tokensToAdd = elapsed * this.refillRate;
+
+		this.tokens = Math.min(this.maxTokens, this.tokens + tokensToAdd);
+		this.lastRefillTime = now;
+	}
+
+	getAvailableTokens() {
+		this.refillTokens();
+		return Math.max(0, this.tokens);
+	}
+
+	getQueueStatus() {
+		return {
+			availableTokens: this.getAvailableTokens(),
+			highPriorityWaiters: this.highPriorityWaiters.length,
+			lowPriorityWaiters: this.lowPriorityWaiters.length,
+		};
+	}
+}
+
+export const emailRateLimiter = new EmailRateLimiterService(10, 10);
+```
+
+## How It All Fits Together
+
+1. The SQS consumer picks up a message (email or SMS) from the queue.
+2. Before actually sending, it calls the rate-limiter's `acquireToken()`, with appropriate priority.
+3. If a token is immediately available → send now.
+4. If not, the message handler waits (i.e., the `acquireToken()` promise resolves later) until tokens refill and the queued waiter is dequeued.
+5. When tokens refill (via `refillTokens()`), `processWaiters()` is triggered and resolves waiters in priority order.
+6. This ensures we never send more than our allowed rate, while still using the queue for burst smoothing.
+
+<Image src="https://cdn.ayushchugh.com/blogs/rate-limiting-email-sms.png" />
+
+## Why this works?
+
+- **Providers’ limits respected**: You’ll never go above e.g. 10 mails/sec for SES.
+- **Back-pressure built in**: Instead of flooding senders, you naturally throttle.
+- **Priority handling**: Urgent messages get out quickly, non-urgent ones wait politely.
+- **Minimal complexity**: Instead of a full job-queue system with custom rate logic, we reuse SQS + a lightweight in-process limiter.
+- **Scalable for SMS too**: Just tune the bucket size and refill rate for your SMS endpoint (e.g., ~26 tokens/sec for 1600 /min).
