@@ -267,6 +267,16 @@ const resumeData = {
 	],
 	volunteering: [
 		{
+			organization: "Hack With India-Chapter CEC-CGC",
+			logo: "https://cdn.ayushchugh.com/logos/hwi.jpeg",
+			role: "Technical Lead",
+			period: "Aug 2025 - Present",
+			location: "Chandigarh, India",
+			responsibilities: [
+				"I am responsible to manage all the technical aspects of the club and help the students to learn and grow in the field of technology.",
+			],
+		},
+		{
 			organization: "Innovation Club, CCET",
 			logo: "https://cdn.ayushchugh.com/logos/innovationclub.png",
 			role: "Team Lead",
