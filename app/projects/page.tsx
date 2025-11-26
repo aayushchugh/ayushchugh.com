@@ -27,10 +27,10 @@ export const metadata: Metadata = {
 		description:
 			"Explore a variety of projects and open-source contributions by Ayush Chugh.",
 		images: ["https://cdn.ayushchugh.com/open-graph/business-card.png"],
-		creator: "@aayushchugh_x",
-		creatorId: "@aayushchugh_x",
-		site: "@aayushchugh_x",
-		siteId: "@aayushchugh_x",
+		creator: "@aayushchugh",
+		creatorId: "@aayushchugh",
+		site: "@aayushchugh",
+		siteId: "@aayushchugh",
 	},
 };
 

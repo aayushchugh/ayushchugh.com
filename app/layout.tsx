@@ -48,10 +48,10 @@ export const metadata: Metadata = {
 	twitter: {
 		title: "Ayush Chugh",
 		card: "summary_large_image",
-		creator: "@aayushchugh_x",
-		creatorId: "@aayushchugh_x",
-		site: "@aayushchugh_x",
-		siteId: "@aayushchugh_x",
+		creator: "@aayushchugh",
+		creatorId: "@aayushchugh",
+		site: "@aayushchugh",
+		siteId: "@aayushchugh",
 		description:
 			"Passionate full stack developer from India. On the way to master programming.",
 		images: ["/ogs/ogs-bg.png"],

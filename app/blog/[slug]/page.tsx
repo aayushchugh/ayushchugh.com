@@ -43,10 +43,10 @@ export async function generateMetadata({
 			title,
 			description,
 			images: [ogImage],
-			creator: "@aayushchugh_x",
-			creatorId: "@aayushchugh_x",
-			site: "@aayushchugh_x",
-			siteId: "@aayushchugh_x",
+			creator: "@aayushchugh",
+			creatorId: "@aayushchugh",
+			site: "@aayushchugh",
+			siteId: "@aayushchugh",
 		},
 	};
 }

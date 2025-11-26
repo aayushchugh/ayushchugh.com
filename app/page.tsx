@@ -31,10 +31,10 @@ export const metadata: Metadata = {
 		description:
 			"I'm a Full Stack Web Developer from India, trying to make the internet a bit cooler one website at a time.",
 		images: ["https://cdn.ayushchugh.com/open-graph/business-card.png"],
-		creator: "@aayushchugh_x",
-		creatorId: "@aayushchugh_x",
-		site: "@aayushchugh_x",
-		siteId: "@aayushchugh_x",
+		creator: "@aayushchugh",
+		creatorId: "@aayushchugh",
+		site: "@aayushchugh",
+		siteId: "@aayushchugh",
 	},
 };
 
@@ -180,7 +180,7 @@ export default function Page() {
 						className="flex items-center hover:text-neutral-800 dark:hover:text-neutral-100 transition-all"
 						rel="noopener noreferrer"
 						target="_blank"
-						href="https://twitter.com/aayushchugh_x"
+						href="https://twitter.com/aayushchugh"
 					>
 						<ArrowIcon />
 						<p className="h-7 ml-2">Follow me</p>
