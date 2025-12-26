@@ -74,8 +74,8 @@ export const metadata: Metadata = {
 			},
 			{
 				media: "(prefers-color-scheme: dark)",
-				url: "/favicon/favicon-96x96-dark.png",
-				href: "/favicon/favicon-96x96-dark.png",
+				url: "/favicon/favicon-dark-96x96.png",
+				href: "/favicon/favicon-dark-96x96.png",
 				sizes: "96x96",
 				type: "image/png",
 				rel: "icon",
