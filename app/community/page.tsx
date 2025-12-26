@@ -4,9 +4,13 @@ import Badge from "../components/Badge";
 import { config } from "../config/config";
 
 export const metadata: Metadata = {
+	metadataBase: new URL("https://ayushchugh.com"),
 	title: "Community",
 	description:
 		"Join the Ravix Studio community. Connect with Ayush Chugh and contribute to exciting projects.",
+	alternates: {
+		canonical: "/community",
+	},
 	openGraph: {
 		title: "Community | Ayush Chugh",
 		description:

@@ -3,6 +3,13 @@ export default function robots() {
 		rules: [
 			{
 				userAgent: "*",
+				allow: "/",
+				disallow: ["/api/"],
+			},
+			{
+				userAgent: "Googlebot",
+				allow: "/",
+				crawlDelay: 0,
 			},
 		],
 		sitemap: "https://ayushchugh.com/sitemap.xml",

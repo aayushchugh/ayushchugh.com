@@ -2,9 +2,22 @@ import type { Metadata } from "next";
 import ProjectCard from "../components/project-card";
 
 export const metadata: Metadata = {
+	metadataBase: new URL("https://ayushchugh.com"),
 	title: "Projects",
 	description:
 		"Explore Ayush Chugh's projects, including Shriproperty, A2INFINITE, Worldtravels, and various open-source contributions.",
+	keywords: [
+		"Ayush Chugh Projects",
+		"Web Development Projects",
+		"React Projects",
+		"Next.js Projects",
+		"Open Source",
+		"Portfolio",
+		"Software Projects",
+	],
+	alternates: {
+		canonical: "/projects",
+	},
 	openGraph: {
 		title: "Ayush Chugh's Projects",
 		description:
@@ -145,8 +158,40 @@ const projectsData = [
 // ];
 
 export default function ProjectsPage() {
+	const jsonLd = {
+		"@context": "https://schema.org",
+		"@type": "CollectionPage",
+		name: "Ayush Chugh's Projects",
+		description:
+			"Portfolio of projects built by Ayush Chugh, including web applications and open-source contributions.",
+		url: "https://ayushchugh.com/projects",
+		author: {
+			"@type": "Person",
+			name: "Ayush Chugh",
+			url: "https://ayushchugh.com",
+		},
+		mainEntity: {
+			"@type": "ItemList",
+			itemListElement: projectsData.map((project, index) => ({
+				"@type": "ListItem",
+				position: index + 1,
+				item: {
+					"@type": "SoftwareApplication",
+					name: project.project,
+					description: project.description,
+					applicationCategory: "WebApplication",
+					url: project.website,
+				},
+			})),
+		},
+	};
+
 	return (
 		<section>
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+			/>
 			<h1 className="font-medium text-2xl mb-4 tracking-tight">Projects 🚀</h1>
 
 			{/* Projects Section */}

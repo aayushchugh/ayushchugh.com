@@ -5,9 +5,21 @@ import VolunteeringItem from "../components/volunteer-item";
 import { config } from "../config/config";
 
 export const metadata: Metadata = {
+	metadataBase: new URL("https://ayushchugh.com"),
 	title: "Resume",
 	description:
-		"A summary of Ayush Chugh’s corporate contributions, skills, and experience as a Full-Stack Developer, including work with Tap Invest, Shri Property, and A2INFINITE.",
+		"A summary of Ayush Chugh's corporate contributions, skills, and experience as a Full-Stack Developer, including work with Tap Invest, Shri Property, and A2INFINITE.",
+	keywords: [
+		"Ayush Chugh Resume",
+		"Full Stack Developer Resume",
+		"Web Developer CV",
+		"React Developer Resume",
+		"Software Engineer Resume",
+		"Work Experience",
+	],
+	alternates: {
+		canonical: "/resume",
+	},
 	openGraph: {
 		type: "article",
 		url: `https://ayushchugh.com/resume`,

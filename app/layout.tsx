@@ -10,7 +10,7 @@ import Cmdk from "./components/CmdK";
 import Footer from "./components/footer";
 
 export const metadata: Metadata = {
-	metadataBase: new URL("https://ayushchugh.com/"),
+	metadataBase: new URL("https://ayushchugh.com"),
 	title: {
 		default: "Ayush Chugh",
 		template: "%s | Ayush Chugh",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 		title: "Ayush Chugh",
 		description:
 			"Passionate full stack developer from India. On the way to master programming.",
-		url: "https://ayushchugh.com/",
+		url: "https://ayushchugh.com",
 		siteName: "Ayush Chugh's Portfolio",
 		locale: "en_US",
 		type: "website",

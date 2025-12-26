@@ -24,8 +24,12 @@ export async function generateMetadata({
 		: `https://cdn.ayushchugh.com/open-graph/business-card.png`;
 
 	return {
+		metadataBase: new URL("https://ayushchugh.com"),
 		title,
 		description,
+		alternates: {
+			canonical: `/blog/${post.slug}`,
+		},
 		openGraph: {
 			title,
 			description,

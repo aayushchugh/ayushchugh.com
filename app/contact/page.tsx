@@ -7,8 +7,12 @@ import { EnvelopeSimple } from "@phosphor-icons/react/dist/ssr";
 import { config } from "../config/config";
 
 export const metadata: Metadata = {
+	metadataBase: new URL("https://ayushchugh.com"),
 	title: "Contact",
 	description: "Get in touch with Ayush Chugh via email or schedule a meet.",
+	alternates: {
+		canonical: "/contact",
+	},
 	openGraph: {
 		title: "Contact Ayush Chugh",
 		description:

@@ -9,9 +9,25 @@ import { config } from "./config/config";
 import ExperienceCounter from "./components/experience-counter";
 
 export const metadata: Metadata = {
+	metadataBase: new URL("https://ayushchugh.com"),
 	title: "Ayush Chugh",
 	description:
 		"I'm a Full Stack Web Developer from India, trying to make the internet a bit cooler one website at a time.",
+	keywords: [
+		"Ayush Chugh",
+		"Full Stack Developer",
+		"Web Developer",
+		"React Developer",
+		"Next.js Developer",
+		"TypeScript Developer",
+		"Node.js Developer",
+		"Software Engineer",
+		"India Developer",
+		"Mohali Developer",
+	],
+	alternates: {
+		canonical: "/",
+	},
 	openGraph: {
 		title: "Ayush Chugh",
 		description:
@@ -41,8 +57,51 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
+	const jsonLd = {
+		"@context": "https://schema.org",
+		"@type": "Person",
+		name: "Ayush Chugh",
+		url: "https://ayushchugh.com",
+		image: "https://cdn.ayushchugh.com/open-graph/business-card.png",
+		jobTitle: "Full Stack Web Developer",
+		worksFor: [
+			{
+				"@type": "Organization",
+				name: "Ravix Studio",
+				url: config.companies.ravixStudio,
+			},
+			{
+				"@type": "Organization",
+				name: "Avenue Ticketing",
+				url: config.companies.avenueTicketing,
+			},
+		],
+		sameAs: [
+			config.socials.github,
+			config.socials.twitter,
+			config.socials.linkedin,
+		],
+		knowsAbout: [
+			"Full Stack Development",
+			"React",
+			"Next.js",
+			"TypeScript",
+			"Node.js",
+			"Web Development",
+		],
+		address: {
+			"@type": "PostalAddress",
+			addressLocality: "Mohali",
+			addressCountry: "India",
+		},
+	};
+
 	return (
 		<section>
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+			/>
 			<header className="mb-6">
 				<div className="flex items-center gap-3 mb-2 flex-wrap">
 					<h1 className='font-medium text-2xl tracking-tight font-["monospace"]'>

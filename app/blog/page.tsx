@@ -6,9 +6,23 @@ import calculateEstimateReadingTime from "../utils/calculateEstimateReadingTime"
 import Separator from "../components/separator";
 
 export const metadata: Metadata = {
+	metadataBase: new URL("https://ayushchugh.com"),
 	title: "Blog",
 	description:
 		"Read my thoughts on engineering, design, and product development.",
+	keywords: [
+		"Ayush Chugh Blog",
+		"Web Development Blog",
+		"Programming Blog",
+		"Tech Blog",
+		"JavaScript",
+		"React",
+		"Next.js",
+		"Software Engineering",
+	],
+	alternates: {
+		canonical: "/blog",
+	},
 	openGraph: {
 		title: "Ayush Chugh's Blog",
 		description:

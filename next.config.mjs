@@ -9,6 +9,8 @@ const nextConfig = {
 			},
 		],
 	},
+	// Disable trailing slash to match our canonical URLs
+	trailingSlash: false,
 	// async redirects() {
 	// 	if (!process.env.POSTGRES_URL) {
 	// 		return [];
