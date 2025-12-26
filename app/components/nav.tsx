@@ -15,10 +15,10 @@ export function Navbar() {
 		<aside className="-ml-[8px] mb-8 tracking-tight no-print">
 			<div className="lg:sticky lg:top-20">
 				<nav
-					className="flex flex-wrap relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative items-center justify-between gap-y-3"
+					className="flex flex-col sm:flex-row relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative gap-3 sm:gap-0 sm:items-center sm:justify-between"
 					id="nav"
 				>
-					<div className="flex flex-row space-x-0 pr-10">
+					<div className="flex flex-row flex-wrap space-x-0">
 						{config.navigation.map(({ path, name }) => {
 							return (
 								<Link
@@ -31,10 +31,13 @@ export function Navbar() {
 							);
 						})}
 					</div>
-					<div className="flex items-center gap-3 flex-shrink-0">
+					<div className="flex items-center gap-3 flex-wrap">
 						<ISTClock />
 						{currentRoute === "/resume" && (
-							<Chip onClick={handlePrint} className="flex items-center gap-1.5 whitespace-nowrap">
+							<Chip
+								onClick={handlePrint}
+								className="flex items-center gap-1.5 whitespace-nowrap"
+							>
 								print <span>🖨️</span>
 							</Chip>
 						)}
