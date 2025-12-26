@@ -1,6 +1,8 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import ISTClock from "./ist-clock";
+import Chip from "./chip";
 
 const navItems = {
 	"/": {
@@ -11,6 +13,9 @@ const navItems = {
 	},
 	"/resume": {
 		name: "Resume",
+	},
+	"/community": {
+		name: "Community",
 	},
 	"/contact": {
 		name: "Contact",
@@ -30,7 +35,7 @@ export function Navbar() {
 		<aside className="-ml-[8px] mb-8 tracking-tight no-print">
 			<div className="lg:sticky lg:top-20">
 				<nav
-					className="flex flex-row relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative items-center justify-between"
+					className="flex flex-wrap relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative items-center justify-between gap-y-3"
 					id="nav"
 				>
 					<div className="flex flex-row space-x-0 pr-10">
@@ -46,14 +51,14 @@ export function Navbar() {
 							);
 						})}
 					</div>
-					{currentRoute === "/resume" && (
-						<div
-							className="border-solid border-2 border-slate-500 p-2 rounded-md hover:bg-slate-800 hover:text-white hover:cursor-pointer flex gap-1.5"
-							onClick={handlePrint}
-						>
-							print <span>🖨️</span>
-						</div>
-					)}
+					<div className="flex items-center gap-3 flex-shrink-0">
+						<ISTClock />
+						{currentRoute === "/resume" && (
+							<Chip onClick={handlePrint} className="flex items-center gap-1.5 whitespace-nowrap">
+								print <span>🖨️</span>
+							</Chip>
+						)}
+					</div>
 				</nav>
 			</div>
 		</aside>

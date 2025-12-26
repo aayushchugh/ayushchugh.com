@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Separator from "../components/separator";
 import { EnvelopeSimple } from "@phosphor-icons/react/dist/ssr";
+import { config } from "../config/config";
 
 export const metadata: Metadata = {
 	title: "Contact",
@@ -49,10 +50,10 @@ export default function ContactPage() {
 				<div className="flex items-center mb-4">
 					<EnvelopeSimple size={24} />
 					<a
-						href="mailto:hey@ayushchugh.com"
+						href={`mailto:${config.socials.email}`}
 						className="underline text-sm ml-1"
 					>
-						hey@ayushchugh.com
+						{config.socials.email}
 					</a>
 				</div>
 
@@ -62,15 +63,20 @@ export default function ContactPage() {
 				<h2 className="font-medium text-2xl mb-6 tracking-tight font-['monospace']">
 					Want to chat? Schedule a 1:1 with me!
 				</h2>
-				<div>
-					<a
-						href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ32m0Ha13-Djq7bDeqBFdEgjmkBLk3uIF9LGwK2eIrl1BGBVxBAhqnpYj7ealqSNG0JYpSUTikB?gv=true"
-						target="_blank"
-						rel="noopener noreferrer"
-						className="underline text-sm"
-					>
-						Schedule a meet
-					</a>
+				<p className="mb-6">
+					Book a time that works for you directly through my calendar:
+				</p>
+				<div className="not-prose mb-8">
+					<div className="relative w-full overflow-hidden rounded-lg border border-neutral-200 dark:border-neutral-700 shadow-sm bg-white">
+						<iframe
+							src={config.socials.calendar}
+							style={{ border: 0 }}
+							width="100%"
+							height="650"
+							frameBorder="0"
+							title="Schedule a meeting with Ayush Chugh"
+						/>
+					</div>
 				</div>
 			</div>
 		</section>
