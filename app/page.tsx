@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 import Separator from "./components/separator";
 import GitHubCalendar from "react-github-calendar";
 import { config } from "./config/config";
+import ExperienceCounter from "./components/experience-counter";
 
 export const metadata: Metadata = {
 	title: "Ayush Chugh",
@@ -43,12 +44,24 @@ export default function Page() {
 	return (
 		<section>
 			<header className="mb-6">
-				<h1 className='font-medium text-2xl mb-2 tracking-tight font-["monospace"]'>
-					Sup, I'm Ayush Chugh 👋
-				</h1>
+				<div className="flex items-center gap-3 mb-2 flex-wrap">
+					<h1 className='font-medium text-2xl tracking-tight font-["monospace"]'>
+						Sup, I'm Ayush Chugh 👋
+					</h1>
+					{config.profile.availableForFreelance && (
+						<span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 border border-green-200 dark:border-green-800 rounded-full">
+							<span className="relative flex h-2 w-2">
+								<span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+								<span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+							</span>
+							Available for freelance
+						</span>
+					)}
+				</div>
 				<p className="text-lg prose prose-neutral dark:prose-invert">
-					I'm a Full Stack Web Developer from Mohali, India, trying to make the
-					internet a bit cooler one website at a time.
+					I'm a Full Stack Web Developer from Mohali, India, with{" "}
+					<ExperienceCounter />, trying to make the internet a bit cooler one
+					website at a time.
 				</p>
 			</header>
 
@@ -60,7 +73,7 @@ export default function Page() {
 					I specialize in creating user-friendly digital experiences. Currently,
 					I'm the <strong>Co-founder & CTO</strong> at{" "}
 					<span className="not-prose">
-						<Badge href="https://ravixstudio.com/">
+						<Badge href={config.companies.ravixStudio}>
 							<Image
 								src={"https://cdn.ayushchugh.com/logos/ravix-dark.png"}
 								alt="Ravix Studio"
@@ -74,7 +87,7 @@ export default function Page() {
 					, a startup where I'm building a lot of SAAS products to learn new
 					stuff and grow. I also work as a <strong>Team Lead</strong> at{" "}
 					<span className="not-prose">
-						<Badge href="https://avenueticket.com/">
+						<Badge href={config.companies.avenueTicketing}>
 							<Image
 								src={"https://cdn.ayushchugh.com/logos/avenue.jpeg"}
 								alt="Avenue Ticketing"
@@ -84,14 +97,15 @@ export default function Page() {
 							/>
 							Avenue Ticketing
 						</Badge>
-					</span>{" "}
-					where I lead a team of 5 developers building a ticketing platform for
-					event organizers and attendees.
+					</span>
+					—proudly the youngest team leader there—where I lead a team of 5
+					developers building a ticketing platform for event organizers and
+					attendees.
 				</p>
 				<p>
 					Previously, I worked with{" "}
 					<span className="not-prose">
-						<Badge href="https://vibraniumsoft.com">
+						<Badge href={config.companies.vibraniumSoft}>
 							<Image
 								src={"https://cdn.ayushchugh.com/logos/vibraniumsoft.jpeg"}
 								alt="Vibranium Soft"
@@ -104,7 +118,7 @@ export default function Page() {
 					</span>{" "}
 					where we built a B2B flight booking platform for the travel industry,{" "}
 					<span className="not-prose">
-						<Badge href="https://tapinvest.in/">
+						<Badge href={config.companies.tapInvest}>
 							<Image
 								src={"https://cdn.ayushchugh.com/logos/tapico.png"}
 								alt="Tap Invest"
@@ -118,6 +132,26 @@ export default function Page() {
 					, where I developed internal dashboard tools and created landing pages
 					for their investment platform. For more details about my experience,
 					check out my <Link href="/resume">resume</Link>.
+				</p>
+			</div>
+
+			<Separator />
+
+			<div className="mb-8 prose prose-neutral dark:prose-invert">
+				<h2>What Makes Me Different</h2>
+				<p>
+					I'm not just another developer. I take full ownership of every project
+					I work on, which is how I became the youngest team leader at Avenue
+					Ticketing. I approach problems with both a technical and business
+					mindset—I understand that great code means nothing if it doesn't solve
+					real problems.
+				</p>
+				<p>
+					While I embrace AI-assisted development, I do it differently. I
+					leverage AI to build powerful systems faster, but always with proper
+					supervision, code review, and architectural oversight. This allows me
+					to maintain quality while maximizing productivity—the best of both
+					worlds.
 				</p>
 			</div>
 

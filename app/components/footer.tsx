@@ -3,6 +3,7 @@ import {
 	EnvelopeSimple,
 	GithubLogo,
 	LinkedinLogo,
+	RssSimple,
 	XLogo,
 } from "@phosphor-icons/react/dist/ssr";
 import type { FC } from "react";
@@ -33,6 +34,11 @@ const socialLinks = [
 		name: "Discord",
 		url: config.socials.discord,
 		logo: DiscordLogo,
+	},
+	{
+		name: "RSS Feed",
+		url: "/rss",
+		logo: RssSimple,
 	},
 ];
 

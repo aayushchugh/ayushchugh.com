@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import WorkExperienceItem from "../components/work-experience-item";
 import EducationItem from "../components/education-item";
 import VolunteeringItem from "../components/volunteer-item";
+import { config } from "../config/config";
 
 export const metadata: Metadata = {
 	title: "Resume",
@@ -42,7 +43,7 @@ const resumeData = {
 			company: "Ravix Studio",
 			logo: "https://cdn.ayushchugh.com/logos/ravix-dark.png",
 			location: "On-site",
-			website: "https://ravixstudio.com/",
+			website: config.companies.ravixStudio,
 			positions: [
 				{
 					role: "Co-founder & CTO",
@@ -65,7 +66,7 @@ const resumeData = {
 			company: "Avenue Ticketing, Inc.",
 			logo: "https://cdn.ayushchugh.com/logos/avenue.jpeg",
 			location: "Remote",
-			website: "https://avenueticket.com/",
+			website: config.companies.avenueTicketing,
 			positions: [
 				{
 					role: "Team Lead",
@@ -116,7 +117,7 @@ const resumeData = {
 			company: "Vibranium Soft",
 			logo: "https://cdn.ayushchugh.com/logos/vibraniumsoft.jpeg",
 			location: "Remote",
-			website: "https://vibraniumsoft.com",
+			website: config.companies.vibraniumSoft,
 			positions: [
 				{
 					role: "Frontend Developer",
@@ -145,7 +146,7 @@ const resumeData = {
 			company: "Keizer Works",
 			logo: "https://cdn.ayushchugh.com/logos/keizer.svg",
 			location: "Remote",
-			website: "https://keizerworks.com/",
+			website: config.companies.keizerWorks,
 			positions: [
 				{
 					role: "SDE",
@@ -173,7 +174,7 @@ const resumeData = {
 			company: "Tap Invest",
 			logo: "https://cdn.ayushchugh.com/logos/tapico.png",
 			location: "Remote",
-			website: "https://tapinvest.in/",
+			website: config.companies.tapInvest,
 			positions: [
 				{
 					role: "Frontend Developer",
@@ -199,7 +200,7 @@ const resumeData = {
 			company: "Shri Property",
 			logo: "https://cdn.ayushchugh.com/logos/shriProperty.png",
 			location: "Remote",
-			website: "https://shriproperty.com",
+			website: config.companies.shriProperty,
 			positions: [
 				{
 					role: "Full-Stack Developer",
