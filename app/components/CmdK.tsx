@@ -7,6 +7,7 @@ import CommandPalette, {
 } from "react-cmdk";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { config } from "../config/config";
 
 const Example = () => {
 	const [open, setOpen] = useState<boolean>(false);
@@ -15,45 +16,26 @@ const Example = () => {
 
 	useHandleOpenCommandPalette(setOpen);
 
+	const iconMap: Record<string, any> = {
+		"/": "HomeIcon",
+		"/projects": "CodeBracketSquareIcon",
+		"/resume": "BriefcaseIcon",
+		"/contact": "PhoneIcon",
+		"/blog": "PencilIcon",
+		"/community": "UsersIcon",
+	};
+
 	const filteredItems = filterItems(
 		[
 			{
 				heading: "Navigate",
-				id: "home",
-				items: [
-					{
-						id: "home",
-						children: "Home",
-						icon: "HomeIcon",
-						onClick: () => router.push("/"),
-					},
-					{
-						id: "projects",
-						children: "Projects",
-						icon: "CodeBracketSquareIcon",
-						onClick: () => router.push("/projects"),
-					},
-					{
-						id: "resume",
-						children: "Resume",
-						icon: "BriefcaseIcon",
-						// href: '/work',
-						onClick: () => router.push("/resume"),
-					},
-					{
-						id: "contact",
-						children: "Contact",
-						icon: "PhoneIcon",
-						// href: '/work',
-						onClick: () => router.push("/contact"),
-					},
-					{
-						id: "blog",
-						children: "Blog",
-						icon: "PencilIcon",
-						onClick: () => router.push("/blog"),
-					},
-				],
+				id: "navigation",
+				items: config.navigation.map(({ path, name }) => ({
+					id: path,
+					children: name,
+					icon: iconMap[path] || ("DocumentIcon" as any),
+					onClick: () => router.push(path),
+				})),
 			},
 		],
 		search

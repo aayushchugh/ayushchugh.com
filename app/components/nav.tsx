@@ -3,27 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ISTClock from "./ist-clock";
 import Chip from "./chip";
-
-const navItems = {
-	"/": {
-		name: "Home",
-	},
-	"/projects": {
-		name: "Projects",
-	},
-	"/resume": {
-		name: "Resume",
-	},
-	"/community": {
-		name: "Community",
-	},
-	"/contact": {
-		name: "Contact",
-	},
-	"/blog": {
-		name: "Blog",
-	},
-};
+import { config } from "../config/config";
 
 export function Navbar() {
 	const handlePrint = () => {
@@ -39,7 +19,7 @@ export function Navbar() {
 					id="nav"
 				>
 					<div className="flex flex-row space-x-0 pr-10">
-						{Object.entries(navItems).map(([path, { name }]) => {
+						{config.navigation.map(({ path, name }) => {
 							return (
 								<Link
 									key={path}

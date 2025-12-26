@@ -4,6 +4,14 @@ export const config = {
 		professionalStartDate: "2022-01-01", // When you started working on production apps
 		availableForFreelance: true,
 	},
+	navigation: [
+		{ path: "/", name: "Home" },
+		{ path: "/projects", name: "Projects" },
+		{ path: "/resume", name: "Resume" },
+		{ path: "/community", name: "Community" },
+		{ path: "/contact", name: "Contact" },
+		{ path: "/blog", name: "Blog" },
+	],
 	companies: {
 		ravixStudio: "https://ravixstudio.com/",
 		avenueTicketing: "https://avenueticket.com/",
