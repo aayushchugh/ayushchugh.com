@@ -68,19 +68,17 @@ export default function ContactPage() {
 					Want to chat? Schedule a 1:1 with me!
 				</h2>
 				<p className="mb-6">
-					Book a time that works for you directly through my calendar:
+					Book a time that works for you directly through Topmate:
 				</p>
 				<div className="not-prose mb-8">
-					<div className="relative w-full overflow-hidden rounded-lg border border-neutral-200 dark:border-neutral-700 shadow-sm bg-white">
-						<iframe
-							src={config.socials.calendar}
-							style={{ border: 0 }}
-							width="100%"
-							height="650"
-							frameBorder="0"
-							title="Schedule a meeting with Ayush Chugh"
-						/>
-					</div>
+					<a
+						href={config.socials.topmate}
+						target="_blank"
+						rel="noopener noreferrer"
+						className="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 rounded-lg font-medium hover:bg-neutral-700 dark:hover:bg-neutral-300 transition-colors"
+					>
+						Schedule a meeting →
+					</a>
 				</div>
 			</div>
 		</section>
