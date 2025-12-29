@@ -13,7 +13,8 @@ export const config = {
 		{ path: "/blog", name: "Blog" },
 	],
 	companies: {
-		ravixStudio: "https://ravixstudio.com/",
+		ravixStudio: "https://x.com/ravixstudio/",
+		// ravixStudio: "https://ravixstudio.com/",
 		avenueTicketing: "https://avenueticket.com/",
 		vibraniumSoft:
 			"https://www.linkedin.com/company/vibraniumsoft/posts/?feedView=all",
