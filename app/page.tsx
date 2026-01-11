@@ -7,7 +7,6 @@ import Separator from "./components/separator";
 import GitHubCalendar from "react-github-calendar";
 import { config } from "./config/config";
 import ExperienceCounter from "./components/experience-counter";
-import SkillsSection from "./components/skills-section";
 
 export const metadata: Metadata = {
 	metadataBase: new URL("https://ayushchugh.com"),
@@ -214,10 +213,6 @@ export default function Page() {
 					worlds.
 				</p>
 			</div>
-
-			<Separator />
-
-			<SkillsSection />
 
 			<Separator />
 
