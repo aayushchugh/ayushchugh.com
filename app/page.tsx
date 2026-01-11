@@ -7,6 +7,7 @@ import Separator from "./components/separator";
 import GitHubCalendar from "react-github-calendar";
 import { config } from "./config/config";
 import ExperienceCounter from "./components/experience-counter";
+import Skills from "./components/skills";
 
 export const metadata: Metadata = {
 	metadataBase: new URL("https://ayushchugh.com"),
@@ -212,6 +213,15 @@ export default function Page() {
 					to maintain quality while maximizing productivity—the best of both
 					worlds.
 				</p>
+			</div>
+
+			<Separator />
+
+			<div className="mb-8 prose prose-neutral dark:prose-invert">
+				<h2>Skills & Technologies</h2>
+				<div className="not-prose">
+					<Skills />
+				</div>
 			</div>
 
 			<Separator />
