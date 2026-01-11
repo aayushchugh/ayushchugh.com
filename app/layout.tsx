@@ -139,6 +139,12 @@ export default function RootLayout({
 					async
 					src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS_ID}`}
 				></script>
+				{process.env.NEXT_PUBLIC_BLACKBOX_WIDGET_ID && (
+					<script
+						src="https://cloud.blackbox.ai/api/widget-loader"
+						data-widget-id={process.env.NEXT_PUBLIC_BLACKBOX_WIDGET_ID}
+					></script>
+				)}
 			</head>
 			<body className="antialiased max-w-2xl mb-40 flex flex-col md:flex-row mx-auto px-4 mt-8">
 				<main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">

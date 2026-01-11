@@ -5,6 +5,7 @@ import Image from "next/image";
 import Separator from "../components/separator";
 import { EnvelopeSimple } from "@phosphor-icons/react/dist/ssr";
 import { config } from "../config/config";
+import FeedbackButton from "../components/feedback-button";
 
 export const metadata: Metadata = {
 	metadataBase: new URL("https://ayushchugh.com"),
@@ -79,6 +80,19 @@ export default function ContactPage() {
 					>
 						Schedule a meeting →
 					</a>
+				</div>
+
+				<Separator />
+
+				{/* Feedback Section */}
+				<h2 className="font-medium text-2xl mb-6 tracking-tight font-['monospace']">
+					Have feedback or suggestions?
+				</h2>
+				<p className="mb-6">
+					I'd love to hear your thoughts! Click the button below to share your feedback:
+				</p>
+				<div className="not-prose mb-8">
+					<FeedbackButton />
 				</div>
 			</div>
 		</section>
