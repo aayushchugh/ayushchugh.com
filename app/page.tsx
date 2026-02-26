@@ -10,9 +10,9 @@ import ExperienceCounter from "./components/experience-counter";
 
 export const metadata: Metadata = {
 	metadataBase: new URL("https://ayushchugh.com"),
-	title: "Ayush Chugh",
+	title: "Ayush Chugh - Full Stack Developer from India",
 	description:
-		"I'm a Full Stack Web Developer from India, trying to make the internet a bit cooler one website at a time.",
+		"Ayush Chugh is a Full Stack Web Developer from Mohali, India specializing in React, Next.js, TypeScript & Node.js. Co-founder at Ravix Studio, Team Lead at Avenue Ticketing.",
 	keywords: [
 		"Ayush Chugh",
 		"Full Stack Developer",
@@ -24,35 +24,36 @@ export const metadata: Metadata = {
 		"Software Engineer",
 		"India Developer",
 		"Mohali Developer",
+		"Freelance Developer India",
+		"Portfolio",
 	],
 	alternates: {
 		canonical: "/",
 	},
 	openGraph: {
-		title: "Ayush Chugh",
+		title: "Ayush Chugh - Full Stack Developer from India",
 		description:
-			"I'm a Full Stack Web Developer from India, trying to make the internet a bit cooler one website at a time.",
+			"Full Stack Web Developer from Mohali, India specializing in React, Next.js, TypeScript & Node.js. Co-founder at Ravix Studio, Team Lead at Avenue Ticketing.",
 		url: "https://ayushchugh.com",
 		siteName: "Ayush Chugh's Portfolio",
 		images: [
 			{
 				url: "https://cdn.ayushchugh.com/open-graph/business-card.png",
+				width: 1200,
 				height: 630,
-				alt: "Ayush Chugh",
+				alt: "Ayush Chugh - Full Stack Developer Portfolio",
 			},
 		],
 		type: "website",
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: "Ayush Chugh",
+		title: "Ayush Chugh - Full Stack Developer from India",
 		description:
-			"I'm a Full Stack Web Developer from India, trying to make the internet a bit cooler one website at a time.",
+			"Full Stack Web Developer from Mohali, India specializing in React, Next.js, TypeScript & Node.js. Co-founder at Ravix Studio, Team Lead at Avenue Ticketing.",
 		images: ["https://cdn.ayushchugh.com/open-graph/business-card.png"],
 		creator: "@aayushchugh",
-		creatorId: "@aayushchugh",
 		site: "@aayushchugh",
-		siteId: "@aayushchugh",
 	},
 };
 

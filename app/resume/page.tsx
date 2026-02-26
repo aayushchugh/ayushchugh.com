@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { generateBreadcrumbJsonLd } from "app/utils/jsonLd";
 import WorkExperienceItem from "../components/work-experience-item";
 import EducationItem from "../components/education-item";
 import VolunteeringItem from "../components/volunteer-item";
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
 	metadataBase: new URL("https://ayushchugh.com"),
 	title: "Resume",
 	description:
-		"A summary of Ayush Chugh's corporate contributions, skills, and experience as a Full-Stack Developer, including work with Tap Invest, Shri Property, and A2INFINITE.",
+		"Ayush Chugh's resume: Co-founder & CTO at Ravix Studio, Team Lead at Avenue Ticketing. Full Stack Developer experienced in React, Next.js, TypeScript & Node.js.",
 	keywords: [
 		"Ayush Chugh Resume",
 		"Full Stack Developer Resume",
@@ -16,36 +17,36 @@ export const metadata: Metadata = {
 		"React Developer Resume",
 		"Software Engineer Resume",
 		"Work Experience",
+		"Hire Developer India",
+		"TypeScript Developer Resume",
 	],
 	alternates: {
 		canonical: "/resume",
 	},
 	openGraph: {
 		type: "article",
-		url: `https://ayushchugh.com/resume`,
-		title: "Ayush Chugh’s Resume",
+		url: "https://ayushchugh.com/resume",
+		title: "Resume - Full Stack Developer Experience | Ayush Chugh",
 		siteName: "Ayush Chugh's Portfolio",
 		description:
-			"Detailed resume of Ayush Chugh, Full-Stack Developer, with work experience, projects, and educational background.",
+			"Co-founder & CTO at Ravix Studio, Team Lead at Avenue Ticketing. Full Stack Developer experienced in React, Next.js, TypeScript & Node.js.",
 		images: [
 			{
-				url: `https://cdn.ayushchugh.com/open-graph/business-card.png`,
+				url: "https://cdn.ayushchugh.com/open-graph/business-card.png",
 				width: 1200,
 				height: 630,
-				alt: "Ayush Chugh's Resume",
+				alt: "Ayush Chugh's Full Stack Developer Resume",
 			},
 		],
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: "Ayush Chugh's Resume",
+		title: "Resume - Full Stack Developer Experience | Ayush Chugh",
 		description:
-			"Check out Ayush Chugh’s Full-Stack Developer resume, showcasing professional contributions and achievements.",
+			"Co-founder & CTO at Ravix Studio, Team Lead at Avenue Ticketing. Full Stack Developer experienced in React, Next.js, TypeScript & Node.js.",
 		images: ["https://cdn.ayushchugh.com/open-graph/business-card.png"],
 		creator: "@aayushchugh",
-		creatorId: "@aayushchugh",
 		site: "@aayushchugh",
-		siteId: "@aayushchugh",
 	},
 };
 
@@ -304,8 +305,67 @@ const resumeData = {
 };
 
 export default function WorkPage() {
+	const breadcrumbJsonLd = generateBreadcrumbJsonLd([
+		{ name: "Home", url: "https://ayushchugh.com" },
+		{ name: "Resume", url: "https://ayushchugh.com/resume" },
+	]);
+
+	const profileJsonLd = {
+		"@context": "https://schema.org",
+		"@type": "ProfilePage",
+		mainEntity: {
+			"@type": "Person",
+			name: "Ayush Chugh",
+			url: "https://ayushchugh.com",
+			jobTitle: "Full Stack Web Developer",
+			worksFor: [
+				{
+					"@type": "Organization",
+					name: "Ravix Studio",
+					url: config.companies.ravixStudio,
+				},
+				{
+					"@type": "Organization",
+					name: "Avenue Ticketing",
+					url: config.companies.avenueTicketing,
+				},
+			],
+			alumniOf: [
+				{
+					"@type": "EducationalOrganization",
+					name: "Chandigarh Group of Colleges, Landran",
+				},
+				{
+					"@type": "EducationalOrganization",
+					name: "Chandigarh College of Engineering & Technology",
+				},
+			],
+			knowsAbout: [
+				"React",
+				"Next.js",
+				"TypeScript",
+				"Node.js",
+				"PostgreSQL",
+				"AWS",
+				"Docker",
+			],
+		},
+	};
+
 	return (
 		<section>
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify(breadcrumbJsonLd),
+				}}
+			/>
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify(profileJsonLd),
+				}}
+			/>
 			<div className="flex">
 				<h1 className='font-medium text-2xl mb-2 tracking-tight font-["monospace"]'>
 					My Resume 📝

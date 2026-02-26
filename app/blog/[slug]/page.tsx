@@ -2,8 +2,15 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CustomMDX } from "app/components/mdx";
 import { getBlogPosts } from "app/db/blog";
+import { generateBreadcrumbJsonLd } from "app/utils/jsonLd";
 import Image from "next/image";
 import { format, formatDistanceToNow } from "date-fns";
+
+export function generateStaticParams() {
+	return getBlogPosts().map(post => ({
+		slug: post.slug,
+	}));
+}
 
 export async function generateMetadata({
 	params,
@@ -18,10 +25,9 @@ export async function generateMetadata({
 		publishedAt: publishedTime,
 		summary: description,
 	} = post.metadata;
-	// let ogImage = `https://ayushchugh.com/ogs/ogs-bg-blog-${post.slug}.png`;
 	let ogImage = post.metadata.ogImage
 		? post.metadata.ogImage
-		: `https://cdn.ayushchugh.com/open-graph/business-card.png`;
+		: "https://cdn.ayushchugh.com/open-graph/business-card.png";
 
 	return {
 		metadataBase: new URL("https://ayushchugh.com"),
@@ -39,6 +45,9 @@ export async function generateMetadata({
 			images: [
 				{
 					url: ogImage,
+					width: 1200,
+					height: 630,
+					alt: title,
 				},
 			],
 		},
@@ -48,9 +57,7 @@ export async function generateMetadata({
 			description,
 			images: [ogImage],
 			creator: "@aayushchugh",
-			creatorId: "@aayushchugh",
 			site: "@aayushchugh",
-			siteId: "@aayushchugh",
 		},
 	};
 }
@@ -62,28 +69,57 @@ export default function Blog({ params }) {
 		notFound();
 	}
 
+	const wordCount = post.content.split(/\s+/).length;
+
+	const blogPostingJsonLd = {
+		"@context": "https://schema.org",
+		"@type": "BlogPosting",
+		headline: post.metadata.title,
+		datePublished: post.metadata.publishedAt,
+		dateModified: post.metadata.publishedAt,
+		description: post.metadata.summary,
+		image: post.metadata.ogImage || post.metadata.coverImage,
+		url: `https://ayushchugh.com/blog/${post.slug}`,
+		wordCount,
+		author: {
+			"@type": "Person",
+			name: "Ayush Chugh",
+			url: "https://ayushchugh.com",
+		},
+		publisher: {
+			"@type": "Person",
+			name: "Ayush Chugh",
+			url: "https://ayushchugh.com",
+		},
+		mainEntityOfPage: {
+			"@type": "WebPage",
+			"@id": `https://ayushchugh.com/blog/${post.slug}`,
+		},
+	};
+
+	const breadcrumbJsonLd = generateBreadcrumbJsonLd([
+		{ name: "Home", url: "https://ayushchugh.com" },
+		{ name: "Blog", url: "https://ayushchugh.com/blog" },
+		{
+			name: post.metadata.title,
+			url: `https://ayushchugh.com/blog/${post.slug}`,
+		},
+	]);
+
 	return (
 		<section>
 			<script
 				type="application/ld+json"
 				suppressHydrationWarning
 				dangerouslySetInnerHTML={{
-					__html: JSON.stringify({
-						"@context": "https://schema.org",
-						"@type": "BlogPosting",
-						headline: post.metadata.title,
-						datePublished: post.metadata.publishedAt,
-						dateModified: post.metadata.publishedAt,
-						description: post.metadata.summary,
-						image: post.metadata.ogImage
-							? `${post.metadata.ogImage}`
-							: `${post.metadata.coverImage}`,
-						url: `https://ayushchugh.com/blog/${post.slug}`,
-						author: {
-							"@type": "Person",
-							name: "Ayush Chugh",
-						},
-					}),
+					__html: JSON.stringify(blogPostingJsonLd),
+				}}
+			/>
+			<script
+				type="application/ld+json"
+				suppressHydrationWarning
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify(breadcrumbJsonLd),
 				}}
 			/>
 			<h1 className="title font-medium text-2xl tracking-tighter max-w-[650px]">

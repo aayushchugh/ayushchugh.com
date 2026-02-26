@@ -1,4 +1,5 @@
 import { getBlogPosts } from "app/db/blog";
+import { generateBreadcrumbJsonLd } from "app/utils/jsonLd";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { format, formatDistanceToNow } from "date-fns";
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
 	metadataBase: new URL("https://ayushchugh.com"),
 	title: "Blog",
 	description:
-		"Read my thoughts on engineering, design, and product development.",
+		"Read Ayush Chugh's blog on web development, React, Next.js, TypeScript, Node.js, and software engineering best practices.",
 	keywords: [
 		"Ayush Chugh Blog",
 		"Web Development Blog",
@@ -18,15 +19,18 @@ export const metadata: Metadata = {
 		"JavaScript",
 		"React",
 		"Next.js",
+		"TypeScript",
+		"Node.js",
 		"Software Engineering",
+		"Full Stack Developer Blog",
 	],
 	alternates: {
 		canonical: "/blog",
 	},
 	openGraph: {
-		title: "Ayush Chugh's Blog",
+		title: "Blog - Web Development & Software Engineering | Ayush Chugh",
 		description:
-			"Explore blog posts on engineering, design, and product development.",
+			"Read articles on web development, React, Next.js, TypeScript, Node.js, and software engineering best practices by Ayush Chugh.",
 		url: "https://ayushchugh.com/blog",
 		siteName: "Ayush Chugh's Portfolio",
 		images: [
@@ -34,32 +38,41 @@ export const metadata: Metadata = {
 				url: "https://cdn.ayushchugh.com/open-graph/business-card.png",
 				width: 1200,
 				height: 630,
-				alt: "Ayush Chugh's Blog",
+				alt: "Ayush Chugh's Web Development Blog",
 			},
 		],
 		type: "website",
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: "Ayush Chugh's Blog",
+		title: "Blog - Web Development & Software Engineering | Ayush Chugh",
 		description:
-			"Read blog posts on engineering, design, and product development.",
+			"Read articles on web development, React, Next.js, TypeScript, Node.js, and software engineering best practices by Ayush Chugh.",
 		images: ["https://cdn.ayushchugh.com/open-graph/business-card.png"],
 		creator: "@aayushchugh",
-		creatorId: "@aayushchugh",
 		site: "@aayushchugh",
-		siteId: "@aayushchugh",
 	},
 };
 
 export default function BlogPage() {
 	const blogs = getBlogPosts();
 
+	const breadcrumbJsonLd = generateBreadcrumbJsonLd([
+		{ name: "Home", url: "https://ayushchugh.com" },
+		{ name: "Blog", url: "https://ayushchugh.com/blog" },
+	]);
+
 	return (
 		<section>
-			<h2 className="font-medium text-2xl mb-8 tracking-tight font-['monospace']">
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify(breadcrumbJsonLd),
+				}}
+			/>
+			<h1 className="font-medium text-2xl mb-8 tracking-tight font-['monospace']">
 				Writings 🧑🏻‍💻
-			</h2>
+			</h1>
 			{blogs
 				.sort((a, b) => {
 					if (

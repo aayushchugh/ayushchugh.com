@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { generateBreadcrumbJsonLd } from "app/utils/jsonLd";
 import Image from "next/image";
 import Badge from "../components/Badge";
 import { config } from "../config/config";
@@ -7,14 +8,22 @@ export const metadata: Metadata = {
 	metadataBase: new URL("https://ayushchugh.com"),
 	title: "Community",
 	description:
-		"Join the Ravix Studio community. Connect with Ayush Chugh and contribute to exciting projects.",
+		"Join the Ravix Studio Discord community. Collaborate on open-source projects, share ideas, and connect with developers led by Ayush Chugh.",
+	keywords: [
+		"Ravix Studio Community",
+		"Developer Discord",
+		"Open Source Community",
+		"Ayush Chugh Discord",
+		"Web Developer Community India",
+		"Collaborate on Projects",
+	],
 	alternates: {
 		canonical: "/community",
 	},
 	openGraph: {
-		title: "Community | Ayush Chugh",
+		title: "Join the Ravix Studio Developer Community",
 		description:
-			"Join the Ravix Studio community. Connect with Ayush Chugh and contribute to exciting projects.",
+			"Collaborate on open-source projects, share ideas, and connect with developers led by Ayush Chugh on Discord.",
 		url: "https://ayushchugh.com/community",
 		siteName: "Ayush Chugh's Portfolio",
 		images: [
@@ -22,27 +31,36 @@ export const metadata: Metadata = {
 				url: "https://cdn.ayushchugh.com/open-graph/business-card.png",
 				width: 1200,
 				height: 630,
-				alt: "Join Ayush Chugh's Community",
+				alt: "Ravix Studio Developer Community",
 			},
 		],
 		type: "website",
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: "Community | Ayush Chugh",
+		title: "Join the Ravix Studio Developer Community",
 		description:
-			"Join the Ravix Studio community and connect with Ayush Chugh.",
+			"Collaborate on open-source projects, share ideas, and connect with developers led by Ayush Chugh on Discord.",
 		images: ["https://cdn.ayushchugh.com/open-graph/business-card.png"],
 		creator: "@aayushchugh",
-		creatorId: "@aayushchugh",
 		site: "@aayushchugh",
-		siteId: "@aayushchugh",
 	},
 };
 
 export default function CommunityPage() {
+	const breadcrumbJsonLd = generateBreadcrumbJsonLd([
+		{ name: "Home", url: "https://ayushchugh.com" },
+		{ name: "Community", url: "https://ayushchugh.com/community" },
+	]);
+
 	return (
 		<section>
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify(breadcrumbJsonLd),
+				}}
+			/>
 			<h1 className='font-medium text-2xl mb-6 tracking-tight font-["monospace"]'>
 				Join Our Community 🚀
 			</h1>

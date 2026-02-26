@@ -19,17 +19,19 @@ export function Navbar() {
 					id="nav"
 				>
 					<div className="flex flex-row flex-wrap space-x-0">
-						{config.navigation.map(({ path, name }) => {
-							return (
-								<Link
-									key={path}
-									href={path}
-									className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2"
-								>
-									{name}
-								</Link>
-							);
-						})}
+					{config.navigation.map(({ path, name }) => {
+						const isActive = currentRoute === path;
+						return (
+							<Link
+								key={path}
+								href={path}
+								aria-current={isActive ? "page" : undefined}
+								className={`transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2${isActive ? " font-semibold" : ""}`}
+							>
+								{name}
+							</Link>
+						);
+					})}
 					</div>
 					<div className="flex items-center gap-3 flex-wrap">
 						<ISTClock />

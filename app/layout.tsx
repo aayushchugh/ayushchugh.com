@@ -12,15 +12,20 @@ import Footer from "./components/footer";
 export const metadata: Metadata = {
 	metadataBase: new URL("https://ayushchugh.com"),
 	title: {
-		default: "Ayush Chugh",
+		default: "Ayush Chugh - Full Stack Developer from India",
 		template: "%s | Ayush Chugh",
 	},
 	description:
-		"Passionate full stack developer from India. On the way to master programming",
+		"Ayush Chugh is a Full Stack Developer from India specializing in React, Next.js, TypeScript & Node.js. Explore projects, blog posts, and professional experience.",
+	alternates: {
+		types: {
+			"application/rss+xml": "https://ayushchugh.com/rss",
+		},
+	},
 	openGraph: {
-		title: "Ayush Chugh",
+		title: "Ayush Chugh - Full Stack Developer from India",
 		description:
-			"Passionate full stack developer from India. On the way to master programming.",
+			"Full Stack Developer from India specializing in React, Next.js, TypeScript & Node.js. Explore projects, blog posts, and professional experience.",
 		url: "https://ayushchugh.com",
 		siteName: "Ayush Chugh's Portfolio",
 		locale: "en_US",
@@ -30,7 +35,7 @@ export const metadata: Metadata = {
 				url: "/ogs/ogs-bg.png",
 				width: 1200,
 				height: 630,
-				alt: "Ayush Chugh Full Stack Developer",
+				alt: "Ayush Chugh - Full Stack Developer Portfolio",
 			},
 		],
 	},
@@ -46,14 +51,12 @@ export const metadata: Metadata = {
 		},
 	},
 	twitter: {
-		title: "Ayush Chugh",
+		title: "Ayush Chugh - Full Stack Developer from India",
 		card: "summary_large_image",
 		creator: "@aayushchugh",
-		creatorId: "@aayushchugh",
 		site: "@aayushchugh",
-		siteId: "@aayushchugh",
 		description:
-			"Passionate full stack developer from India. On the way to master programming.",
+			"Full Stack Developer from India specializing in React, Next.js, TypeScript & Node.js. Explore projects, blog posts, and professional experience.",
 		images: ["/ogs/ogs-bg.png"],
 	},
 	icons: {
@@ -136,9 +139,23 @@ export default function RootLayout({
 		>
 			<head>
 				<script
-					async
-					src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS_ID}`}
-				></script>
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{
+						__html: JSON.stringify({
+							"@context": "https://schema.org",
+							"@type": "WebSite",
+							name: "Ayush Chugh",
+							url: "https://ayushchugh.com",
+							description:
+								"Full Stack Developer from India specializing in React, Next.js, TypeScript & Node.js.",
+							author: {
+								"@type": "Person",
+								name: "Ayush Chugh",
+								url: "https://ayushchugh.com",
+							},
+						}),
+					}}
+				/>
 			</head>
 			<body className="antialiased max-w-2xl mb-40 flex flex-col md:flex-row mx-auto px-4 mt-8">
 				<main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
@@ -146,7 +163,6 @@ export default function RootLayout({
 					<Navbar />
 					{children}
 					<Footer />
-
 					<PreloadResources />
 				</main>
 			</body>

@@ -47,14 +47,21 @@ export function generateSEOMetadata({
 			type,
 			...(publishedTime && type === "article" ? { publishedTime } : {}),
 		},
-		twitter: {
-			card: "summary_large_image",
-			title: fullTitle,
-			description,
-			images: [ogImage],
-			creator: "@aayushchugh",
-			site: "@aayushchugh",
-		},
+	twitter: {
+		card: "summary_large_image",
+		title: fullTitle,
+		description,
+		images: [
+			{
+				url: ogImage,
+				width: 1200,
+				height: 630,
+				alt: title,
+			},
+		],
+		creator: "@aayushchugh",
+		site: "@aayushchugh",
+	},
 		robots: {
 			index: true,
 			follow: true,

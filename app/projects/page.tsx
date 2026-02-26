@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import { generateBreadcrumbJsonLd } from "app/utils/jsonLd";
 import ProjectCard from "../components/project-card";
 
 export const metadata: Metadata = {
 	metadataBase: new URL("https://ayushchugh.com"),
 	title: "Projects",
 	description:
-		"Explore Ayush Chugh's projects, including Shriproperty, A2INFINITE, Worldtravels, and various open-source contributions.",
+		"Explore projects by Ayush Chugh: Worldtravels (2k+ daily users), Invoicen, Shriproperty, and more. Full stack web apps built with React, Next.js & Node.js.",
 	keywords: [
 		"Ayush Chugh Projects",
 		"Web Development Projects",
@@ -14,14 +15,16 @@ export const metadata: Metadata = {
 		"Open Source",
 		"Portfolio",
 		"Software Projects",
+		"Full Stack Projects",
+		"TypeScript Projects",
 	],
 	alternates: {
 		canonical: "/projects",
 	},
 	openGraph: {
-		title: "Ayush Chugh's Projects",
+		title: "Projects - Full Stack Web Applications | Ayush Chugh",
 		description:
-			"Discover the latest projects built by Ayush Chugh, including web development and open-source contributions.",
+			"Explore projects by Ayush Chugh: Worldtravels (2k+ daily users), Invoicen, Shriproperty, and more. Full stack web apps built with React, Next.js & Node.js.",
 		url: "https://ayushchugh.com/projects",
 		siteName: "Ayush Chugh's Portfolio",
 		images: [
@@ -29,21 +32,19 @@ export const metadata: Metadata = {
 				url: "https://cdn.ayushchugh.com/open-graph/business-card.png",
 				width: 1200,
 				height: 630,
-				alt: "Ayush Chugh's Projects",
+				alt: "Ayush Chugh's Full Stack Projects Portfolio",
 			},
 		],
 		type: "website",
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: "Ayush Chugh's Projects",
+		title: "Projects - Full Stack Web Applications | Ayush Chugh",
 		description:
-			"Explore a variety of projects and open-source contributions by Ayush Chugh.",
+			"Explore projects by Ayush Chugh: Worldtravels (2k+ daily users), Invoicen, Shriproperty, and more. Full stack web apps built with React, Next.js & Node.js.",
 		images: ["https://cdn.ayushchugh.com/open-graph/business-card.png"],
 		creator: "@aayushchugh",
-		creatorId: "@aayushchugh",
 		site: "@aayushchugh",
-		siteId: "@aayushchugh",
 	},
 };
 
@@ -186,11 +187,22 @@ export default function ProjectsPage() {
 		},
 	};
 
+	const breadcrumbJsonLd = generateBreadcrumbJsonLd([
+		{ name: "Home", url: "https://ayushchugh.com" },
+		{ name: "Projects", url: "https://ayushchugh.com/projects" },
+	]);
+
 	return (
 		<section>
 			<script
 				type="application/ld+json"
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+			/>
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify(breadcrumbJsonLd),
+				}}
 			/>
 			<h1 className="font-medium text-2xl mb-4 tracking-tight">Projects 🚀</h1>
 

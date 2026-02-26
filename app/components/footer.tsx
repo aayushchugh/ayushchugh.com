@@ -48,16 +48,17 @@ const Footer: FC = () => {
 			<footer className="mt-8 flex justify-center">
 				<ul className="flex gap-4">
 					{socialLinks.map((social, index) => (
-						<li key={index}>
-							<a
-								href={social.url}
-								target="_blank"
-								rel="noopener noreferrer"
-								className="inline-block p-2 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-full"
-							>
-								<social.logo size={24} />
-							</a>
-						</li>
+					<li key={index}>
+						<a
+							href={social.url}
+							target="_blank"
+							rel="noopener noreferrer"
+							aria-label={social.name}
+							className="inline-block p-2 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-full"
+						>
+							<social.logo size={24} aria-hidden="true" />
+						</a>
+					</li>
 					))}
 				</ul>
 			</footer>

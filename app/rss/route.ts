@@ -1,6 +1,6 @@
 import { getBlogPosts } from "../db/blog";
 
-const SITE_URL = process.env.APP_URL;
+const SITE_URL = process.env.APP_URL || "https://ayushchugh.com";
 const BLOG_URL = `${SITE_URL}/blog`;
 
 const getMimeTypeForImage = (url: string): string => {
@@ -72,11 +72,12 @@ const generateRSSFeed = (posts: ReturnType<typeof getBlogPosts>) => {
 		.join("");
 
 	return `<?xml version="1.0" encoding="UTF-8" ?>
-    <rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
+    <rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
     <title><![CDATA[Ayush Chugh's Blog]]></title>
     <link>${BLOG_URL}</link>
-    <description><![CDATA[Explore blog posts on engineering, design, and product development.]]></description>
+    <atom:link href="${SITE_URL}/rss" rel="self" type="application/rss+xml" />
+    <description><![CDATA[Read articles on web development, React, Next.js, TypeScript, Node.js, and software engineering best practices by Ayush Chugh.]]></description>
     <language>en-us</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     ${feedItems}

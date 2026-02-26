@@ -1,6 +1,7 @@
 // pages/ContactPage.tsx
 
 import type { Metadata } from "next";
+import { generateBreadcrumbJsonLd } from "app/utils/jsonLd";
 import Image from "next/image";
 import Separator from "../components/separator";
 import { EnvelopeSimple } from "@phosphor-icons/react/dist/ssr";
@@ -9,14 +10,22 @@ import { config } from "../config/config";
 export const metadata: Metadata = {
 	metadataBase: new URL("https://ayushchugh.com"),
 	title: "Contact",
-	description: "Get in touch with Ayush Chugh via email or schedule a meet.",
+	description:
+		"Get in touch with Ayush Chugh for freelance projects, collaborations, or job opportunities. Reach out via email or schedule a 1:1 meeting.",
+	keywords: [
+		"Contact Ayush Chugh",
+		"Hire Full Stack Developer",
+		"Freelance Developer India",
+		"Schedule Meeting Developer",
+		"Web Developer for Hire",
+	],
 	alternates: {
 		canonical: "/contact",
 	},
 	openGraph: {
-		title: "Contact Ayush Chugh",
+		title: "Contact Ayush Chugh - Hire a Full Stack Developer",
 		description:
-			"Find and connect with Ayush Chugh via email or book a meeting.",
+			"Get in touch with Ayush Chugh for freelance projects, collaborations, or job opportunities. Reach out via email or schedule a 1:1 meeting.",
 		url: "https://ayushchugh.com/contact",
 		siteName: "Ayush Chugh's Portfolio",
 		images: [
@@ -24,26 +33,36 @@ export const metadata: Metadata = {
 				url: "https://cdn.ayushchugh.com/open-graph/business-card.png",
 				width: 1200,
 				height: 630,
-				alt: "Contact Ayush Chugh",
+				alt: "Contact Ayush Chugh - Full Stack Developer",
 			},
 		],
 		type: "website",
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: "Contact Ayush Chugh",
-		description: "Connect with Ayush Chugh via email or schedule a meet.",
+		title: "Contact Ayush Chugh - Hire a Full Stack Developer",
+		description:
+			"Get in touch with Ayush Chugh for freelance projects, collaborations, or job opportunities. Reach out via email or schedule a 1:1 meeting.",
 		images: ["https://cdn.ayushchugh.com/open-graph/business-card.png"],
 		creator: "@aayushchugh",
-		creatorId: "@aayushchugh",
 		site: "@aayushchugh",
-		siteId: "@aayushchugh",
 	},
 };
 
 export default function ContactPage() {
+	const breadcrumbJsonLd = generateBreadcrumbJsonLd([
+		{ name: "Home", url: "https://ayushchugh.com" },
+		{ name: "Contact", url: "https://ayushchugh.com/contact" },
+	]);
+
 	return (
 		<section>
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify(breadcrumbJsonLd),
+				}}
+			/>
 			<h1 className='font-medium text-2xl mb-6 tracking-tight font-["monospace"]'>
 				Contact 📧
 			</h1>
