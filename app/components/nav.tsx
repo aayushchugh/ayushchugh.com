@@ -17,6 +17,7 @@ export function Navbar() {
 				<nav
 					className="flex flex-col sm:flex-row relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative gap-3 sm:gap-0 sm:items-center sm:justify-between"
 					id="nav"
+					aria-label="Main navigation"
 				>
 					<div className="flex flex-row flex-wrap space-x-0">
 					{config.navigation.map(({ path, name }) => {

@@ -205,6 +205,9 @@ export default function ProjectsPage() {
 				}}
 			/>
 			<h1 className="font-medium text-2xl mb-4 tracking-tight">Projects 🚀</h1>
+			<p className="sr-only">
+				A showcase of web development projects built by Ayush Chugh, including full stack applications, frontend projects, backend services, and developer tools. Projects are built using technologies like React, Next.js, TypeScript, Node.js, PostgreSQL, and MongoDB. Includes both freelance client work and personal open-source projects.
+			</p>
 
 			{/* Projects Section */}
 			<div className="prose prose-neutral dark:prose-invert">

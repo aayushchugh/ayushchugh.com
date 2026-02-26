@@ -73,6 +73,9 @@ export default function BlogPage() {
 			<h1 className="font-medium text-2xl mb-8 tracking-tight font-['monospace']">
 				Writings 🧑🏻‍💻
 			</h1>
+			<p className="sr-only">
+				A collection of technical blog posts by Ayush Chugh covering web development, JavaScript, TypeScript, React, Next.js, Node.js, and software engineering best practices. Each article includes the publication date and estimated reading time.
+			</p>
 			{blogs
 				.sort((a, b) => {
 					if (

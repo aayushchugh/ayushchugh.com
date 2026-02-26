@@ -66,6 +66,9 @@ export default function ContactPage() {
 			<h1 className='font-medium text-2xl mb-6 tracking-tight font-["monospace"]'>
 				Contact 📧
 			</h1>
+			<p className="sr-only">
+				Contact Ayush Chugh, Full Stack Developer available for freelance web development projects, consulting, and collaboration. Based in Mohali, India. Specializing in React, Next.js, TypeScript, and Node.js development. Reach out via email or book a one-on-one meeting through Topmate.
+			</p>
 
 			{/* Email Contact */}
 			<div className="prose prose-neutral dark:prose-invert">

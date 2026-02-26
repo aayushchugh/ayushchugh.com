@@ -158,7 +158,16 @@ export default function RootLayout({
 				/>
 			</head>
 			<body className="antialiased max-w-2xl mb-40 flex flex-col md:flex-row mx-auto px-4 mt-8">
-				<main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
+				<a
+					href="#main-content"
+					className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-white focus:text-black dark:focus:bg-neutral-900 dark:focus:text-white"
+				>
+					Skip to main content
+				</a>
+				<main
+					id="main-content"
+					className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0"
+				>
 					<Cmdk />
 					<Navbar />
 					{children}

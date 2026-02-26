@@ -64,6 +64,9 @@ export default function CommunityPage() {
 			<h1 className='font-medium text-2xl mb-6 tracking-tight font-["monospace"]'>
 				Join Our Community 🚀
 			</h1>
+			<p className="sr-only">
+				Join the Ravix Studio developer community on Discord led by Ayush Chugh. Collaborate on open-source web development projects, share knowledge about React, Next.js, TypeScript, and Node.js, and connect with developers from around the world. Get real-time access to project updates and collaboration opportunities.
+			</p>
 
 			<div className="prose prose-neutral dark:prose-invert">
 				<p>

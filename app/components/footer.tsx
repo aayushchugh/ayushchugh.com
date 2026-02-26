@@ -44,8 +44,12 @@ const socialLinks = [
 
 const Footer: FC = () => {
 	return (
-		<>
-			<footer className="mt-8 flex justify-center">
+		<footer className="mt-8" aria-label="Footer">
+			<h2 className="sr-only">Connect with Ayush Chugh on social media</h2>
+			<p className="sr-only">
+				Follow Ayush Chugh on GitHub, X (Twitter), LinkedIn, and Discord. Subscribe via RSS feed or send an email to get in touch about freelance web development projects.
+			</p>
+			<nav aria-label="Social media links" className="flex justify-center">
 				<ul className="flex gap-4">
 					{socialLinks.map((social, index) => (
 					<li key={index}>
@@ -53,7 +57,7 @@ const Footer: FC = () => {
 							href={social.url}
 							target="_blank"
 							rel="noopener noreferrer"
-							aria-label={social.name}
+							aria-label={`${social.name} - Connect with Ayush Chugh`}
 							className="inline-block p-2 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-full"
 						>
 							<social.logo size={24} aria-hidden="true" />
@@ -61,8 +65,8 @@ const Footer: FC = () => {
 					</li>
 					))}
 				</ul>
-			</footer>
-		</>
+			</nav>
+		</footer>
 	);
 };
 

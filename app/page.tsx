@@ -103,6 +103,9 @@ export default function Page() {
 				type="application/ld+json"
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 			/>
+			<p className="sr-only">
+				Ayush Chugh is a Full Stack Web Developer based in Mohali, India. He specializes in building modern web applications using React, Next.js, TypeScript, Node.js, PostgreSQL, and AWS. Currently serving as Co-founder and CTO at Ravix Studio and Team Lead at Avenue Ticketing, Ayush has professional experience building production applications since 2021. He is available for freelance web development projects and collaborations.
+			</p>
 			<header className="mb-6">
 				<div className="flex items-center gap-3 mb-2 flex-wrap">
 					<h1 className='font-medium text-2xl tracking-tight font-["monospace"]'>
@@ -250,6 +253,9 @@ export default function Page() {
 
 			<div className="mb-8 prose prose-neutral dark:prose-invert">
 				<h2>GitHub Contributions</h2>
+				<p className="sr-only">
+					Ayush Chugh's GitHub contribution graph showing daily open-source coding activity. Ayush actively contributes to repositories involving React, Next.js, TypeScript, and Node.js projects on GitHub as aayushchugh.
+				</p>
 				<GitHubCalendar username="aayushchugh" />
 			</div>
 
@@ -269,42 +275,46 @@ export default function Page() {
 				</article>
 			</div>
 
-			<ul className="flex flex-col md:flex-row mt-8 space-x-0 md:space-x-4 space-y-2 md:space-y-0 font-sm text-neutral-600 dark:text-neutral-300">
-				<li>
-					<Link
-						className="flex items-center hover:text-neutral-800 dark:hover:text-neutral-100 transition-all"
-						href={config.socials.community}
-					>
-						<ArrowIcon />
-						<p className="h-7 ml-2">Join my community</p>
-					</Link>
-				</li>
-				<li>
+			<nav aria-label="Quick links to connect with Ayush Chugh">
+				<h2 className="sr-only">Get in Touch</h2>
+				<ul className="flex flex-col md:flex-row mt-8 space-x-0 md:space-x-4 space-y-2 md:space-y-0 font-sm text-neutral-600 dark:text-neutral-300">
+					<li>
+						<Link
+							className="flex items-center hover:text-neutral-800 dark:hover:text-neutral-100 transition-all"
+							href={config.socials.community}
+						>
+							<ArrowIcon />
+							<p className="h-7 ml-2">Join my community</p>
+						</Link>
+					</li>
+					<li>
+						<a
+							className="flex items-center hover:text-neutral-800 dark:hover:text-neutral-100 transition-all"
+							rel="noopener noreferrer"
+							target="_blank"
+							href={config.socials.twitter}
+						>
+							<ArrowIcon />
+							<p className="h-7 ml-2">Follow me</p>
+						</a>
+					</li>
+				</ul>
+
+				<div>
 					<a
-						className="flex items-center hover:text-neutral-800 dark:hover:text-neutral-100 transition-all"
+						className="flex items-center hover:text-neutral-800 dark:hover:text-neutral-100 transition-all text-neutral-600 dark:text-neutral-300 mt-3"
 						rel="noopener noreferrer"
 						target="_blank"
-						href={config.socials.twitter}
+						href={`mailto:${config.socials.email}?subject=Hello Ayush!`}
 					>
-						<ArrowIcon />
-						<p className="h-7 ml-2">Follow me</p>
+						<p className="h-7">
+							<span className="mr-2 text-neutral-600">📧</span>
+							{config.socials.email}
+						</p>
+						<span className="sr-only">Send an email to Ayush Chugh for freelance inquiries or collaboration</span>
 					</a>
-				</li>
-			</ul>
-
-			<div>
-				<a
-					className="flex items-center hover:text-neutral-800 dark:hover:text-neutral-100 transition-all text-neutral-600 dark:text-neutral-300 mt-3"
-					rel="noopener noreferrer"
-					target="_blank"
-					href={`mailto:${config.socials.email}?subject=Hello Ayush!`}
-				>
-					<p className="h-7">
-						<span className="mr-2 text-neutral-600">📧</span>
-						{config.socials.email}
-					</p>
-				</a>
-			</div>
+				</div>
+			</nav>
 		</section>
 	);
 }

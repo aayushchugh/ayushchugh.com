@@ -125,8 +125,12 @@ export default function Blog({ params }) {
 			<h1 className="title font-medium text-2xl tracking-tighter max-w-[650px]">
 				{post.metadata.title}
 			</h1>
+			<p className="sr-only">
+				Written by Ayush Chugh, Full Stack Developer. This article has {wordCount} words and covers topics in web development and software engineering.
+			</p>
 			<div className="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]">
 				<p className="text-sm text-neutral-600 dark:text-neutral-400">
+					<span className="sr-only">Published on </span>
 					{format(new Date(post.metadata.publishedAt), "MMMM d, yyyy")} (
 					{formatDistanceToNow(new Date(post.metadata.publishedAt), {
 						addSuffix: true,
