@@ -59,6 +59,29 @@ function RoundedImage(props) {
 	);
 }
 
+function Video({ src, caption, className, poster, ...rest }) {
+	return (
+		<figure className="my-8 flex flex-col items-center">
+			<div className="w-full max-w-4xl overflow-hidden rounded-lg">
+				<video
+					className={`w-full rounded-lg my-0 h-auto ${className || ""}`}
+					controls
+					playsInline
+					preload="metadata"
+					src={src}
+					poster={poster}
+					{...rest}
+				/>
+			</div>
+			{caption ? (
+				<figcaption className="mt-2 text-center text-sm text-neutral-500 dark:text-neutral-400">
+					{caption}
+				</figcaption>
+			) : null}
+		</figure>
+	);
+}
+
 function Callout(props) {
 	return (
 		<div className="px-4 py-3 border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded p-1 text-sm flex items-center text-neutral-900 dark:text-neutral-100 mb-8">
@@ -164,6 +187,7 @@ let components = {
 	h5: createHeading(5),
 	h6: createHeading(6),
 	Image: RoundedImage,
+	Video,
 	a: CustomLink,
 	Callout,
 	ProsCard,

@@ -3,7 +3,7 @@ const ContentSecurityPolicy = `
     script-src 'self' 'unsafe-eval' 'unsafe-inline' www.googletagmanager.com www.google-analytics.com cdn.vercel-insights.com vercel.live va.vercel-scripts.com;
     style-src 'self' 'unsafe-inline';
     img-src * blob: data:;
-    media-src 'none';
+    media-src 'self' https://cdn.ayushchugh.com;
     connect-src * www.google-analytics.com;
     font-src 'self' data:;
     frame-src 'self' platform.twitter.com;
