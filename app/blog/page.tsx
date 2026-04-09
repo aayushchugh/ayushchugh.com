@@ -2,8 +2,9 @@ import { getBlogPosts } from "app/db/blog";
 import { generateBreadcrumbJsonLd } from "app/utils/jsonLd";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { format, formatDistanceToNow } from "date-fns";
+import { format } from "date-fns";
 import calculateEstimateReadingTime from "../utils/calculateEstimateReadingTime";
+import RelativeTime from "../components/relative-time";
 import Separator from "../components/separator";
 
 export const metadata: Metadata = {
@@ -98,9 +99,7 @@ export default function BlogPage() {
 						<div className="flex items-center text-neutral-500 dark:text-neutral-400 text-sm">
 							<span>
 								{format(new Date(post.metadata.publishedAt), "MMMM d, yyyy")} (
-								{formatDistanceToNow(new Date(post.metadata.publishedAt), {
-									addSuffix: true,
-								})}
+								<RelativeTime dateString={post.metadata.publishedAt} />
 								)
 							</span>
 							<span className="mx-2">•</span>

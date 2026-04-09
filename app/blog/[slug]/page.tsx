@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CustomMDX } from "app/components/mdx";
+import RelativeTime from "app/components/relative-time";
 import { getBlogPosts } from "app/db/blog";
 import { generateBreadcrumbJsonLd } from "app/utils/jsonLd";
+import { format } from "date-fns";
 import Image from "next/image";
-import { format, formatDistanceToNow } from "date-fns";
 
 export function generateStaticParams() {
 	return getBlogPosts().map(post => ({
@@ -132,9 +133,7 @@ export default function Blog({ params }) {
 				<p className="text-sm text-neutral-600 dark:text-neutral-400">
 					<span className="sr-only">Published on </span>
 					{format(new Date(post.metadata.publishedAt), "MMMM d, yyyy")} (
-					{formatDistanceToNow(new Date(post.metadata.publishedAt), {
-						addSuffix: true,
-					})}
+					<RelativeTime dateString={post.metadata.publishedAt} />
 					)
 				</p>
 			</div>
