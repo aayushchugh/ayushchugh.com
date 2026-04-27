@@ -313,3 +313,20 @@ table {
 .react-activity-calendar__scroll-container {
   scrollbar-width: none;
 }
+
+.contributions-calendar .react-activity-calendar {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.contributions-calendar .react-activity-calendar__scroll-container {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: visible !important;
+}
+
+.contributions-calendar .react-activity-calendar svg.react-activity-calendar__calendar {
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100% !important;
+}

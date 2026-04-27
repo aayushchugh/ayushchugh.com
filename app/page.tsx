@@ -68,34 +68,34 @@ const calendarTheme: { light: string[]; dark: string[] } = {
 
 const featuredWork = [
   {
-    label: "Team Lead",
+    label: "Full Stack Developer · Full-time",
     company: "Avenue Ticketing, Inc.",
-    role: "Leading a team of five developers.",
+    role: "Event ticketing platform.",
     description:
-      "Youngest team lead at the company. Owning payments, validation, and platform reliability for high-traffic events.",
-    year: "2025 — Present",
+      "Leading a team of five engineers — owning payments, validation, and platform reliability for high-traffic events.",
+    year: "Apr 2025 — Present",
     featured: true,
     href: config.companies.avenueTicketing,
   },
   {
-    label: "Frontend",
+    label: "Frontend Developer · Freelance",
     company: "Vibranium Soft",
     role: "B2B flight booking platform.",
     description:
       "Built the end-to-end frontend for Worldtravels, serving 2,000+ active travel agents daily across India.",
-    year: "2023 — 2025",
+    year: "Dec 2023 — Jul 2025",
     featured: false,
     href: config.companies.vibraniumSoft,
   },
   {
-    label: "SDE · Freelance",
-    company: "Keizer Works",
-    role: "Open-source and client engineering.",
+    label: "Frontend Developer · Part-time",
+    company: "Tap Invest",
+    role: "Fintech investment platform.",
     description:
-      "Shipped scalable applications for external clients and internal products, while contributing to open-source.",
-    year: "2024 — 2025",
+      "Built internal dashboards and reusable components that improved operational efficiency for the ops and product teams.",
+    year: "Apr 2024 — Nov 2024",
     featured: false,
-    href: config.companies.keizerWorks,
+    href: config.companies.tapInvest,
   },
 ];
 
@@ -266,9 +266,7 @@ export default function Page() {
               href={item.href}
               target="_blank"
               rel="noopener noreferrer"
-              className={`group block p-6 border-r border-b border-rule ${
-                item.featured ? "md:border-r-2 md:border-r-ink" : ""
-              }`}
+              className="group block p-6 border-r border-b border-rule"
             >
               <p
                 className={`font-mono text-[10px] tracking-[0.2em] uppercase ${
@@ -335,12 +333,19 @@ export default function Page() {
             <div className="mt-4 flex flex-wrap gap-2">
               {[
                 "TypeScript",
+                "JavaScript",
                 "Next.js",
                 "React",
+                "Redux",
                 "Node.js",
+                "Express.js",
+                "Tailwind CSS",
+                "Shadcn",
                 "PostgreSQL",
+                "MongoDB",
                 "AWS",
                 "Docker",
+                "Railway",
                 "Stripe",
               ].map((tech) => (
                 <Chip key={tech} tech={tech} />
@@ -357,12 +362,15 @@ export default function Page() {
           Ayush Chugh&apos;s GitHub contribution graph showing daily open-source
           coding activity.
         </p>
-        <div className="border-2 border-ink p-4 sm:p-6 bg-paper-dark">
+        <div className="contributions-calendar border-2 border-ink p-4 sm:p-6 bg-paper-dark">
           <GitHubCalendar
             username="aayushchugh"
             theme={calendarTheme}
             colorScheme="light"
             hideColorLegend={false}
+            blockSize={14}
+            blockMargin={4}
+            fontSize={14}
             labels={{
               totalCount: "{{count}} contributions in {{year}}",
             }}
