@@ -2,7 +2,7 @@ export const config = {
   profile: {
     codingStartDate: "2020-01-01", // When you started coding
     professionalStartDate: "2022-01-01", // When you started working on production apps
-    availableForFreelance: true,
+    availableForFreelance: false,
   },
   navigation: [
     { path: "/", name: "Home" },
