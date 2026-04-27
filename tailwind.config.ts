@@ -5,9 +5,24 @@ export default {
   content: ['./app/**/*.{ts,tsx}', './content/**/*.mdx', './public/**/*.svg'],
   theme: {
     extend: {
+      colors: {
+        ink: 'var(--ink)',
+        'ink-light': 'var(--ink-light)',
+        'ink-faint': 'var(--ink-faint)',
+        paper: 'var(--paper)',
+        'paper-dark': 'var(--paper-dark)',
+        rule: 'var(--rule)',
+        'rule-heavy': 'var(--rule-heavy)',
+        accent: 'var(--accent)',
+      },
       fontFamily: {
-        sans: ['var(--font-geist-sans)'],
-        mono: ['var(--font-geist-mono)'],
+        display: ['var(--font-display)', 'serif'],
+        serif: ['var(--font-serif)', 'serif'],
+        fell: ['var(--font-fell)', 'serif'],
+        mono: ['var(--font-mono)', 'monospace'],
+      },
+      borderColor: {
+        DEFAULT: 'var(--rule)',
       },
       typography: {
         quoteless: {

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import type { FC } from "react";
 
 interface VolunteeringItemProps {
@@ -14,30 +13,29 @@ interface VolunteeringItemProps {
 
 const VolunteeringItem: FC<VolunteeringItemProps> = ({ volunteer }) => {
   return (
-    <div>
-      <h3 className="font-medium text-xl mb-1 tracking-tighter flex items-center">
-        {volunteer.logo && (
-          <Image
-            src={volunteer.logo}
-            alt={volunteer.organization}
-            width={20}
-            height={20}
-            className="mr-4"
-          />
-        )}
-        <span className={volunteer.logo ? "ml-2" : ""}>
+    <article className="border-t border-rule py-6 grid grid-cols-1 md:grid-cols-[180px_1fr] gap-x-8 gap-y-2">
+      <div className="md:pr-4 md:border-r md:border-rule">
+        <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-ink-faint">
+          {volunteer.period}
+        </p>
+        <p className="mt-1 font-mono text-[10px] tracking-[0.2em] uppercase text-ink-faint">
+          {volunteer.location}
+        </p>
+      </div>
+      <div>
+        <h3 className="font-display font-bold text-xl leading-tight text-ink">
           {volunteer.organization}
-        </span>
-      </h3>
-      <p className="text-neutral-600 dark:text-neutral-400 text-sm">
-        {volunteer.role} | {volunteer.period} | {volunteer.location}
-      </p>
-      <ul>
-        {volunteer.responsibilities.map((responsibility, rIndex) => (
-          <li key={rIndex}>{responsibility}</li>
-        ))}
-      </ul>
-    </div>
+        </h3>
+        <p className="mt-1 font-fell italic text-base text-ink-light">
+          {volunteer.role}
+        </p>
+        <ul className="mt-3 space-y-1.5 font-serif text-sm leading-relaxed text-ink-light list-disc pl-4">
+          {volunteer.responsibilities.map((responsibility, rIndex) => (
+            <li key={rIndex}>{responsibility}</li>
+          ))}
+        </ul>
+      </div>
+    </article>
   );
 };
 

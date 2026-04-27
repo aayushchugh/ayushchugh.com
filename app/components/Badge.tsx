@@ -1,12 +1,12 @@
 function Badge(props) {
-	return (
-		<a
-			{...props}
-			target="_blank"
-			rel="noopener noreferrer"
-			className="border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 rounded p-1 text-sm inline-flex items-center leading-4 text-neutral-900 dark:text-neutral-100 no-underline"
-		/>
-	);
+  return (
+    <a
+      {...props}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="border border-rule bg-paper-dark px-1.5 py-0.5 text-sm inline-flex items-center leading-4 text-ink no-underline font-serif hover:border-accent hover:text-accent transition-colors"
+    />
+  );
 }
 
 export default Badge;

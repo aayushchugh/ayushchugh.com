@@ -9,10 +9,14 @@ interface ChipProps {
 
 const Chip: FC<ChipProps> = ({ tech, children, onClick, className = "" }) => {
   const Component = onClick ? "button" : "span";
-  
+
   return (
     <Component
-      className={`bg-neutral-100 border-neutral-200 dark:bg-neutral-900 dark:border-neutral-800 border text-sm text-gray-700 dark:text-gray-200 px-2 py-1 rounded-xl ${onClick ? 'hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-colors cursor-pointer' : ''} ${className}`}
+      className={`inline-flex items-center border border-rule-heavy text-ink font-mono text-[10px] tracking-[0.18em] uppercase px-2 py-[3px] ${
+        onClick
+          ? "hover:border-accent hover:text-accent transition-colors cursor-pointer"
+          : ""
+      } ${className}`}
       onClick={onClick}
       type={onClick ? "button" : undefined}
     >

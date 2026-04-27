@@ -1,66 +1,62 @@
 import type { FC } from "react";
-import Image from "next/image";
 import Link from "next/link";
-import Separator from "./separator";
-import Chip from "./chip";
 
 interface ProjectCardProps {
-	title: string;
-	logo?: string;
-	description: string;
-	technologies: string[];
-	website: string;
-	category?: string;
-	workType?: string;
+  title: string;
+  logo?: string;
+  description: string;
+  technologies: string[];
+  website: string;
+  category?: string;
+  workType?: string;
+  issueNumber?: string;
 }
 
 const ProjectCard: FC<ProjectCardProps> = ({
-	title,
-	logo,
-	description,
-	technologies,
-	website,
-	category,
-	workType,
+  title,
+  description,
+  technologies,
+  website,
+  category,
+  workType,
+  issueNumber,
 }) => {
-	return (
-		<div className="mb-6">
-			<div className="flex items-center mb-2">
-				{logo ? (
-					<Image
-						src={logo}
-						alt={title}
-						width={24}
-						height={24}
-						className="mr-4"
-					/>
-				) : (
-					<p className="mt-0 mb-0">{"->"}</p>
-				)}
-				<h3 className="font-medium text-xl tracking-tight mt-0 mb-0 ml-1">
-					<Link href={website} target="_blank" rel="noopener noreferrer">
-						{title}
-					</Link>
-				</h3>
-			</div>
-			{(category || workType) && (
-				<p className="text-neutral-600 dark:text-neutral-400 text-sm font-medium mb-2">
-					{category && workType
-						? `${category} | ${workType}`
-						: category || workType}
-				</p>
-			)}
-			<p className="text-neutral-600 dark:text-neutral-400 text-sm">
-				{description}
-			</p>
-			<div className="flex flex-wrap gap-2 mt-2">
-				{technologies.map((tech, idx) => (
-					<Chip key={idx} tech={tech} />
-				))}
-			</div>
-			<Separator />
-		</div>
-	);
+  return (
+    <Link
+      href={website}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group block h-full p-6 border-r border-b border-rule"
+    >
+      {(issueNumber || category) && (
+        <div className="flex items-center justify-between gap-4">
+          {issueNumber && (
+            <p className="font-display italic text-ink-faint text-lg">
+              No. {issueNumber}
+            </p>
+          )}
+          {(category || workType) && (
+            <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-ink-faint text-right">
+              {category && workType
+                ? `${category} · ${workType}`
+                : category || workType}
+            </p>
+          )}
+        </div>
+      )}
+      <h3 className="mt-3 font-display font-bold text-2xl leading-tight text-ink group-hover:text-accent transition-colors">
+        {title}
+      </h3>
+      <p className="mt-3 font-serif text-sm leading-relaxed text-ink-light">
+        {description}
+      </p>
+      {technologies.length > 0 && (
+        <p className="mt-5 pt-3 border-t border-rule font-mono text-[10px] tracking-[0.2em] uppercase text-ink-faint">
+          {technologies.join(" · ")}
+        </p>
+      )}
+    </Link>
+  );
 };
 
 export default ProjectCard;
