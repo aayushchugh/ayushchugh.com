@@ -192,10 +192,7 @@ export default function Page() {
 
           {/* Center column */}
           <div className="md:px-6 lg:px-8 py-6 md:py-0 border-b md:border-b-0 border-rule">
-            <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent">
-              Vol. I · No. 1
-            </p>
-            <h2 className="mt-3 font-display font-black text-[32px] sm:text-[40px] md:text-[44px] lg:text-[46px] leading-[1.05] tracking-[-0.01em] text-ink">
+            <h2 className="font-display font-black text-[32px] sm:text-[40px] md:text-[44px] lg:text-[46px] leading-[1.05] tracking-[-0.01em] text-ink">
               Building the modern web,{" "}
               <em className="font-display italic font-normal">
                 one commit at a time.
@@ -209,10 +206,6 @@ export default function Page() {
               replacement for thinking carefully about the problem in front of
               me.
             </p>
-            <div className="mt-8 pt-4 border-t border-rule flex flex-wrap items-center justify-between gap-2 font-mono text-[10px] tracking-[0.2em] uppercase text-ink-faint">
-              <span>By Ayush Chugh</span>
-              <span>Team Lead · Avenue Ticketing</span>
-            </div>
           </div>
 
           {/* Right column */}
