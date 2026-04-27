@@ -71,12 +71,9 @@ const Footer: FC = () => {
       </nav>
 
       {/* Colophon */}
-      <div className="border-t-[3px] border-double border-ink py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div className="border-t-[3px] border-double border-ink py-4 flex items-center justify-center">
         <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-ink-faint">
           Ayush Chugh · Mohali, India
-        </span>
-        <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-ink-faint">
-          Set in Playfair Display &amp; Libre Baskerville
         </span>
       </div>
     </footer>
