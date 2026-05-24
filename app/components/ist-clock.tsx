@@ -1,38 +1,37 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Chip from "./chip";
 
-interface ISTClockProps {
-  className?: string;
-}
+export default function ISTClock() {
+	const [time, setTime] = useState<string>("");
 
-export default function ISTClock({ className = "" }: ISTClockProps) {
-  const [time, setTime] = useState<string>("");
+	useEffect(() => {
+		const updateTime = () => {
+			const now = new Date();
+			const istTime = new Date(
+				now.toLocaleString("en-US", { timeZone: "Asia/Kolkata" })
+			);
+			const hours = istTime.getHours().toString().padStart(2, "0");
+			const minutes = istTime.getMinutes().toString().padStart(2, "0");
+			setTime(`${hours}:${minutes}`);
+		};
 
-  useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      const istTime = new Date(
-        now.toLocaleString("en-US", { timeZone: "Asia/Kolkata" }),
-      );
-      const hours = istTime.getHours().toString().padStart(2, "0");
-      const minutes = istTime.getMinutes().toString().padStart(2, "0");
-      setTime(`${hours}:${minutes}`);
-    };
+		// Update immediately
+		updateTime();
 
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
+		// Update every second
+		const interval = setInterval(updateTime, 1000);
 
-    return () => clearInterval(interval);
-  }, []);
+		return () => clearInterval(interval);
+	}, []);
 
-  if (!time) return null;
+	if (!time) return null;
 
-  return (
-    <span
-      className={`font-mono text-[10px] tracking-[0.2em] uppercase text-ink-faint tabular-nums ${className}`}
-    >
-      IST {time}
-    </span>
-  );
+	return (
+		<Chip className="flex items-center gap-2 whitespace-nowrap">
+			<span>IST</span>
+			<span className="font-mono tabular-nums">{time}</span>
+		</Chip>
+	);
 }
