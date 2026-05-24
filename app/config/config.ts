@@ -23,6 +23,12 @@ export const config = {
 		shriProperty: "https://shriproperty.com",
 		a2infinite: "https://a2infinite.com",
 	},
+	education: {
+		cgcLandran: "https://www.cgc.edu.in/",
+	},
+	volunteering: {
+		hackWithIndia: "https://hackwithindia.in/",
+	},
 	socials: {
 		email: "hey@ayushchugh.com",
 		github: "https://github.com/aayushchugh",
