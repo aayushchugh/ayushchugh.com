@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 	metadataBase: new URL("https://ayushchugh.com"),
 	title: "Ayush Chugh - Full Stack Developer from India",
 	description:
-		"Ayush Chugh is a Full Stack Web Developer from Mohali, India specializing in React, Next.js, TypeScript & Node.js. Co-founder at Ravix Studio, Team Lead at Avenue Ticketing.",
+		"Ayush Chugh is a Full Stack Web Developer from Mohali, India specializing in React, Next.js, TypeScript & Node.js. Team Lead at Avenue Ticketing.",
 	keywords: [
 		"Ayush Chugh",
 		"Full Stack Developer",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 	openGraph: {
 		title: "Ayush Chugh - Full Stack Developer from India",
 		description:
-			"Full Stack Web Developer from Mohali, India specializing in React, Next.js, TypeScript & Node.js. Co-founder at Ravix Studio, Team Lead at Avenue Ticketing.",
+			"Full Stack Web Developer from Mohali, India specializing in React, Next.js, TypeScript & Node.js. Team Lead at Avenue Ticketing.",
 		url: "https://ayushchugh.com",
 		siteName: "Ayush Chugh's Portfolio",
 		images: [
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
 		card: "summary_large_image",
 		title: "Ayush Chugh - Full Stack Developer from India",
 		description:
-			"Full Stack Web Developer from Mohali, India specializing in React, Next.js, TypeScript & Node.js. Co-founder at Ravix Studio, Team Lead at Avenue Ticketing.",
+			"Full Stack Web Developer from Mohali, India specializing in React, Next.js, TypeScript & Node.js. Team Lead at Avenue Ticketing.",
 		images: ["https://cdn.ayushchugh.com/open-graph/business-card.png"],
 		creator: "@aayushchugh",
 		site: "@aayushchugh",
@@ -68,13 +68,13 @@ export default function Page() {
 		worksFor: [
 			{
 				"@type": "Organization",
-				name: "Ravix Studio",
-				url: config.companies.ravixStudio,
+				name: "Avenue Ticketing",
+				url: config.companies.avenueTicketing,
 			},
 			{
 				"@type": "Organization",
-				name: "Avenue Ticketing",
-				url: config.companies.avenueTicketing,
+				name: "Ravix Studio",
+				url: config.companies.ravixStudio,
 			},
 		],
 		sameAs: [
@@ -104,7 +104,7 @@ export default function Page() {
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 			/>
 			<p className="sr-only">
-				Ayush Chugh is a Full Stack Web Developer based in Mohali, India. He specializes in building modern web applications using React, Next.js, TypeScript, Node.js, PostgreSQL, and AWS. Currently serving as Co-founder and CTO at Ravix Studio and Team Lead at Avenue Ticketing, Ayush has professional experience building production applications since 2021. He is available for freelance web development projects and collaborations.
+				Ayush Chugh is a Full Stack Web Developer based in Mohali, India. He specializes in building modern web applications using React, Next.js, TypeScript, Node.js, PostgreSQL, and AWS. Currently serving as Team Lead at Avenue Ticketing, Ayush has professional experience building production applications since 2021. He is available for freelance web development projects and collaborations.
 			</p>
 			<header className="mb-6">
 				<div className="flex items-center gap-3 mb-2 flex-wrap">
@@ -134,21 +134,7 @@ export default function Page() {
 				<h2>Professional Work</h2>
 				<p>
 					I specialize in creating user-friendly digital experiences. Currently,
-					I'm the <strong>Co-founder & CTO</strong> at{" "}
-					<span className="not-prose">
-						<Badge href={config.companies.ravixStudio}>
-							<Image
-								src={"https://cdn.ayushchugh.com/logos/ravix-dark.png"}
-								alt="Ravix Studio"
-								height={16}
-								width={16}
-								className={"pr-1"}
-							/>
-							Ravix Studio
-						</Badge>
-					</span>{" "}
-					, a startup where I'm building a lot of SAAS products to learn new
-					stuff and grow. I also work as a <strong>Team Lead</strong> at{" "}
+					I'm a <strong>Team Lead</strong> at{" "}
 					<span className="not-prose">
 						<Badge href={config.companies.avenueTicketing}>
 							<Image
@@ -163,7 +149,21 @@ export default function Page() {
 					</span>
 					—proudly the youngest team leader there—where I lead a team of 5
 					developers building a ticketing platform for event organizers and
-					attendees.
+					attendees. From Nov 2025 to March 2026 I was also the{" "}
+					<strong>Co-founder & CTO</strong> at{" "}
+					<span className="not-prose">
+						<Badge href={config.companies.ravixStudio}>
+							<Image
+								src={"https://cdn.ayushchugh.com/logos/ravix-dark.png"}
+								alt="Ravix Studio"
+								height={16}
+								width={16}
+								className={"pr-1"}
+							/>
+							Ravix Studio
+						</Badge>
+					</span>
+					, a startup building SAAS products, which is currently paused.
 				</p>
 				<p>
 					Previously, I worked with{" "}

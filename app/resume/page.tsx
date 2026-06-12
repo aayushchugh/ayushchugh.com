@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 	metadataBase: new URL("https://ayushchugh.com"),
 	title: "Resume",
 	description:
-		"Ayush Chugh's resume: Co-founder & CTO at Ravix Studio, Team Lead at Avenue Ticketing. Full Stack Developer experienced in React, Next.js, TypeScript & Node.js.",
+		"Ayush Chugh's resume: Team Lead at Avenue Ticketing. Full Stack Developer experienced in React, Next.js, TypeScript & Node.js.",
 	keywords: [
 		"Ayush Chugh Resume",
 		"Full Stack Developer Resume",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 		title: "Resume - Full Stack Developer Experience | Ayush Chugh",
 		siteName: "Ayush Chugh's Portfolio",
 		description:
-			"Co-founder & CTO at Ravix Studio, Team Lead at Avenue Ticketing. Full Stack Developer experienced in React, Next.js, TypeScript & Node.js.",
+			"Team Lead at Avenue Ticketing. Full Stack Developer experienced in React, Next.js, TypeScript & Node.js.",
 		images: [
 			{
 				url: "https://cdn.ayushchugh.com/open-graph/business-card.png",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
 		card: "summary_large_image",
 		title: "Resume - Full Stack Developer Experience | Ayush Chugh",
 		description:
-			"Co-founder & CTO at Ravix Studio, Team Lead at Avenue Ticketing. Full Stack Developer experienced in React, Next.js, TypeScript & Node.js.",
+			"Team Lead at Avenue Ticketing. Full Stack Developer experienced in React, Next.js, TypeScript & Node.js.",
 		images: ["https://cdn.ayushchugh.com/open-graph/business-card.png"],
 		creator: "@aayushchugh",
 		site: "@aayushchugh",
@@ -52,29 +52,6 @@ export const metadata: Metadata = {
 
 const resumeData = {
 	workExperience: [
-		{
-			company: "Ravix Studio",
-			logo: "https://cdn.ayushchugh.com/logos/ravix-dark.png",
-			location: "On-site",
-			website: config.companies.ravixStudio,
-			positions: [
-				{
-					role: "Co-founder & CTO",
-					period: "Nov 2025 - Present",
-					workType: "Full-time",
-					technologies: [
-						"NextJS",
-						"TypeScript",
-						"NodeJS",
-						"PostgreSQL",
-						"AWS",
-						"Docker",
-						"Railway",
-					],
-					responsibilities: ["Building alot of cool stuff"],
-				},
-			],
-		},
 		{
 			company: "Avenue Ticketing, Inc.",
 			logo: "https://cdn.ayushchugh.com/logos/avenue.jpeg",
@@ -123,6 +100,29 @@ const resumeData = {
 						"Re-writing legacy code to improve code quality and maintainability.",
 						"Creating and maintaining documentation for the codebase and processes.",
 					],
+				},
+			],
+		},
+		{
+			company: "Ravix Studio",
+			logo: "https://cdn.ayushchugh.com/logos/ravix-dark.png",
+			location: "On-site",
+			website: config.companies.ravixStudio,
+			positions: [
+				{
+					role: "Co-founder & CTO",
+					period: "Nov 2025 - March 2026",
+					workType: "Full-time",
+					technologies: [
+						"NextJS",
+						"TypeScript",
+						"NodeJS",
+						"PostgreSQL",
+						"AWS",
+						"Docker",
+						"Railway",
+					],
+					responsibilities: ["Building alot of cool stuff"],
 				},
 			],
 		},
@@ -321,13 +321,13 @@ export default function WorkPage() {
 			worksFor: [
 				{
 					"@type": "Organization",
-					name: "Ravix Studio",
-					url: config.companies.ravixStudio,
+					name: "Avenue Ticketing",
+					url: config.companies.avenueTicketing,
 				},
 				{
 					"@type": "Organization",
-					name: "Avenue Ticketing",
-					url: config.companies.avenueTicketing,
+					name: "Ravix Studio",
+					url: config.companies.ravixStudio,
 				},
 			],
 			alumniOf: [
@@ -372,7 +372,7 @@ export default function WorkPage() {
 				</h1>
 			</div>
 			<p className="sr-only">
-				Professional resume of Ayush Chugh, a Full Stack Web Developer from Mohali, India. Currently Co-founder and CTO at Ravix Studio and Team Lead at Avenue Ticketing. Experienced in React, Next.js, TypeScript, Node.js, PostgreSQL, AWS, and Docker. Work history spans from 2021 to present, including roles at Vibranium Soft, Keizer Works, Tap Invest, Shri Property, and A2INFINITE. Education includes a B.Tech in Computer Science from Chandigarh Group of Colleges and a Diploma from CCET.
+				Professional resume of Ayush Chugh, a Full Stack Web Developer from Mohali, India. Currently Team Lead at Avenue Ticketing. Previously Co-founder and CTO at Ravix Studio. Experienced in React, Next.js, TypeScript, Node.js, PostgreSQL, AWS, and Docker. Work history spans from 2021 to present, including roles at Vibranium Soft, Keizer Works, Tap Invest, Shri Property, and A2INFINITE. Education includes a B.Tech in Computer Science from Chandigarh Group of Colleges and a Diploma from CCET.
 			</p>
 
 			{/* Work Section */}
