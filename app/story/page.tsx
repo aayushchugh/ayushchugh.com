@@ -139,8 +139,7 @@ export default function StoryPage() {
 							Avenue Ticketing
 						</Badge>
 					</span>
-					. Right now I lead a team there. Everything below is what happened before
-					that title meant anything.
+					. Everything below is what happened before that title meant anything.
 				</p>
 			</div>
 
