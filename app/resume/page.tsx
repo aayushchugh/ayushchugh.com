@@ -261,7 +261,7 @@ const resumeData = {
 			degree:
 				"Bachelor of Technology (B.Tech), Computer Science and Engineering",
 			period: "2025 - 2028",
-			location: "Mohali, India",
+			location: "Chandigarh, India",
 		},
 		{
 			institution:
@@ -372,7 +372,7 @@ export default function WorkPage() {
 				</h1>
 			</div>
 			<p className="sr-only">
-				Professional resume of Ayush Chugh, a Full Stack Web Developer from Mohali, India. Currently Team Lead at Avenue Ticketing. Previously Co-founder and CTO at Ravix Studio. Experienced in React, Next.js, TypeScript, Node.js, PostgreSQL, AWS, and Docker. Work history spans from 2021 to present, including roles at Vibranium Soft, Keizer Works, Tap Invest, Shri Property, and A2INFINITE. Education includes a B.Tech in Computer Science from Chandigarh Group of Colleges and a Diploma from CCET.
+				Professional resume of Ayush Chugh, a Full Stack Web Developer from Chandigarh, India. Currently Team Lead at Avenue Ticketing. Previously Co-founder and CTO at Ravix Studio. Experienced in React, Next.js, TypeScript, Node.js, PostgreSQL, AWS, and Docker. Work history spans from 2021 to present, including roles at Vibranium Soft, Keizer Works, Tap Invest, Shri Property, and A2INFINITE. Education includes a B.Tech in Computer Science from Chandigarh Group of Colleges and a Diploma from CCET.
 			</p>
 
 			{/* Work Section */}

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 	metadataBase: new URL("https://ayushchugh.com"),
 	title: "Ayush Chugh - Full Stack Developer from India",
 	description:
-		"Ayush Chugh is a Full Stack Web Developer from Mohali, India specializing in React, Next.js, TypeScript & Node.js. Team Lead at Avenue Ticketing.",
+		"Ayush Chugh is a Full Stack Web Developer from Chandigarh, India specializing in React, Next.js, TypeScript & Node.js. Team Lead at Avenue Ticketing.",
 	keywords: [
 		"Ayush Chugh",
 		"Full Stack Developer",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 		"Node.js Developer",
 		"Software Engineer",
 		"India Developer",
-		"Mohali Developer",
+		"Chandigarh Developer",
 		"Freelance Developer India",
 		"Portfolio",
 	],
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 	openGraph: {
 		title: "Ayush Chugh - Full Stack Developer from India",
 		description:
-			"Full Stack Web Developer from Mohali, India specializing in React, Next.js, TypeScript & Node.js. Team Lead at Avenue Ticketing.",
+			"Full Stack Web Developer from Chandigarh, India specializing in React, Next.js, TypeScript & Node.js. Team Lead at Avenue Ticketing.",
 		url: "https://ayushchugh.com",
 		siteName: "Ayush Chugh's Portfolio",
 		images: [
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
 		card: "summary_large_image",
 		title: "Ayush Chugh - Full Stack Developer from India",
 		description:
-			"Full Stack Web Developer from Mohali, India specializing in React, Next.js, TypeScript & Node.js. Team Lead at Avenue Ticketing.",
+			"Full Stack Web Developer from Chandigarh, India specializing in React, Next.js, TypeScript & Node.js. Team Lead at Avenue Ticketing.",
 		images: ["https://cdn.ayushchugh.com/open-graph/business-card.png"],
 		creator: "@aayushchugh",
 		site: "@aayushchugh",
@@ -92,7 +92,7 @@ export default function Page() {
 		],
 		address: {
 			"@type": "PostalAddress",
-			addressLocality: "Mohali",
+			addressLocality: "Chandigarh",
 			addressCountry: "India",
 		},
 	};
@@ -104,7 +104,7 @@ export default function Page() {
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 			/>
 			<p className="sr-only">
-				Ayush Chugh is a Full Stack Web Developer based in Mohali, India. He specializes in building modern web applications using React, Next.js, TypeScript, Node.js, PostgreSQL, and AWS. Currently serving as Team Lead at Avenue Ticketing, Ayush has professional experience building production applications since 2021. He is available for freelance web development projects and collaborations.
+				Ayush Chugh is a Full Stack Web Developer based in Chandigarh, India. He specializes in building modern web applications using React, Next.js, TypeScript, Node.js, PostgreSQL, and AWS. Currently serving as Team Lead at Avenue Ticketing, Ayush has professional experience building production applications since 2021. He is available for freelance web development projects and collaborations.
 			</p>
 			<header className="mb-6">
 				<div className="flex items-center gap-3 mb-2 flex-wrap">
@@ -122,9 +122,12 @@ export default function Page() {
 					)}
 				</div>
 				<p className="text-lg prose prose-neutral dark:prose-invert">
-					I'm a Full Stack Web Developer from Mohali, India, with{" "}
+					I'm a Full Stack Web Developer from Chandigarh, India, with{" "}
 					<ExperienceCounter />, trying to make the internet a bit cooler one
 					website at a time.
+				</p>
+				<p className="mt-2 prose prose-neutral dark:prose-invert">
+					Want the longer version? <Link href="/story">Read my story →</Link>
 				</p>
 			</header>
 
@@ -147,7 +150,7 @@ export default function Page() {
 							Avenue Ticketing
 						</Badge>
 					</span>
-					—proudly the youngest team leader there—where I lead a team of 5
+					where I lead a team of 7
 					developers building a ticketing platform for event organizers and
 					attendees. From Nov 2025 to March 2026 I was also the{" "}
 					<strong>Co-founder & CTO</strong> at{" "}
@@ -204,7 +207,7 @@ export default function Page() {
 				<h2>What Makes Me Different</h2>
 				<p>
 					I'm not just another developer. I take full ownership of every project
-					I work on, which is how I became the youngest team leader at Avenue
+					I work on, which is how I became team leader at Avenue
 					Ticketing. I approach problems with both a technical and business
 					mindset—I understand that great code means nothing if it doesn't solve
 					real problems.

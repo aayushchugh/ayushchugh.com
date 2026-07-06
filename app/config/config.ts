@@ -6,6 +6,7 @@ export const config = {
 	},
 	navigation: [
 		{ path: "/", name: "Home" },
+		{ path: "/story", name: "Story" },
 		{ path: "/projects", name: "Projects" },
 		{ path: "/resume", name: "Resume" },
 		{ path: "/community", name: "Community" },

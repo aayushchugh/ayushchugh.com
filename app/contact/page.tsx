@@ -67,7 +67,7 @@ export default function ContactPage() {
 				Contact 📧
 			</h1>
 			<p className="sr-only">
-				Contact Ayush Chugh, Full Stack Developer available for freelance web development projects, consulting, and collaboration. Based in Mohali, India. Specializing in React, Next.js, TypeScript, and Node.js development. Reach out via email or book a one-on-one meeting through Topmate.
+				Contact Ayush Chugh, Full Stack Developer available for freelance web development projects, consulting, and collaboration. Based in Chandigarh, India. Specializing in React, Next.js, TypeScript, and Node.js development. Reach out via email or book a one-on-one meeting through Topmate.
 			</p>
 
 			{/* Email Contact */}
