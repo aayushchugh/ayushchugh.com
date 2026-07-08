@@ -60,60 +60,28 @@ export const metadata: Metadata = {
 		images: ["/ogs/ogs-bg.png"],
 	},
 	icons: {
+		// Safari ignores media queries on <link rel="icon"> and picks the first
+		// icon, so keep an ungated light PNG/ICO fallback first. Theme switching
+		// for Chrome/Firefox comes from favicon.svg (prefers-color-scheme inside).
 		icon: [
 			{
-				media: "(prefers-color-scheme: light)",
-				url: "/favicon/favicon-96x96.png",
-				href: "/favicon/favicon-96x96.png",
-				sizes: "96x96",
-				type: "image/png",
-				rel: "icon",
+				url: "/favicon/favicon.ico",
+				sizes: "48x48",
 			},
 			{
-				media: "(prefers-color-scheme: light)",
+				url: "/favicon/favicon-96x96.png",
+				sizes: "96x96",
+				type: "image/png",
+			},
+			{
 				url: "/favicon/favicon.svg",
 				type: "image/svg+xml",
-				rel: "icon",
-			},
-			{
-				media: "(prefers-color-scheme: dark)",
-				url: "/favicon/favicon-dark-96x96.png",
-				href: "/favicon/favicon-dark-96x96.png",
-				sizes: "96x96",
-				type: "image/png",
-				rel: "icon",
-			},
-			{
-				media: "(prefers-color-scheme: dark)",
-				url: "/favicon/favicon-dark.svg",
-				type: "image/svg+xml",
-				rel: "icon",
 			},
 		],
-		shortcut: [
-			{
-				media: "(prefers-color-scheme: light)",
-				url: "/favicon/favicon.ico",
-				href: "/favicon/favicon.ico",
-			},
-			{
-				media: "(prefers-color-scheme: dark)",
-				url: "/favicon/favicon-dark.ico",
-				href: "/favicon/favicon-dark.ico",
-			},
-		],
+		shortcut: "/favicon/favicon.ico",
 		apple: [
 			{
-				media: "(prefers-color-scheme: light)",
 				url: "/favicon/apple-touch-icon.png",
-				href: "/favicon/apple-touch-icon.png",
-				sizes: "180x180",
-				type: "image/png",
-			},
-			{
-				media: "(prefers-color-scheme: dark)",
-				url: "/favicon/apple-touch-icon-dark.png",
-				href: "/favicon/apple-touch-icon-dark.png",
 				sizes: "180x180",
 				type: "image/png",
 			},
