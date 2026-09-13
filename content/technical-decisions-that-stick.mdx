@@ -1,0 +1,119 @@
+---
+title: Technical decisions that stick
+publishedAt: "2026-09-13T00:00:00.000Z"
+summary: "Chat is bad memory. Temporary fixes become the real system. Write decisions down so they still exist when someone asks why."
+coverImage: "https://cdn.ayushchugh.com/blogs/technical-decisions-that-stick/cover.png"
+ogImage: "https://cdn.ayushchugh.com/blogs/technical-decisions-that-stick/og.png"
+---
+
+i keep seeing the same pattern.
+
+someone asks a hard question in slack. people reply. someone says "lets do X for now". everyone moves on. two months later nobody remembers why X exists, and the person who said it already switched teams.
+
+the decision happened. it just did not stick.
+
+this is not a process i rolled out anywhere. it is something i have been thinking about while shipping, watching temporary fixes quietly become the real system.
+
+## chat is bad memory
+
+chat is great for speed. it is bad for truth over time.
+
+when the decision lives only in a thread:
+1. the context dies when the thread scrolls away
+2. new people cannot find why something is weird
+3. you reinvent the same debate every quarter
+
+if the only record is "i think we said JWT?" then you do not have a decision. you have a rumor.
+
+## temporary is a lie we tell ourselves
+
+"temp fix" is the most dangerous phrase in engineering.
+
+because temp often means:
+- no ticket
+- no owner
+- no date to remove it
+- no note that this was a tradeoff
+
+six months later the temp fix is load bearing. nobody wants to touch it. and now you are scared of the thing you built to reduce fear.
+
+i am not saying never ship a shortcut. i am saying if you ship one, write what you are trading away.
+
+## write it down like a normal person
+
+you do not need a 10 page architecture doc.
+
+you need a short note that future you can read in 60 seconds.
+
+something like:
+- what we decided
+- why (one or two lines)
+- what we rejected (optional but useful)
+- what could make us change this later
+- date
+- link to the PR / ticket / slack thread
+
+that is it. call it ADR-lite, call it a decision note, call it a sticky. the name does not matter. the write down does.
+
+if a five year old could not tell what you chose, the note is too clever.
+
+## one decision, one note
+
+do not dump ten choices into one mega doc.
+
+one decision per note keeps it searchable. when auth changes, you open the auth note. you do not dig through a novel titled "platform thoughts 2024".
+
+small notes also make it okay to be wrong. you can add a new note that says "we reversed this" instead of editing history until it looks clean.
+
+## date it and link it
+
+a decision without a date is hard to trust.
+
+was this from last week or from before the rewrite? dates answer that.
+
+and link the proof. PR, ticket, design, or the slack message where people agreed. otherwise the note is just another opinion with better formatting.
+
+## make "decided" a real status
+
+half the pain is soft language.
+
+"we were leaning toward X" is not decided.
+"X for now" is not decided.
+"X, and here is why, and here is when we revisit" is decided.
+
+when something is decided, say it out loud in the note. status: decided. boring words. clear meaning.
+
+## keep it close to the work
+
+if the note lives in a wiki nobody opens, it will rot.
+
+put it where the work already is:
+- next to the PR
+- in the repo under `/decisions`
+- linked from the ticket
+- pasted once in the channel, then linked forever
+
+the best process is the one people will actually touch on a busy tuesday.
+
+## what i am trying to do
+
+i am not trying to slow teams down with ceremony.
+
+i am trying to stop paying the tax of forgotten decisions.
+
+the goal is simple:
+1. choose
+2. write the choice in plain words
+3. date it
+4. link it
+5. move on
+
+later, when someone asks "why is it like this?", you have an answer that still exists.
+
+technical decisions that stick are usually not the smartest ones in the room.
+
+they are the ones somebody bothered to write down.
+
+---
+
+Originally published on [X](https://x.com/aayushchugh/status/2099063541659816018).
