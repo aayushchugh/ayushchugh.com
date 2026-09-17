@@ -52,6 +52,20 @@ const nextConfig = {
 		],
 	},
 	trailingSlash: false,
+	async redirects() {
+		return [
+			{
+				source: "/writing",
+				destination: "/blog",
+				permanent: true,
+			},
+			{
+				source: "/writings",
+				destination: "/blog",
+				permanent: true,
+			},
+		];
+	},
 	headers() {
 		return [
 			{
