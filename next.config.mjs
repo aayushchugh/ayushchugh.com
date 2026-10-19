@@ -52,15 +52,24 @@ const nextConfig = {
 		],
 	},
 	trailingSlash: false,
-	async rewrites() {
-		return {
-			beforeFiles: [
-				{
-					source: "/llms.txt",
-					destination: "/llms-txt",
-				},
-			],
-		};
+
+	async redirects() {
+		return [
+			{
+				source: "/writing",
+				destination: "/blog",
+				permanent: true,
+			},
+			{
+				source: "/writings",
+				destination: "/blog",
+				permanent: true,
+			},
+			{
+				source: "/llms.txt",
+				destination: "/llms-txt",
+			},
+		];
 	},
 	headers() {
 		return [

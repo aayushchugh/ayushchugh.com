@@ -267,8 +267,8 @@ export default function Page() {
 			<div className="mb-8 prose prose-neutral dark:prose-invert">
 				<h2>Writing</h2>
 				<p>
-					I've started writing <Link href="/blog">blogs</Link> to help others
-					improve their engineering skills. Stay tuned for more content!
+					I write about engineering, systems, and lessons from building real
+					products. Explore my <Link href="/blog">blog</Link>.
 				</p>
 			</div>
 
