@@ -65,6 +65,10 @@ const nextConfig = {
 				destination: "/blog",
 				permanent: true,
 			},
+		];
+	},
+	async rewrites() {
+		return [
 			{
 				source: "/llms.txt",
 				destination: "/llms-txt",
