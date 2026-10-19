@@ -52,6 +52,16 @@ const nextConfig = {
 		],
 	},
 	trailingSlash: false,
+	async rewrites() {
+		return {
+			beforeFiles: [
+				{
+					source: "/llms.txt",
+					destination: "/llms-txt",
+				},
+			],
+		};
+	},
 	headers() {
 		return [
 			{
