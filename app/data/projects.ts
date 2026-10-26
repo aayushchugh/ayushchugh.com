@@ -1,5 +1,14 @@
 export const projectsData = [
 	{
+		project: "Skills",
+		description:
+			"The agent skills I use while building real products. Each one is a SKILL.md that teaches a coding agent a repeatable workflow, published as @aayushchugh/skills.",
+		technologies: ["Next.js", "TypeScript", "Tailwind"],
+		website: "https://skills.ayushchugh.com",
+		category: "Tools",
+		workType: "Personal",
+	},
+	{
 		project: "Worldtravels (2k+ active users daily)",
 		logo: "https://cdn.ayushchugh.com/logos/worldtravels.png",
 		description:

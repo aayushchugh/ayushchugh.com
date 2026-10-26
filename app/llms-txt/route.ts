@@ -41,7 +41,7 @@ function pages() {
 		link(
 			"Projects",
 			`${SITE}/projects`,
-			"Freelance and personal work: Worldtravels, Repo Command, an EJS VS Code extension, Invoicen, Shriproperty, A2INFINITE, FlipTimer, and the Sky At Night VS Code theme. Each project is listed below with its stack and URL."
+			"Freelance and personal work: Skills, Worldtravels, Repo Command, an EJS VS Code extension, Invoicen, Shriproperty, A2INFINITE, FlipTimer, and the Sky At Night VS Code theme. Each project is listed below with its stack and URL."
 		),
 		link(
 			"Resume",

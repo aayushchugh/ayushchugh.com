@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 	metadataBase: new URL("https://ayushchugh.com"),
 	title: "Projects",
 	description:
-		"Explore projects by Ayush Chugh: Worldtravels (2k+ daily users), Invoicen, Shriproperty, and more. Full stack web apps built with React, Next.js & Node.js.",
+		"Explore projects by Ayush Chugh: Skills, Worldtravels (2k+ daily users), Invoicen, and more. Full stack web apps built with React, Next.js & Node.js.",
 	keywords: [
 		"Ayush Chugh Projects",
 		"Web Development Projects",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 	openGraph: {
 		title: "Projects - Full Stack Web Applications | Ayush Chugh",
 		description:
-			"Explore projects by Ayush Chugh: Worldtravels (2k+ daily users), Invoicen, Shriproperty, and more. Full stack web apps built with React, Next.js & Node.js.",
+			"Explore projects by Ayush Chugh: Skills, Worldtravels (2k+ daily users), Invoicen, and more. Full stack web apps built with React, Next.js & Node.js.",
 		url: "https://ayushchugh.com/projects",
 		siteName: "Ayush Chugh's Portfolio",
 		images: [
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
 		card: "summary_large_image",
 		title: "Projects - Full Stack Web Applications | Ayush Chugh",
 		description:
-			"Explore projects by Ayush Chugh: Worldtravels (2k+ daily users), Invoicen, Shriproperty, and more. Full stack web apps built with React, Next.js & Node.js.",
+			"Explore projects by Ayush Chugh: Skills, Worldtravels (2k+ daily users), Invoicen, and more. Full stack web apps built with React, Next.js & Node.js.",
 		images: ["https://cdn.ayushchugh.com/open-graph/business-card.png"],
 		creator: "@aayushchugh",
 		site: "@aayushchugh",
